@@ -19,7 +19,7 @@ html {
 @theme {
     --spacing: 1px;
     --spacing-sec: clamp(3.4375rem, 2.4603rem + 3.6789vw, 6.875rem);
-    
+
     --breakpoint-*: initial;
     --container-*: initial;
 
@@ -36,6 +36,7 @@ html {
     --color-red: #b6181f;
     --color-brand-blue: #0066b2;
     --color-dark-blue: #171835;
+    --color-light-blue: #cce0f0;
 
     --font-lexend: "Lexend", serif;
 
@@ -75,27 +76,19 @@ html {
         text-transform: inherit;
     }
 
-    .free_text a {
-        @apply underline
+    .sec_link {
+        @apply flex items-center gap-10 justify-end cursor-default
     }
 
-    .free_text span {
-        @apply text-brand-blue font-semibold
+    .sec_name {
+        @apply transition-slow text-sm font-medium py-6 px-12 bg-white shadow-[0_4px_4px_#00000026] rounded-xl opacity-0 group-[.active]:opacity-100
     }
 
-    .sec_name{
-        @apply transition-slow text-sm font-medium py-6 px-12 bg-white shadow-[0_4px_4px_#00000026]  rounded-xl opacity-0 group-[.active]:opacity-100
+    .sec_indi {
+        @apply transition-slow size-12 border border-red rounded-full group-[.active]:bg-red cursor-pointer
     }
 
-    .sec_indi{
-        @apply transition-slow size-12 border border-red rounded-full group-[.active]:bg-red
-    }
-
-    .free_text{
-        @apply flex flex-col gap-20
-    }
-
-    .animated_line::after{
+    .animated_line::after {
         @apply content-[''] absolute bottom-0 left-0 border-b;
         animation-name: line_effect;
         animation-timing-function: ease-in;
@@ -105,17 +98,86 @@ html {
         animation-fill-mode: forwards;
     }
 
-    .open .animated_line::after{
+    .open .animated_line::after {
         animation-play-state: running;
     }
 
     @keyframes line_effect {
-        0%{
+        0% {
             width: 0%;
         }
-        100%{
+
+        100% {
             width: 100%;
         }
+    }
+
+    .row {
+        @apply grid gap-20
+    }
+
+    .row.col_1_1 {
+        @apply grid-cols-2
+    }
+
+    .row.col_1_2 {
+        @apply grid-cols-3
+    }
+
+    .row.col_2_1 {
+        @apply grid-cols-3
+    }
+
+    .row.col_1_2 .col:last-child {
+        @apply col-span-2
+    }
+
+    .row.col_2_1 .col:first-child {
+        @apply col-span-2
+    }
+
+    .col.box {
+        @apply bg-white p-40 rounded-2xl
+    }
+
+    .box.fancy {
+        @apply border-l-8 border-red
+    }
+
+    .free_text a {
+        @apply underline font-semibold
+    }
+
+    .free_text :is(b, strong) {
+        @apply font-semibold
+    }
+
+    .free_text span {
+        @apply text-brand-blue font-semibold
+    }
+
+    .free_text {
+        @apply flex flex-col gap-20
+    }
+
+    .free_text h1 {
+        @apply text-64 font-semibold
+    }
+
+    .free_text h2 {
+        @apply text-32 font-medium
+    }
+
+    .free_text h3 {
+        @apply text-22 font-medium
+    }
+
+    .free_text h4 {
+        @apply text-18
+    }
+
+    .free_text :is(h4, h5, h6) {
+        @apply font-normal
     }
 }
 
@@ -124,11 +186,15 @@ html {
 }
 
 @utility btn {
-    @apply py-13 px-28 rounded-full uppercase text-xs font-medium transition-slow hover:scale-95 border w-fit
+    @apply py-14 px-28 rounded-full uppercase text-xs font-medium transition-slow hover:scale-95 border w-fit
 }
 
 @utility btn-red {
     @apply bg-red text-white hover:bg-dark-blue
+}
+
+@utility btn-blue {
+    @apply bg-brand-blue text-white hover:bg-dark-blue
 }
 
 @utility btn-light {

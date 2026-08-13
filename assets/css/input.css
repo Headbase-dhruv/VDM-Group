@@ -1,0 +1,140 @@
+[x-cloak] {
+    display: none !important;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url('../fonts/lexend-variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+}
+
+@theme {
+    --spacing: 1px;
+    --spacing-sec: clamp(3.4375rem, 2.4603rem + 3.6789vw, 6.875rem);
+    
+    --breakpoint-*: initial;
+    --container-*: initial;
+
+    --breakpoint-xsm: 450px;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-2xl: 1400px;
+    --breakpoint-3xl: 1650px;
+
+    --color-ghost-white: #e7ebf7;
+    --color-grey: #8283a4;
+    --color-red: #b6181f;
+    --color-brand-blue: #0066b2;
+    --color-dark-blue: #171835;
+
+    --font-lexend: "Lexend", serif;
+
+    --text-100: clamp(3.125rem, 2.2366rem + 3.3445vw, 6.25rem);
+    --text-100--line-height: clamp(3.125rem, 2.2366rem + 3.3445vw, 6.25rem);
+
+    --text-64: clamp(2.25rem, 1.7525rem + 1.8729vw, 4rem);
+    --text-64--line-height: 1.1;
+
+    --text-32: 32px;
+    --text-32--line-height: 1.2;
+
+    --text-18: 18px;
+
+    --text-22: clamp(1rem, 0.8934rem + 0.4013vw, 1.375rem);
+    --text-22--line-height: 1.5;
+}
+
+@layer components {
+    .container {
+        @apply mx-auto px-16 md:px-40 xl:px-64
+    }
+}
+
+@layer base {
+    * {
+        @apply scrollbar-thin scrollbar-thumb-ghost-white scrollbar-track-dark-blue
+    }
+
+    body {
+        @apply font-lexend text-dark-blue md:text-18 bg-ghost-white font-light wrap-break-word hyphens-auto
+    }
+
+    button {
+        @apply cursor-pointer;
+        text-align: inherit;
+        text-transform: inherit;
+    }
+
+    .free_text a {
+        @apply underline
+    }
+
+    .free_text span {
+        @apply text-brand-blue font-semibold
+    }
+
+    .sec_name{
+        @apply transition-slow text-sm font-medium py-6 px-12 bg-white shadow-[0_4px_4px_#00000026]  rounded-xl opacity-0 group-[.active]:opacity-100
+    }
+
+    .sec_indi{
+        @apply transition-slow size-12 border border-red rounded-full group-[.active]:bg-red
+    }
+
+    .free_text{
+        @apply flex flex-col gap-20
+    }
+
+    .animated_line::after{
+        @apply content-[''] absolute bottom-0 left-0 border-b;
+        animation-name: line_effect;
+        animation-timing-function: ease-in;
+        animation-duration: .5s;
+        animation-delay: .5s;
+        animation-play-state: paused;
+        animation-fill-mode: forwards;
+    }
+
+    .open .animated_line::after{
+        animation-play-state: running;
+    }
+
+    @keyframes line_effect {
+        0%{
+            width: 0%;
+        }
+        100%{
+            width: 100%;
+        }
+    }
+}
+
+@utility transition-slow {
+    transition: all .3s ease;
+}
+
+@utility btn {
+    @apply py-13 px-28 rounded-full uppercase text-xs font-medium transition-slow hover:scale-95 border w-fit
+}
+
+@utility btn-red {
+    @apply bg-red text-white hover:bg-dark-blue
+}
+
+@utility btn-light {
+    @apply bg-ghost-white text-dark-blue hover:bg-red hover:text-white hover:border-red
+}
+
+@utility btn-transparent {
+    @apply py-13 px-28 bg-transparent rounded-full uppercase text-xs font-medium text-white hover:bg-dark-blue hover:border-dark-blue transition-slow hover:scale-95 border-2
+}

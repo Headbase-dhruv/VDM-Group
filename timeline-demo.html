@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Timeline Component — Preview</title>
+<link rel="stylesheet" href="assets/css/timeline.css" />
+<style>
+  @font-face {
+    font-family: "Lexend";
+    src: url("assets/fonts/lexend-variable.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: "Lexend", system-ui, sans-serif;
+    background: #e7ebf7;
+    color: #171835;
+  }
+
+  .page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 24px;
+  }
+
+  .page__heading {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+    font-weight: 600;
+  }
+
+  .page__sub {
+    text-align: center;
+    color: #8283a4;
+    margin-bottom: 12px;
+  }
+
+  /* Demo-only panel styling so the component reads well against a page,
+     not part of the reusable timeline.css itself. */
+  .demo-panel {
+    background: #171835;
+    border-radius: 20px;
+    padding: 36px 24px;
+  }
+
+  .demo-panel .timeline-section {
+    padding-block: 8px;
+  }
+
+  .demo-panel .page__heading,
+  .demo-panel .page__sub {
+    color: #fff;
+  }
+
+  .demo-panel .page__sub {
+    color: #cce0f0;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <h1 class="page__heading">Timeline component preview</h1>
+    <p class="page__sub">
+      Pure HTML + CSS. The markup below is the exact repeating unit a
+      backend loop would render per API item — try duplicating or
+      deleting &lt;li&gt; blocks and the alternation / stagger keep working.
+    </p>
+
+    <div class="demo-panel">
+      <section class="timeline-section" aria-label="Company milestones">
+        <div class="timeline-track">
+          <div class="timeline-axis"></div>
+
+          <ul class="timeline-list">
+            <!--
+              Repeat this <li> once per item from the API.
+              Only two things are dynamic per item:
+                1. style="--tl-index: N"  (N = 1-based position; optional —
+                   falls back to CSS nth-child rules for the first 12 items)
+                2. the text inside .timeline-card__date/__title/__desc
+              Everything else (top/bottom placement, timing, animation) is
+              handled automatically by timeline.css via :nth-child().
+            -->
+            <li class="timeline-item" style="--tl-index: 1">
+              <div class="timeline-content">
+                <div class="timeline-card">
+                  <span class="timeline-card__date">2000</span>
+                  <h3 class="timeline-card__title">Company founded</h3>
+                  <p class="timeline-card__desc">
+                    Started as a small regional workshop with three
+                    employees.
+                  </p>
+                </div>
+                <span class="timeline-connector"></span>
+                <span class="timeline-dot"></span>
+              </div>
+            </li>
+
+            <li class="timeline-item" style="--tl-index: 2">
+              <div class="timeline-content">
+                <div class="timeline-card">
+                  <span class="timeline-card__date">2006</span>
+                  <h3 class="timeline-card__title">First office opened</h3>
+                  <p class="timeline-card__desc">
+                    Expanded into a dedicated facility to keep up with
+                    demand.
+                  </p>
+                </div>
+                <span class="timeline-connector"></span>
+                <span class="timeline-dot"></span>
+              </div>
+            </li>
+
+            <li class="timeline-item" style="--tl-index: 3">
+              <div class="timeline-content">
+                <div class="timeline-card">
+                  <span class="timeline-card__date">2012</span>
+                  <h3 class="timeline-card__title">International reach</h3>
+                  <p class="timeline-card__desc">
+                    Opened the first cross-border partnership with two
+                    sister companies.
+                  </p>
+                </div>
+                <span class="timeline-connector"></span>
+                <span class="timeline-dot"></span>
+              </div>
+            </li>
+
+            <li class="timeline-item" style="--tl-index: 4">
+              <div class="timeline-content">
+                <div class="timeline-card">
+                  <span class="timeline-card__date">2018</span>
+                  <h3 class="timeline-card__title">Strategic investment</h3>
+                  <p class="timeline-card__desc">
+                    Took a minority stake in a specialist technology
+                    partner.
+                  </p>
+                </div>
+                <span class="timeline-connector"></span>
+                <span class="timeline-dot"></span>
+              </div>
+            </li>
+
+            <li class="timeline-item" style="--tl-index: 5">
+              <div class="timeline-content">
+                <div class="timeline-card">
+                  <span class="timeline-card__date">2022</span>
+                  <h3 class="timeline-card__title">Group acquisition</h3>
+                  <p class="timeline-card__desc">
+                    Majority acquisition brought a new subsidiary into the
+                    group.
+                  </p>
+                </div>
+                <span class="timeline-connector"></span>
+                <span class="timeline-dot"></span>
+              </div>
+            </li>
+
+            <li class="timeline-item" style="--tl-index: 6">
+              <div class="timeline-content">
+                <div class="timeline-card">
+                  <span class="timeline-card__date">2025</span>
+                  <h3 class="timeline-card__title">Next chapter</h3>
+                  <p class="timeline-card__desc">
+                    Continuing to grow the group across new markets.
+                  </p>
+                </div>
+                <span class="timeline-connector"></span>
+                <span class="timeline-dot"></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1685 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Gemeinsam gestalten wir die Technik von morgen."
+    />
+
+    <meta name="theme-color" content="#000000" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <title>VDH | Group</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <script defer src="assets/js/alpine.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link rel="stylesheet" href="assets/css/aos.css" />
+  </head>
+  <body>
+    <header
+      class="absolute w-full top-0 mt-24 xl:mt-40 mb-10 z-99999"
+      x-data="{ isMenuOpen: false }"
+    >
+      <div class="container xl:px-75">
+        <div
+          class="bg-white py-16 md:py-27 px-24 md:px-40 rounded-[20px] shadow-[0_4px_4px_#1718351a]"
+        >
+          <div class="flex justify-between items-center gap-20">
+            <a href="/">
+              <img
+                src="assets/images/logo.svg"
+                alt="VDH | GROUP"
+                class="min-w-80  w-112 md:w-auto"
+              />
+            </a>
+            <div class="flex gap-10 items-center">
+              <a href="karriere.html" class="btn btn-red"> Karriere </a>
+              <button class="btn btn-red not-lg:hidden">Kontakt</button>
+              <div class="flex items-center gap-16 md:gap-32">
+                <button
+                  class="md:py-12 md:px-16 rounded-full uppercase text-xs font-medium md:border"
+                >
+                  <span>DE</span>/<span class="text-grey">EN</span>
+                </button>
+
+                <button
+                  aria-label="Umschalter für das mobile Menü"
+                  @click="isMenuOpen = !isMenuOpen"
+                  :aria-expanded="isMenuOpen"
+                >
+                  <img
+                    src="assets/icons/menu.svg"
+                    alt=""
+                    class="w-20 md:w-32"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        x-cloak
+        x-show="isMenuOpen"
+        x-transition:enter="transition ease-out duration-500"
+        x-transition:enter-start="-translate-y-full"
+        x-transition:enter-end="translate-y-0"
+        x-transition:leave="transition ease-in duration-400"
+        x-transition:leave-start="translate-y-0"
+        x-transition:leave-end="-translate-y-full"
+        :class="open && 'open'"
+        class="fixed inset-0 z-40 flex min-h-screen flex-col bg-brand-blue text-white overflow-y-auto"
+      >
+        <div class="container flex flex-col h-full">
+          <div class="flex justify-between items-center py-26 md:px-40">
+            <a href="/">
+              <img
+                src="assets/images/logo.svg"
+                alt="VDH | GROUP"
+                class="brightness-0 invert w-115 md:w-auto"
+              />
+            </a>
+            <div class="flex gap-10 items-center">
+              <a href="/" target="_blank">
+                <img src="assets/icons/linkedin.svg" alt="" />
+              </a>
+              <div class="flex items-center gap-32">
+                <button class="btn-border-light not-md:hidden">Kontakt</button>
+                <button
+                  aria-label="Schließen-Button für das mobile Menü"
+                  @click="isMenuOpen = false"
+                  :aria-expanded="isMenuOpen"
+                >
+                  <img
+                    src="assets/icons/close.svg"
+                    alt=""
+                    class="w-20 md:w-26"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="grid 2xl:grid-cols-12 md:gap-64 md:p-40 grow">
+            <div
+              class="2xl:col-span-9 flex flex-col h-full not-md:pt-32 not-md:pb-24"
+            >
+              <ul class="max-w-830 text-xs">
+                <li
+                  class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between"
+                >
+                  <img
+                    src="assets/images/ms-logo.svg"
+                    alt=""
+                    class="w-80 md:w-120"
+                  />
+                  <p class="not-md:hidden">
+                    Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                    Lösungsanbieter im Bereich der Rauchgasentstickung für
+                    Großfeuerungsanlagen.
+                  </p>
+                  <a href="/" class="py-17 px-32 border rounded-full">
+                    <svg
+                      width="22"
+                      height="8"
+                      viewBox="0 0 22 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li
+                  class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between"
+                >
+                  <img
+                    src="assets/images/hkl.svg"
+                    alt=""
+                    class="w-80 md:w-120"
+                  />
+                  <p class="not-md:hidden">
+                    HKL Anlagentechnik übernimmt die Beratung, Planung und
+                    Fertigung von Lager-, Abfüll-, und Umschlag-Anlagen in allen
+                    Werkstoffen und Produktionsanlagen für flüssige Medien und
+                    Gase in allen Anwendungsbereichen.
+                  </p>
+                  <a href="/" class="py-17 px-32 border rounded-full">
+                    <svg
+                      width="22"
+                      height="8"
+                      viewBox="0 0 22 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li
+                  class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between"
+                >
+                  <img
+                    src="assets/images/ms-logo.svg"
+                    alt=""
+                    class="w-80 md:w-120"
+                  />
+                  <p class="not-md:hidden">
+                    M&S Environmental Technologies ist ein Tochterunternehmen
+                    der M&S Umwelttechnik mit Sitz in Ostrava, Tschechien und
+                    unterstützt tatkräftig im Bereich Engineering,
+                    Inbetriebnahme und Service.
+                  </p>
+                  <a href="/" class="py-17 px-32 border rounded-full">
+                    <svg
+                      width="22"
+                      height="8"
+                      viewBox="0 0 22 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li
+                  class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between"
+                >
+                  <img
+                    src="assets/images/vysion.svg"
+                    alt=""
+                    class="w-80 md:w-120"
+                  />
+                  <p class="not-md:hidden">
+                    Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                    Lösungsanbieter im Bereich der Rauchgasentstickung für
+                    Großfeuerungsanlagen.
+                  </p>
+                  <a href="/" class="py-17 px-32 border rounded-full">
+                    <svg
+                      width="22"
+                      height="8"
+                      viewBox="0 0 22 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li
+                  class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between"
+                >
+                  <img
+                    src="assets/images/drysotec.svg"
+                    alt=""
+                    class="w-80 md:w-120"
+                  />
+                  <p class="not-md:hidden">
+                    DrySoTec GmbH ist Ihr Partner für innovative, ökologisch und
+                    ökonomisch optimierte Rauchgasreinigungen nach neuestem
+                    Stand der Technik.
+                  </p>
+                  <a href="/" class="py-17 px-32 border rounded-full">
+                    <svg
+                      width="22"
+                      height="8"
+                      viewBox="0 0 22 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+              <ul
+                class="flex gap-40 text-sm mt-auto not-md:justify-center not-md:py-20"
+              >
+                <li>
+                  <a href="#">Impressum</a>
+                </li>
+                <li>
+                  <a href="#">Datenschutz</a>
+                </li>
+              </ul>
+              <button class="btn-border-light md:hidden mx-auto">Kontakt</button>
+            </div>
+            <div class="col-span-3 flex flex-col gap-28 not-2xl:hidden">
+              <div class="rounded-2xl overflow-hidden relative aspect-[.8/1]">
+                <video
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  class="absolute inset-0 size-full object-cover"
+                >
+                  <source src="assets/videos/video1.mp4" type="video/mp4" />
+                  <source src="assets/videos/video1.webm" type="video/webm" />
+                  Ihr Browser unterstützt keine Videos.
+                </video>
+              </div>
+              <div class="free_text text-sm">
+                <p>
+                  VDH | GROUP <br />
+                  Mehldau & Steinfath Umwelttechnik GmbH <br />
+                  Alfredstraße 279 <br />
+                  45133 Essen <br />
+                  Deutschland <br />
+                  <br />
+                  Telefon: <a href="/">+49 (0) 201 / 4 37 83 - 0</a> <br />
+                  Telefax: <a href="/">+49 (0) 201 / 4 37 83 - 33</a> <br />
+                  E-Mail: <a href="/">zentrale@vdh-group.de</a>
+                </p>
+              </div>
+              <a href="/" target="_blank">
+                <img src="assets/icons/linkedin.svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <div
+      x-data="scrollSpy()"
+      class="fixed top-1/2 right-0 -translate-y-1/2 p-16 flex flex-col not-md:hidden z-9999"
+    >
+      <button class="sec_link group">
+        <span class="sec_name">karriere</span>
+        <span class="sec_indi"></span>
+      </button>
+      <button class="sec_link group">
+        <span class="sec_name">Über uns</span>
+        <span class="sec_indi"></span>
+      </button>
+      <button class="sec_link group">
+        <span class="sec_name">Benefits</span>
+        <span class="sec_indi"></span>
+      </button>
+      <button class="sec_link group">
+        <span class="sec_name">Unsere Jobs</span>
+        <span class="sec_indi"></span>
+      </button>
+      <button class="sec_link group">
+        <span class="sec_name">FAQ</span>
+        <span class="sec_indi"></span>
+      </button>
+    </div>
+
+    <main>
+      <section data-section class="ctm_sec anchor-section pb-111 pt-sec lg:py-sec bg-gradient text-white">
+        <div class="container pt-132 md:pt-176 -mb-176">
+          <div class="row col_1_2 xl:px-75 gap-16 md:gap-50 xl:gap-134">
+            <div class="col gap-48 sm:gap-104">
+              <div>
+                <div class="mb-bottom">
+                  <p class="text-22 font-light">Karriere bei der VDH | Group</p>
+                </div>
+                <div class="free_text">
+                  <h1 class="heading_h1">Technik braucht Menschen.</h1>
+                  <p>
+                    Zukunftssichere Jobs in der Umwelt- <br />
+                    und Anlagentechnik.
+                  </p>
+                </div>
+                <div class="mt-64">
+                  <a href="" class="btn btn-light"
+                    >ZU UNSEREN STELLENANGEBOTEN</a
+                  >
+                </div>
+              </div>
+              <div class="flex mb-bottom gap-28">
+                <div class="col box p-16">
+                  <img src="assets/icons/badge-1.svg" alt="" class="h-116" />
+                </div>
+                <div class="col box p-16">
+                  <img src="assets/icons/badge-2.svg" alt="" class="h-116" />
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm">
+              <div
+                class="overflow-hidden relative aspect-video lg:aspect-square lg:h-500 lg:w-full"
+              >
+                <video
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  class="absolute inset-0 lg:size-full object-cover rounded-t-2xl"
+                >
+                  <source src="assets/videos/head.mp4" type="video/mp4" />
+                  <source src="assets/videos/head.webm" type="video/webm" />
+                  Ihr Browser unterstützt keine Videos.
+                </video>
+              </div>
+              <div
+                class="col box text-dark-blue px-16 pt-32 pb-48 sm:px-48 sm:pt-64"
+              >
+                <div class="free_text">
+                  <h2 class="h2">Karriere bei der VDH | Group</h2>
+                  <ul class="col gap-12">
+                    <li class="text-red flex items-center gap-12">
+                      <div class="w-26 sm:w-30 h-26 sm:h-30 shrink-0">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="100%"
+                          height="100%"
+                          viewBox="0 0 29 29"
+                          fill="none"
+                          preserveAspectRatio="xMidYMid meet"
+                          aria-hidden="true"
+                          role="img"
+                        >
+                          <path
+                            d="M12.3338 20.9926L22.5952 10.7311L20.9868 9.12279L12.3338 17.7759L7.98378 13.4259L6.37542 15.0342L12.3338 20.9926ZM14.5027 29C12.4971 29 10.612 28.6194 8.84729 27.8583C7.08261 27.0972 5.54765 26.0643 4.24239 24.7595C2.93714 23.4548 1.9037 21.9204 1.14207 20.1565C0.380688 18.3926 0 16.508 0 14.5027C0 12.4971 0.380561 10.612 1.14168 8.84729C1.90281 7.08261 2.93574 5.54765 4.24049 4.24239C5.54523 2.93714 7.07956 1.9037 8.84347 1.14207C10.6074 0.380688 12.492 0 14.4973 0C16.5029 0 18.388 0.380561 20.1527 1.14168C21.9174 1.90281 23.4524 2.93574 24.7576 4.24049C26.0629 5.54523 27.0963 7.07956 27.8579 8.84347C28.6193 10.6074 29 12.492 29 14.4973C29 16.5029 28.6194 18.388 27.8583 20.1527C27.0972 21.9174 26.0643 23.4524 24.7595 24.7576C23.4548 26.0629 21.9204 27.0963 20.1565 27.8579C18.3926 28.6193 16.508 29 14.5027 29ZM14.5 26.7105C17.9088 26.7105 20.7961 25.5276 23.1618 23.1618C25.5276 20.7961 26.7105 17.9088 26.7105 14.5C26.7105 11.0912 25.5276 8.20395 23.1618 5.83816C20.7961 3.47237 17.9088 2.28947 14.5 2.28947C11.0912 2.28947 8.20395 3.47237 5.83816 5.83816C3.47237 8.20395 2.28947 11.0912 2.28947 14.5C2.28947 17.9088 3.47237 20.7961 5.83816 23.1618C8.20395 25.5276 11.0912 26.7105 14.5 26.7105Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </div>
+
+                      <p class="heading_h3">
+                        Für Einsteiger und Berufserfahrene
+                      </p>
+                    </li>
+                    <li class="text-red flex items-center gap-12">
+                      <div class="w-26 sm:w-30 h-26 shrink-0">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="100%"
+                          height="100%"
+                          viewBox="0 0 29 29"
+                          fill="none"
+                          preserveAspectRatio="xMidYMid meet"
+                          aria-hidden="true"
+                          role="img"
+                        >
+                          <path
+                            d="M12.3338 20.9926L22.5952 10.7311L20.9868 9.12279L12.3338 17.7759L7.98378 13.4259L6.37542 15.0342L12.3338 20.9926ZM14.5027 29C12.4971 29 10.612 28.6194 8.84729 27.8583C7.08261 27.0972 5.54765 26.0643 4.24239 24.7595C2.93714 23.4548 1.9037 21.9204 1.14207 20.1565C0.380688 18.3926 0 16.508 0 14.5027C0 12.4971 0.380561 10.612 1.14168 8.84729C1.90281 7.08261 2.93574 5.54765 4.24049 4.24239C5.54523 2.93714 7.07956 1.9037 8.84347 1.14207C10.6074 0.380688 12.492 0 14.4973 0C16.5029 0 18.388 0.380561 20.1527 1.14168C21.9174 1.90281 23.4524 2.93574 24.7576 4.24049C26.0629 5.54523 27.0963 7.07956 27.8579 8.84347C28.6193 10.6074 29 12.492 29 14.4973C29 16.5029 28.6194 18.388 27.8583 20.1527C27.0972 21.9174 26.0643 23.4524 24.7595 24.7576C23.4548 26.0629 21.9204 27.0963 20.1565 27.8579C18.3926 28.6193 16.508 29 14.5027 29ZM14.5 26.7105C17.9088 26.7105 20.7961 25.5276 23.1618 23.1618C25.5276 20.7961 26.7105 17.9088 26.7105 14.5C26.7105 11.0912 25.5276 8.20395 23.1618 5.83816C20.7961 3.47237 17.9088 2.28947 14.5 2.28947C11.0912 2.28947 8.20395 3.47237 5.83816 5.83816C3.47237 8.20395 2.28947 11.0912 2.28947 14.5C2.28947 17.9088 3.47237 20.7961 5.83816 23.1618C8.20395 25.5276 11.0912 26.7105 14.5 26.7105Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </div>
+
+                      <p class="heading_h3">Duales Studium</p>
+                    </li>
+                    <li class="text-red flex items-center gap-12">
+                      <div class="w-26 sm:w-30 h-26 shrink-0">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="100%"
+                          height="100%"
+                          viewBox="0 0 29 29"
+                          fill="none"
+                          preserveAspectRatio="xMidYMid meet"
+                          aria-hidden="true"
+                          role="img"
+                        >
+                          <path
+                            d="M12.3338 20.9926L22.5952 10.7311L20.9868 9.12279L12.3338 17.7759L7.98378 13.4259L6.37542 15.0342L12.3338 20.9926ZM14.5027 29C12.4971 29 10.612 28.6194 8.84729 27.8583C7.08261 27.0972 5.54765 26.0643 4.24239 24.7595C2.93714 23.4548 1.9037 21.9204 1.14207 20.1565C0.380688 18.3926 0 16.508 0 14.5027C0 12.4971 0.380561 10.612 1.14168 8.84729C1.90281 7.08261 2.93574 5.54765 4.24049 4.24239C5.54523 2.93714 7.07956 1.9037 8.84347 1.14207C10.6074 0.380688 12.492 0 14.4973 0C16.5029 0 18.388 0.380561 20.1527 1.14168C21.9174 1.90281 23.4524 2.93574 24.7576 4.24049C26.0629 5.54523 27.0963 7.07956 27.8579 8.84347C28.6193 10.6074 29 12.492 29 14.4973C29 16.5029 28.6194 18.388 27.8583 20.1527C27.0972 21.9174 26.0643 23.4524 24.7595 24.7576C23.4548 26.0629 21.9204 27.0963 20.1565 27.8579C18.3926 28.6193 16.508 29 14.5027 29ZM14.5 26.7105C17.9088 26.7105 20.7961 25.5276 23.1618 23.1618C25.5276 20.7961 26.7105 17.9088 26.7105 14.5C26.7105 11.0912 25.5276 8.20395 23.1618 5.83816C20.7961 3.47237 17.9088 2.28947 14.5 2.28947C11.0912 2.28947 8.20395 3.47237 5.83816 5.83816C3.47237 8.20395 2.28947 11.0912 2.28947 14.5C2.28947 17.9088 3.47237 20.7961 5.83816 23.1618C8.20395 25.5276 11.0912 26.7105 14.5 26.7105Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </div>
+
+                      <p class="heading_h3">Ausbildungsplätze</p>
+                    </li>
+                  </ul>
+                  <a href="" class="btn btn-red">HIER GEHT’S ZU DEN BENEFITS</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-section class="ctm_sec my-sec pt-50">
+        <div class="container">
+          <div class="row col_1">
+            <div class="col">
+              <div class="space-y-30 xl:space-y-75 mb-bottom">
+                <div
+                  class=" flex flex-col gap-30 xl:gap-100 compact-box"
+                >
+                  <h2 data-aos="fade-up" class="text-32 font-semibold">
+                    Ihr Partner und Lösungsanbieter im Anlagenbau.
+                  </h2>
+                  <div data-aos="fade-up" class="free_text">
+                    <h3>
+                      Technik entsteht nicht von selbst. Sie wird geplant,
+                      gebaut, hinterfragt und weiterentwickelt – von Menschen,
+                      die Verantwortung übernehmen. Bei uns arbeiten
+                      Ingenieurinnen, Techniker, Fachkräfte und Projektteams
+                      gemeinsam an Lösungen für Umwelttechnik, Anlagenbau und
+                      Industrieprozesse.
+                    </h3>
+                    <h3>
+                      Unsere Projekte sind anspruchsvoll, unsere Technologien
+                      komplex und unsere Aufgaben langfristig relevant. Wer bei
+                      uns arbeitet, gestaltet Anlagen, die Effizienz sichern,
+                      Emissionen reduzieren und Industrie zukunftsfähig machen.
+                      Dabei zählen Fachwissen, Verlässlichkeit und der Wille,
+                      Dinge besser zu machen.
+                    </h3>
+                    <h3>
+                      <span class="text-black"
+                        >Ob Berufseinstieg oder nächste Herausforderung: Wir
+                        bieten ein Umfeld, in dem Technik ernst genommen wird –
+                        und Menschen genauso.</span
+                      >
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-section class="ctm_sec py-sec bg-gradient">
+        <div class="container">
+          <div class="component">
+            <div class="row col_1_2 gap-48 items-center">
+              <div class="free_text text-white">
+                <h2 class="heading_h2 text-[40px]">
+                  Unsere Benefits – Klar. Ehrlich. Stark.
+                </h2>
+                <p>
+                  Weil wir nicht nur Anlagen bauen – sondern Arbeitsplätze
+                  <b class="text-white">mit Zukunft.</b>
+                </p>
+                <p>
+                  Deshalb schaffen wir Rahmenbedingungen, die Sicherheit geben,
+                  Entwicklung ermöglichen und den Arbeitsalltag verlässlich
+                  machen – heute und langfristig.
+                </p>
+                <a href="" class="btn btn-light">Jetzt bewerben</a>
+              </div>
+              <div class="col">
+                <div class="grid lg:grid-cols-2 gap-26">
+                  <div class="banifit-card">
+                    <img src="/assets/icons/decision-making.svg" alt="" class="w-82" />
+                    <p>Du-Kultur & kurze Entscheidungswege</p>
+                  </div>
+                  <div class="banifit-card">
+                    <img
+                      src="/assets/icons/International projects.svg"
+                      alt="" class="w-82"
+                    />
+                    <p>Internationale Projekte</p>
+                  </div>
+                  <div class="banifit-card">
+                    <img src="/assets/icons/Job bike.svg" alt="" class="w-82" />
+                    <p>Jobrad für Dich und Deinen Partner</p>
+                  </div>
+                  <div class="banifit-card">
+                    <img src="/assets/icons/Fitness & Health.svg" alt="" class="w-82"/>
+                    <p>
+                      Wellhub – Fitness & Gesundheit <br />
+                      deutschlandweit
+                    </p>
+                  </div>
+                  <div class="banifit-card">
+                    <img src="/assets/icons/welhub.svg" alt="" class="w-82"/>
+                    <p>
+                      Wellhub – Fitness & Gesundheit <br />
+                      deutschlandweit
+                    </p>
+                  </div>
+                  <div class="banifit-card">
+                    <img src="/assets/icons/vacation.svg" alt="" class="w-82"/>
+                    <p>30 Tage Urlaub + Sonderurlaub</p>
+                  </div>
+                  <div class="banifit-card">
+                    <img src="/assets/icons/insurance.svg" alt="" class="w-82" />
+                    <p>Betriebliche Krankenversicherung</p>
+                  </div>
+                  <div class="banifit-card">
+                    <img src="/assets/icons/pension scheme.svg" alt="" class="w-82"/>
+                    <p>Betriebliche Altersvorsorge</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-section class="ctm_sec py-sec bg-white">
+        <div class="container">
+          <div class="row cols_1">
+            <div class="col">
+              <div class="component">
+                <div class="col free_text compact-box">
+                  <h2>Arbeiten bei uns.</h2>
+                  <div class="free_text">
+                    <h3>
+                      Komm mit – wir zeigen dir, wie Arbeiten im Anlagenbau
+                      heute aussieht. Kein Hochglanz-Blabla. Sondern echte
+                      Menschen, echte Anlagen und echte Technik.
+                    </h3>
+                    <h3 class="font-normal">
+                      Das ist unsere hauseigene Fertigung.
+                    </h3>
+                    <h3>
+                      Hier riecht es nach Metall, hier entstehen unsere Anlagen.
+                      In unserer <b>hauseigenen Fertigung</b> bauen wir das, was
+                      später weltweit im Einsatz ist: Rohrleitungssysteme,
+                      Pumpenstationen, Misch- und Messmodule. Wenn du gerne mit
+                      den Händen arbeitest, Zeichnungen lesen kannst und stolz
+                      darauf bist, was am Ende dasteht –
+                      <b>hier bist du richtig.</b>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ctm_sec pb-sec bg-white">
+        <div class="container">
+          <div class="component">
+            <div class="lg:grid-cols-12 row gap-10 mb-bottom">
+              <div class="lg:col-span-7 gap-10 col order-2 lg:order-1">
+                <div class="col bg-ghost-white py-32 sm:py-108 px-24 md:px-48 rounded-2xl">
+                  <div class="free_text">
+                    <h3 class="font-semibold">Das erwartet Dich:</h3>
+                    <ul class="ctm_list col">
+                      <li>
+                        Edelstahlrohre, die nach Isometrie vorbereitet werden
+                      </li>
+                      <li>
+                        Baugruppen, die vormontiert auf ihren Einsatz warten
+                      </li>
+                      <li>
+                        Kollegen, die wissen, was sie tun – und ihr Wissen
+                        teilen
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  class="lg:col-span-5 bg-ghost-white rounded-2xl overflow-hidden hidden lg:block relative"
+                >
+                  <img
+                    src="assets/images/karriere_1_1.webp"
+                    alt="Karriere image"
+                    class="w-full h-full object-cover"
+                  />
+                  <div class="wm_wrapper absolute bottom-20 right-20 z-10">
+                    <div class="wm_img">
+                      <img
+                        src="assets/images/KI generiert.svg"
+                        alt="KI generiert"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="lg:col-span-5 bg-ghost-white rounded-2xl overflow-hidden order-1 relative"
+              >
+                <img
+                  src="assets/images/karriere_1_2.webp"
+                  alt="Karriere image"
+                  class="w-full lg:h-full object-cover aspect-square"
+                />
+                <div class="wm_wrapper absolute bottom-20 right-20 z-10">
+                  <div class="wm_img">
+                    <img
+                      src="assets/images/KI generiert.svg"
+                      alt="KI generiert"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="blue-card lg:col-span-12 relative order-3">
+                <div class="w-42 h-32 md:absolute bottom-24 left-24 flex">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 42 32"
+                    fill="none"
+                    preserveAspectRatio="xMidYMid meet"
+                    aria-hidden="true"
+                    role="img"
+                  >
+                    <path
+                      d="M4.35351 31.563L0 26.319C2.57253 25.0657 4.61736 23.5485 6.13449 21.7676C7.71759 19.9866 8.50914 18.4365 8.50914 17.1172C8.50914 16.5236 8.34423 15.8969 8.01442 15.2373C7.68461 14.5777 6.95902 13.7532 5.83767 12.7637C4.38649 11.6424 3.39706 10.587 2.86936 9.59752C2.40762 8.54212 2.17676 7.42076 2.17676 6.23344C2.17676 4.32053 2.86936 2.8034 4.25457 1.68204C5.63978 0.560685 7.42076 0 9.59752 0C11.3785 0 12.9946 0.527702 14.4457 1.5831C15.9629 2.57253 17.1502 3.99073 18.0077 5.83767C18.8652 7.61865 19.294 9.69647 19.294 12.0711C19.294 14.1819 18.9312 16.2267 18.2056 18.2056C17.48 20.2504 16.4246 22.1304 15.0394 23.8454C13.7202 25.6264 12.1371 27.1765 10.2901 28.4957C8.50914 29.815 6.53027 30.8374 4.35351 31.563ZM26.6158 31.563L22.2623 26.319C24.8348 25.0657 26.8796 23.5485 28.3968 21.7676C29.9799 19.9866 30.7714 18.4365 30.7714 17.1172C30.7714 16.5236 30.6065 15.8969 30.2767 15.2373C29.9469 14.5777 29.2213 13.7532 28.0999 12.7637C26.6488 11.6424 25.6593 10.587 25.1316 9.59752C24.6699 8.54212 24.439 7.42076 24.439 6.23344C24.439 4.32053 25.1316 2.8034 26.5169 1.68204C27.9021 0.560685 29.683 0 31.8598 0C33.6408 0 35.2569 0.527702 36.708 1.5831C38.2252 2.57253 39.4125 3.99073 40.27 5.83767C41.1275 7.61865 41.5563 9.69647 41.5563 12.0711C41.5563 14.1819 41.1935 16.2267 40.4679 18.2056C39.7423 20.2504 38.6869 22.1304 37.3017 23.8454C35.9824 25.6264 34.3993 27.1765 32.5524 28.4957C30.7714 29.815 28.7926 30.8374 26.6158 31.563Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="max-w-950 w-full">
+                  <h3>
+                    Damit aus Planung echte Anlagen werden, braucht es Menschen,
+                    die mit Können, Präzision und Stolz anpacken.
+                  </h3>
+                </div>
+                <div class="w-42 h-32 hidden absolute top-24 right-24 md:flex">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 45 32"
+                    fill="none"
+                    preserveAspectRatio="xMidYMid meet"
+                    aria-hidden="true"
+                    role="img"
+                  >
+                    <path
+                      d="M10.8056 31.8974C8.7969 31.8974 6.96133 31.3779 5.29892 30.3389C3.70578 29.2307 2.42434 27.7414 1.45461 25.8712C0.484869 23.9317 0 21.7152 0 19.2216C0 17.1436 0.415602 15.1348 1.24681 13.1954C2.07801 11.1866 3.22091 9.3164 4.67552 7.58473C6.13013 5.85306 7.8618 4.32919 9.87054 3.01311C11.8793 1.62778 14.0266 0.623403 16.3124 0L20.884 5.50672C18.044 6.75352 15.7236 8.24277 13.9227 9.97444C12.191 11.7061 11.3251 13.1954 11.3251 14.4422C11.3251 15.2734 11.6022 16.0353 12.1564 16.728C12.7798 17.4206 13.5417 18.0787 14.4422 18.7021C16.0353 19.9489 17.1089 21.0918 17.6631 22.1308C18.2865 23.1005 18.5982 24.1742 18.5982 25.3517C18.5982 27.3604 17.8709 28.9536 16.4163 30.1311C14.9617 31.3087 13.0915 31.8974 10.8056 31.8974ZM33.9754 31.8974C31.9667 31.8974 30.1311 31.3779 28.4687 30.3389C26.8756 29.2307 25.5941 27.7414 24.6244 25.8712C23.6547 23.9317 23.1698 21.7152 23.1698 19.2216C23.1698 17.1436 23.5854 15.1348 24.4166 13.1954C25.2478 11.1866 26.3907 9.3164 27.8453 7.58473C29.2999 5.85306 31.0316 4.32919 33.0403 3.01311C35.0491 1.62778 37.1964 0.623403 39.4822 0L44.0538 5.50672C41.2138 6.75352 38.8934 8.24277 37.0925 9.97444C35.3608 11.7061 34.4949 13.1954 34.4949 14.4422C34.4949 15.2734 34.772 16.0353 35.3262 16.728C35.9496 17.4206 36.7115 18.0787 37.612 18.7021C39.2051 19.9489 40.2787 21.0918 40.8329 22.1308C41.4563 23.1005 41.768 24.1742 41.768 25.3517C41.768 27.3604 41.0407 28.9536 39.5861 30.1311C38.1315 31.3087 36.2613 31.8974 33.9754 31.8974Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                
+              </div>
+              <!--  -->
+            </div>
+          </div>
+          <div class="row justify-center">
+            <a href="" class="btn btn-red">ZU UNSEREN STELLENANGEBOTEN</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="ctm_sec my-sec">
+        <div class="container">
+          <div class="component">
+            <div class="compact-box free_text">
+              <h2>
+                Willkommen im Büro – <br class="hidden sm:block" /> hier beginnt
+                jedes Projekt.
+              </h2>
+              <h3>
+                Ein paar Schritte weiter: unsere Büros.
+                <b>Hier wird aus einer Idee ein Projekt</b> – und aus einem
+                Projekt eine Anlage. Mit Planung, Technik und Überblick. Und mit
+                Menschen, die vorausdenken, bevor es draußen losgeht.
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </section>
+
+      <section class="ctm_sec pb-sec">
+        <div class="container z-10 relative">
+          <div class="component">
+            <div class="lg:grid-cols-12 row gap-16 mb-bottom">
+              <div
+                class="relative lg:col-span-4 bg-ghost-white rounded-2xl overflow-hidden"
+              >
+                <img
+                  src="assets/images/karriere_2_1.webp"
+                  alt="Karriere image"
+                  class="lg:w-full h-full object-cover aspect-square"
+                />
+                <div class="wm_wrapper absolute bottom-20 right-20 z-10">
+                  <div class="wm_img">
+                    <img
+                      src="assets/images/KI generiert.svg"
+                      alt="KI generiert"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-8 grid lg:grid-cols-8 gap-16">
+                <div class="lg:col-span-4 bg-white py-32 sm:py-108 px-24 md:px-48 rounded-2xl">
+                  <div class="free_text">
+                    <h3 class="font-semibold">Wir suchen hier:</h3>
+                    <ul class="ctm_list col">
+                      <li>Projektingenieure</li>
+                      <li>Projektleiter</li>
+                      <li>Elektroingenieure</li>
+                      <li>Elektrotechniker</li>
+                      <li>Automatisierungstechniker</li>
+                      <li>Konstrukteure (CAD)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  class="col-span-4 bg-ghost-white rounded-2xl overflow-hidden relative hidden lg:block"
+                >
+                  <img
+                    src="assets/images/karriere_2_2.webp"
+                    alt="Karriere image"
+                    class="w-full h-full object-cover"
+                  />
+                  <div class="wm_wrapper absolute bottom-20 right-20 z-10">
+                    <div class="wm_img">
+                      <img
+                        src="assets/images/KI generiert.svg"
+                        alt="KI generiert"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="box-blue1 lg:col-span-8 bg-brand-blue py-32 sm:pt-80 px-24 lg:pl-48 sm:pb-48 rounded-2xl overflow-hidden text-white"
+                >
+                  <div class="free_text">
+                    <h3>Das erwartet dich:</h3>
+                    <ul class="ctm_list col">
+                      <li>
+                        Edelstahlrohre, die nach Isometrie vorbereitet werden
+                      </li>
+                      <li>
+                        Elektrotechnik & Automatisierung – von Plan bis
+                        Inbetriebnahme
+                      </li>
+                      <li>
+                        Enge Zusammenarbeit mit Fertigung, Montage & Kunden
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-center">
+            <a href="" class="btn btn-red">ZU UNSEREN STELLENANGEBOTEN</a>
+          </div>
+        </div>
+        <div class="bg-white h-320 absolute w-full bottom-0"></div>
+      </section>
+
+      <section class="ctm_sec py-sec bg-white">
+        <div class="container">
+          <div class="component">
+            <div class="compact-box free_text">
+              <h2 class="heading_h2">
+                Der kaufmännischer Bereich – das Rückgrat im Hintergrund.
+              </h2>
+              <h3>
+                Man sieht ihn nicht immer –
+                <b>aber ohne ihn läuft nichts.</b> Im kaufmännischen Bereich
+                sorgst du dafür, dass Projekte wirtschaftlich, organisiert und
+                sauber umgesetzt werden.
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ctm_sec pb-sec bg-white">
+        <div class="container">
+          <div class="component">
+            <div class="lg:grid-cols-12 row gap-10 mb-bottom">
+              <div class="lg:col-span-7 gap-10 col order-2 lg:order-1">
+                <div class="col bg-ghost-white py-32 sm:py-108 px-24 md:px-48 rounded-2xl">
+                  <div class="free_text">
+                    <h3 class="font-semibold">Das erwartet Dich:</h3>
+                    <ul class="ctm_list col">
+                      <li>Zentrale Rolle im Projekt- und Tagesgeschäft</li>
+                      <li>
+                        Kommunikation mit Kunden, Lieferanten und internen Teams
+                      </li>
+                      <li>Verantwortung für Angebote, Zahlen und Abläufe</li>
+                      <li>Arbeiten mit modernen digitalen Tools</li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  class="lg:col-span-5 bg-ghost-white rounded-2xl overflow-hidden hidden lg:block relative"
+                >
+                  <img
+                    src="assets/images/karriere_3_1.webp"
+                    alt="Karriere image"
+                    class="w-full h-full  object-cover"
+                  />
+                  <div class="wm_wrapper absolute bottom-20 right-20 z-10">
+                    <div class="wm_img">
+                      <img
+                        src="assets/images/KI generiert.svg"
+                        alt="KI generiert"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="lg:col-span-5 bg-ghost-white rounded-2xl overflow-hidden order-1 relative"
+              >
+                <img
+                  src="assets/images/karriere_3_2.webp"
+                  alt="Karriere image"
+                  class="w-full lg:h-full aspect-square object-cover"
+                />
+                <div class="wm_wrapper absolute bottom-20 right-20 z-10">
+                  <div class="wm_img">
+                    <img
+                      src="assets/images/KI generiert.svg"
+                      alt="KI generiert"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="blue-card lg:col-span-12 relative order-3">
+                <div class="w-42 h-32 md:absolute bottom-24 left-24 flex">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 42 32"
+                    fill="none"
+                    preserveAspectRatio="xMidYMid meet"
+                    aria-hidden="true"
+                    role="img"
+                  >
+                    <path
+                      d="M4.35351 31.563L0 26.319C2.57253 25.0657 4.61736 23.5485 6.13449 21.7676C7.71759 19.9866 8.50914 18.4365 8.50914 17.1172C8.50914 16.5236 8.34423 15.8969 8.01442 15.2373C7.68461 14.5777 6.95902 13.7532 5.83767 12.7637C4.38649 11.6424 3.39706 10.587 2.86936 9.59752C2.40762 8.54212 2.17676 7.42076 2.17676 6.23344C2.17676 4.32053 2.86936 2.8034 4.25457 1.68204C5.63978 0.560685 7.42076 0 9.59752 0C11.3785 0 12.9946 0.527702 14.4457 1.5831C15.9629 2.57253 17.1502 3.99073 18.0077 5.83767C18.8652 7.61865 19.294 9.69647 19.294 12.0711C19.294 14.1819 18.9312 16.2267 18.2056 18.2056C17.48 20.2504 16.4246 22.1304 15.0394 23.8454C13.7202 25.6264 12.1371 27.1765 10.2901 28.4957C8.50914 29.815 6.53027 30.8374 4.35351 31.563ZM26.6158 31.563L22.2623 26.319C24.8348 25.0657 26.8796 23.5485 28.3968 21.7676C29.9799 19.9866 30.7714 18.4365 30.7714 17.1172C30.7714 16.5236 30.6065 15.8969 30.2767 15.2373C29.9469 14.5777 29.2213 13.7532 28.0999 12.7637C26.6488 11.6424 25.6593 10.587 25.1316 9.59752C24.6699 8.54212 24.439 7.42076 24.439 6.23344C24.439 4.32053 25.1316 2.8034 26.5169 1.68204C27.9021 0.560685 29.683 0 31.8598 0C33.6408 0 35.2569 0.527702 36.708 1.5831C38.2252 2.57253 39.4125 3.99073 40.27 5.83767C41.1275 7.61865 41.5563 9.69647 41.5563 12.0711C41.5563 14.1819 41.1935 16.2267 40.4679 18.2056C39.7423 20.2504 38.6869 22.1304 37.3017 23.8454C35.9824 25.6264 34.3993 27.1765 32.5524 28.4957C30.7714 29.815 28.7926 30.8374 26.6158 31.563Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="max-w-950 w-full">
+                  <h3>
+                    Hier sorgst du dafür, dass aus guter Technik auch ein gutes Projekt wird –
+mit Überblick, Struktur und einem sicheren Gespür für Zahlen und Abläufe.
+                  </h3>
+                </div>
+                <div class="w-42 h-32 hidden absolute top-24 right-24 md:flex">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 45 32"
+                    fill="none"
+                    preserveAspectRatio="xMidYMid meet"
+                    aria-hidden="true"
+                    role="img"
+                  >
+                    <path
+                      d="M10.8056 31.8974C8.7969 31.8974 6.96133 31.3779 5.29892 30.3389C3.70578 29.2307 2.42434 27.7414 1.45461 25.8712C0.484869 23.9317 0 21.7152 0 19.2216C0 17.1436 0.415602 15.1348 1.24681 13.1954C2.07801 11.1866 3.22091 9.3164 4.67552 7.58473C6.13013 5.85306 7.8618 4.32919 9.87054 3.01311C11.8793 1.62778 14.0266 0.623403 16.3124 0L20.884 5.50672C18.044 6.75352 15.7236 8.24277 13.9227 9.97444C12.191 11.7061 11.3251 13.1954 11.3251 14.4422C11.3251 15.2734 11.6022 16.0353 12.1564 16.728C12.7798 17.4206 13.5417 18.0787 14.4422 18.7021C16.0353 19.9489 17.1089 21.0918 17.6631 22.1308C18.2865 23.1005 18.5982 24.1742 18.5982 25.3517C18.5982 27.3604 17.8709 28.9536 16.4163 30.1311C14.9617 31.3087 13.0915 31.8974 10.8056 31.8974ZM33.9754 31.8974C31.9667 31.8974 30.1311 31.3779 28.4687 30.3389C26.8756 29.2307 25.5941 27.7414 24.6244 25.8712C23.6547 23.9317 23.1698 21.7152 23.1698 19.2216C23.1698 17.1436 23.5854 15.1348 24.4166 13.1954C25.2478 11.1866 26.3907 9.3164 27.8453 7.58473C29.2999 5.85306 31.0316 4.32919 33.0403 3.01311C35.0491 1.62778 37.1964 0.623403 39.4822 0L44.0538 5.50672C41.2138 6.75352 38.8934 8.24277 37.0925 9.97444C35.3608 11.7061 34.4949 13.1954 34.4949 14.4422C34.4949 15.2734 34.772 16.0353 35.3262 16.728C35.9496 17.4206 36.7115 18.0787 37.612 18.7021C39.2051 19.9489 40.2787 21.0918 40.8329 22.1308C41.4563 23.1005 41.768 24.1742 41.768 25.3517C41.768 27.3604 41.0407 28.9536 39.5861 30.1311C38.1315 31.3087 36.2613 31.8974 33.9754 31.8974Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="row justify-center">
+            <a href="" class="btn btn-red">ZU UNSEREN STELLENANGEBOTEN</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="ctm_sec py-sec">
+        <div class="container">
+          <div class="component">
+            <div class="free_text compact-box">
+              <h2 class="heading_h2 max-w-400">
+                Unser Lager & Versand – zur richtigen Zeit am richtigen Ort.
+              </h2>
+              <h3>
+                Vom Ersatzteil bis zum vormontierten Modul. Im Lager wird
+                geprüft, sortiert, vorbereitet und versendet –
+                <b>damit auf der Baustelle alles da ist, was gebraucht wird.</b>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ctm_sec pb-sec">
+        <div class="container z-10 relative">
+          <div class="component">
+            <div class="lg:grid-cols-12 row gap-16 mb-bottom">
+              <div
+                class="lg:col-span-5 bg-ghost-white rounded-2xl overflow-hidden order-1 relative"
+              >
+                <img
+                  src="assets/images/karriere_4_1.webp"
+                  alt="Karriere image"
+                  class="w-full lg:h-full aspect-square object-cover"
+                />
+                <div class="wm_wrapper absolute bottom-20 right-20 z-10">
+                  <div class="wm_img">
+                    <img
+                      src="assets/images/KI generiert.svg"
+                      alt="KI generiert"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-7 gap-16 col order-2 lg:order-1">
+                <div class="bg-white py-32 sm:py-108 px-24 md:px-48 rounded-2xl">
+                  <div class="free_text">
+                    <h3 class="">Das erwartet Dich:</h3>
+                    <ul class="ctm_list col">
+                      <li>Zentrale Rolle im Projekt- und Tagesgeschäft</li>
+                      <li>
+                        Kommunikation mit Kunden, Lieferanten und internen Teams
+                      </li>
+                      <li>Verantwortung für Angebote, Zahlen und Abläufe</li>
+                      <li>Arbeiten mit modernen digitalen Tools</li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  class="lg:col-span-5 bg-ghost-white rounded-2xl overflow-hidden hidden lg:block relative"
+                >
+                  <img
+                    src="assets/images/karriere_4_2.webp"
+                    alt="Karriere image"
+                    class="w-full h-full object-cover"
+                  />
+                  <div class="wm_wrapper absolute bottom-20 right-20 z-10">
+                    <div class="wm_img">
+                      <img
+                        src="assets/images/KI generiert.svg"
+                        alt="KI generiert"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-center">
+            <a href="" class="btn btn-red">ZU UNSEREN STELLENANGEBOTEN</a>
+          </div>
+        </div>
+        <div class="bg-white h-320 absolute w-full bottom-0"></div>
+      </section>
+
+      <section class="ctm_sec pt-sec bg-white">
+        <div class="container">
+          <div class="component">
+            <div class="compact-box free_text">
+              <h2 class="heading_h2">
+                Der Service-Bereich – ganz nah dran am Kunden.
+              </h2>
+              <h3>
+                Morgens einsteigen, losfahren, Anlage übernehmen. Im Service
+                bist du <b>direkt vor Ort</b>, hältst Technik am Laufen und
+                übernimmst echte Verantwortung.
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ctm_sec py-sec bg-white">
+        <div class="container">
+          <div class="component">
+            <div
+              class="overflow-hidden relative aspect-square lg:aspect-[2.8] h-full rounded-2xl mb-10"
+            >
+              <video
+                autoplay
+                loop
+                muted
+                playsinline
+                class="absolute inset-0  size-full object-cover rounded-t-2xl"
+              >
+                <source src="assets/videos/head.mp4" type="video/mp4" />
+                <source src="assets/videos/head.webm" type="video/webm" />
+                Ihr Browser unterstützt keine Videos.
+              </video>
+              <div class="wm_wrapper absolute bottom-20 right-20 z-10">
+                <div class="wm_img">
+                  <img
+                    src="assets/images/KI generiert.svg"
+                    alt="KI generiert"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="grid lg:grid-cols-12 gap-10">
+              <div
+                class="lg:col-span-7 col bg-ghost-white py-32 sm:py-108 px-24 md:px-48 rounded-2xl"
+              >
+                <div class="free_text">
+                  <h3>Das erwartet Dich:</h3>
+                  <ul class="ctm_list free_text">
+                    <li>Zentrale Rolle im Projekt- und Tagesgeschäft</li>
+                    <li>
+                      Kommunikation mit Kunden, Lieferanten und internen Teams
+                    </li>
+                    <li>Verantwortung für Angebote, Zahlen und Abläufe</li>
+                    <li>Arbeiten mit modernen digitalen Tools</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div
+                class="lg:col-span-5 blue-card px-48 py-24 col relative order-3"
+              >
+                <div class="w-42 h-32 md:absolute bottom-24 left-24 flex">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 42 32"
+                    fill="none"
+                    preserveAspectRatio="xMidYMid meet"
+                    aria-hidden="true"
+                    role="img"
+                  >
+                    <path
+                      d="M4.35351 31.563L0 26.319C2.57253 25.0657 4.61736 23.5485 6.13449 21.7676C7.71759 19.9866 8.50914 18.4365 8.50914 17.1172C8.50914 16.5236 8.34423 15.8969 8.01442 15.2373C7.68461 14.5777 6.95902 13.7532 5.83767 12.7637C4.38649 11.6424 3.39706 10.587 2.86936 9.59752C2.40762 8.54212 2.17676 7.42076 2.17676 6.23344C2.17676 4.32053 2.86936 2.8034 4.25457 1.68204C5.63978 0.560685 7.42076 0 9.59752 0C11.3785 0 12.9946 0.527702 14.4457 1.5831C15.9629 2.57253 17.1502 3.99073 18.0077 5.83767C18.8652 7.61865 19.294 9.69647 19.294 12.0711C19.294 14.1819 18.9312 16.2267 18.2056 18.2056C17.48 20.2504 16.4246 22.1304 15.0394 23.8454C13.7202 25.6264 12.1371 27.1765 10.2901 28.4957C8.50914 29.815 6.53027 30.8374 4.35351 31.563ZM26.6158 31.563L22.2623 26.319C24.8348 25.0657 26.8796 23.5485 28.3968 21.7676C29.9799 19.9866 30.7714 18.4365 30.7714 17.1172C30.7714 16.5236 30.6065 15.8969 30.2767 15.2373C29.9469 14.5777 29.2213 13.7532 28.0999 12.7637C26.6488 11.6424 25.6593 10.587 25.1316 9.59752C24.6699 8.54212 24.439 7.42076 24.439 6.23344C24.439 4.32053 25.1316 2.8034 26.5169 1.68204C27.9021 0.560685 29.683 0 31.8598 0C33.6408 0 35.2569 0.527702 36.708 1.5831C38.2252 2.57253 39.4125 3.99073 40.27 5.83767C41.1275 7.61865 41.5563 9.69647 41.5563 12.0711C41.5563 14.1819 41.1935 16.2267 40.4679 18.2056C39.7423 20.2504 38.6869 22.1304 37.3017 23.8454C35.9824 25.6264 34.3993 27.1765 32.5524 28.4957C30.7714 29.815 28.7926 30.8374 26.6158 31.563Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="max-w-950 w-full">
+                  <h3>
+                    Damit aus Planung echte Anlagen werden, braucht es Menschen,
+                    die mit Können, Präzision und Stolz anpacken.
+                  </h3>
+                </div>
+                <div class="w-42 h-32 hidden absolute top-24 right-24 md:flex">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 45 32"
+                    fill="none"
+                    preserveAspectRatio="xMidYMid meet"
+                    aria-hidden="true"
+                    role="img"
+                  >
+                    <path
+                      d="M10.8056 31.8974C8.7969 31.8974 6.96133 31.3779 5.29892 30.3389C3.70578 29.2307 2.42434 27.7414 1.45461 25.8712C0.484869 23.9317 0 21.7152 0 19.2216C0 17.1436 0.415602 15.1348 1.24681 13.1954C2.07801 11.1866 3.22091 9.3164 4.67552 7.58473C6.13013 5.85306 7.8618 4.32919 9.87054 3.01311C11.8793 1.62778 14.0266 0.623403 16.3124 0L20.884 5.50672C18.044 6.75352 15.7236 8.24277 13.9227 9.97444C12.191 11.7061 11.3251 13.1954 11.3251 14.4422C11.3251 15.2734 11.6022 16.0353 12.1564 16.728C12.7798 17.4206 13.5417 18.0787 14.4422 18.7021C16.0353 19.9489 17.1089 21.0918 17.6631 22.1308C18.2865 23.1005 18.5982 24.1742 18.5982 25.3517C18.5982 27.3604 17.8709 28.9536 16.4163 30.1311C14.9617 31.3087 13.0915 31.8974 10.8056 31.8974ZM33.9754 31.8974C31.9667 31.8974 30.1311 31.3779 28.4687 30.3389C26.8756 29.2307 25.5941 27.7414 24.6244 25.8712C23.6547 23.9317 23.1698 21.7152 23.1698 19.2216C23.1698 17.1436 23.5854 15.1348 24.4166 13.1954C25.2478 11.1866 26.3907 9.3164 27.8453 7.58473C29.2999 5.85306 31.0316 4.32919 33.0403 3.01311C35.0491 1.62778 37.1964 0.623403 39.4822 0L44.0538 5.50672C41.2138 6.75352 38.8934 8.24277 37.0925 9.97444C35.3608 11.7061 34.4949 13.1954 34.4949 14.4422C34.4949 15.2734 34.772 16.0353 35.3262 16.728C35.9496 17.4206 36.7115 18.0787 37.612 18.7021C39.2051 19.9489 40.2787 21.0918 40.8329 22.1308C41.4563 23.1005 41.768 24.1742 41.768 25.3517C41.768 27.3604 41.0407 28.9536 39.5861 30.1311C38.1315 31.3087 36.2613 31.8974 33.9754 31.8974Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-center mt-bottom">
+            <a href="" class="btn btn-red">ZU UNSEREN STELLENANGEBOTEN</a>
+          </div>
+        </div>
+      </section>
+
+      <section data-section class="ctm_sec py-sec bg-white">
+        <div class="container">
+          <div class="component">
+            <div class="col mb-bottom">
+              <div class="free_text compact-box">
+                <h2 class="heading_h2">FAQ</h2>
+                <h3>
+                  Morgens einsteigen, losfahren, Anlage übernehmen. Im Service
+                  bist du <b>direkt vor Ort</b>, hältst Technik am Laufen und
+                  übernimmst echte Verantwortung.
+                </h3>
+              </div>
+              <ul x-data="{ active: 0 }" class="flex flex-col gap-16">
+                <li
+                  class="not-md:p-gutter py-16 sm:py-20 px-20 sm:px-24 border-b"
+                >
+                  <button
+                    @click="active = active === 1 ? null : 1"
+                    class="font-lexend flex gap-50 font-bold sm:text-18 text-left justify-between w-full"
+                  >
+                    <span class="max-w-1000">
+                      Wie läuft der Bewerbungsprozess ab?
+                    </span>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      class="w-32 h-32 shrink-0 text-red transition-transform duration-300"
+                      :class="{ 'rotate-45': active === 1 }"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M18 12.998h-5v5a1 1 0 0 1-2 0v-5H6a1 1 0 0 1 0-2h5v-5a1 1 0 0 1 2 0v5h5a1 1 0 0 1 0 2z"
+                      />
+                    </svg>
+                  </button>
+                  <div
+                    x-ref="panel1"
+                    x-init="$el.style.height = active === 1 ? $el.scrollHeight + 'px' : '0px'"
+                    x-effect="$el.style.height = active === 1 ? $el.scrollHeight + 'px' : '0px'"
+                    class="free_text overflow-hidden transition-[height] duration-300 ease-in-out max-w-1000 *:pt-15"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Suspendisse varius enim in eros elementum tristique. Duis
+                      cursus, mi quis viverra ornare, eros dolor interdum nulla,
+                      ut commodo diam libero vitae erat. Aenean faucibus nibh et
+                      justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae
+                      risus tristique posuere.
+                    </p>
+                  </div>
+                </li>
+                <li
+                  class="not-md:p-gutter py-16 sm:py-20 px-20 sm:px-24 border-b first:border-t"
+                >
+                  <button
+                    @click="active = active === 2 ? null : 2"
+                    class="font-lexend flex gap-50 font-bold sm:text-18 text-left justify-between w-full"
+                  >
+                    <span class="max-w-1000">
+                      Wie läuft der Bewerbungsprozess ab?
+                    </span>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      class="w-32 h-32 shrink-0 text-red transition-transform duration-300"
+                      :class="{ 'rotate-45': active === 2 }"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M18 12.998h-5v5a1 1 0 0 1-2 0v-5H6a1 1 0 0 1 0-2h5v-5a1 1 0 0 1 2 0v5h5a1 1 0 0 1 0 2z"
+                      />
+                    </svg>
+                  </button>
+                  <div
+                    x-ref="panel1"
+                    x-init="$el.style.height = active === 2 ? $el.scrollHeight + 'px' : '0px'"
+                    x-effect="$el.style.height = active === 2 ? $el.scrollHeight + 'px' : '0px'"
+                    class="free_text overflow-hidden transition-[height] duration-300 ease-in-out max-w-1000 *:pt-15"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Suspendisse varius enim in eros elementum tristique. Duis
+                      cursus, mi quis viverra ornare, eros dolor interdum nulla,
+                      ut commodo diam libero vitae erat. Aenean faucibus nibh et
+                      justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae
+                      risus tristique posuere.
+                    </p>
+                  </div>
+                </li>
+                <li
+                  class="not-md:p-gutter py-16 sm:py-20 px-20 sm:px-24 border-b first:border-t"
+                >
+                  <button
+                    @click="active = active === 3 ? null : 3"
+                    class="font-lexend flex gap-50 font-bold sm:text-18 text-left justify-between w-full"
+                  >
+                    <span class="max-w-1000">
+                      Wie läuft der Bewerbungsprozess ab?
+                    </span>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      class="w-32 h-32 shrink-0 text-red transition-transform duration-300"
+                      :class="{ 'rotate-45': active === 3 }"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M18 12.998h-5v5a1 1 0 0 1-2 0v-5H6a1 1 0 0 1 0-2h5v-5a1 1 0 0 1 2 0v5h5a1 1 0 0 1 0 2z"
+                      />
+                    </svg>
+                  </button>
+                  <div
+                    x-ref="panel1"
+                    x-init="$el.style.height = active === 3 ? $el.scrollHeight + 'px' : '0px'"
+                    x-effect="$el.style.height = active === 3 ? $el.scrollHeight + 'px' : '0px'"
+                    class="free_text overflow-hidden transition-[height] duration-300 ease-in-out max-w-1000 *:pt-15"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Suspendisse varius enim in eros elementum tristique. Duis
+                      cursus, mi quis viverra ornare, eros dolor interdum nulla,
+                      ut commodo diam libero vitae erat. Aenean faucibus nibh et
+                      justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae
+                      risus tristique posuere.
+                    </p>
+                  </div>
+                </li>
+                <li
+                  class="not-md:p-gutter py-16 sm:py-20 px-20 sm:px-24 border-b first:border-t"
+                >
+                  <button
+                    @click="active = active === 4 ? null : 4"
+                    class="font-lexend flex gap-50 font-bold sm:text-18 text-left justify-between w-full"
+                  >
+                    <span class="max-w-1000">
+                      Wie läuft der Bewerbungsprozess ab?
+                    </span>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      class="w-32 h-32 shrink-0 text-red transition-transform duration-300"
+                      :class="{ 'rotate-45': active === 4 }"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M18 12.998h-5v5a1 1 0 0 1-2 0v-5H6a1 1 0 0 1 0-2h5v-5a1 1 0 0 1 2 0v5h5a1 1 0 0 1 0 2z"
+                      />
+                    </svg>
+                  </button>
+                  <div
+                    x-ref="panel1"
+                    x-init="$el.style.height = active === 4 ? $el.scrollHeight + 'px' : '0px'"
+                    x-effect="$el.style.height = active === 4 ? $el.scrollHeight + 'px' : '0px'"
+                    class="free_text overflow-hidden transition-[height] duration-300 ease-in-out max-w-1000 *:pt-15"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Suspendisse varius enim in eros elementum tristique. Duis
+                      cursus, mi quis viverra ornare, eros dolor interdum nulla,
+                      ut commodo diam libero vitae erat. Aenean faucibus nibh et
+                      justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae
+                      risus tristique posuere.
+                    </p>
+                  </div>
+                </li>
+
+                <li
+                  class="not-md:p-gutter py-16 sm:py-20 px-20 sm:px-24 border-b first:border-t"
+                >
+                  <button
+                    @click="active = active === 5 ? null : 5"
+                    class="font-lexend flex gap-50 font-bold sm:text-18 text-left justify-between w-full"
+                  >
+                    <span class="max-w-1000">
+                      Wie läuft der Bewerbungsprozess ab?
+                    </span>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      class="w-32 h-32 shrink-0 text-red transition-transform duration-300"
+                      :class="{ 'rotate-45': active === 5 }"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M18 12.998h-5v5a1 1 0 0 1-2 0v-5H6a1 1 0 0 1 0-2h5v-5a1 1 0 0 1 2 0v5h5a1 1 0 0 1 0 2z"
+                      />
+                    </svg>
+                  </button>
+                  <div
+                    x-ref="panel1"
+                    x-init="$el.style.height = active === 5 ? $el.scrollHeight + 'px' : '0px'"
+                    x-effect="$el.style.height = active === 5 ? $el.scrollHeight + 'px' : '0px'"
+                    class="free_text overflow-hidden transition-[height] duration-300 ease-in-out max-w-1000 *:pt-15"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Suspendisse varius enim in eros elementum tristique. Duis
+                      cursus, mi quis viverra ornare, eros dolor interdum nulla,
+                      ut commodo diam libero vitae erat. Aenean faucibus nibh et
+                      justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae
+                      risus tristique posuere.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="row justify-center">
+              <a href="" class="btn btn-red">ZU UNSEREN STELLENANGEBOTEN</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ctm_sec my-sec">
+        <div class="container">
+          <div class="row col_1">
+            <div class="col">
+              <div class="space-y-10">
+                <div
+                  data-aos="fade-up"
+                  class="bg-white rounded-[20px] py-45 xl:py-75 px-20 md:px-30 xl:px-75 flex flex-col items-center gap-25 xl:gap-50"
+                >
+                  <a href="/">
+                    <img src="assets/images/logo.svg" alt="" class="w-300" />
+                  </a>
+                  <div class="divider w-154 border-b border-red"></div>
+                  <div
+                    class="grid md:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-5 text-xs text-center gap-x-32 gap-y-32 xl:gap-y-64"
+                  >
+                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
+                      <a href="/" class="h-68 flex items-center">
+                        <img src="assets/images/logo (1).svg" alt="" />
+                      </a>
+                      <div class="free_text">
+                        <p>
+                          Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                          Lösungsanbieter im Bereich der Rauchgasentstickung für
+                          Großfeuerungsanlagen.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
+                      <a href="/" class="h-68 flex items-center">
+                        <img src="assets/images/logo (2).svg" alt="" />
+                      </a>
+                      <div class="free_text">
+                        <p>
+                          Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                          Lösungsanbieter im Bereich der Rauchgasentstickung für
+                          Großfeuerungsanlagen.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
+                      <a href="/" class="h-68 flex items-center">
+                        <img src="assets/images/logo (3).svg" alt="" />
+                      </a>
+                      <div class="free_text">
+                        <p>
+                          Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                          Lösungsanbieter im Bereich der Rauchgasentstickung für
+                          Großfeuerungsanlagen.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
+                      <a href="/" class="h-68 flex items-center">
+                        <img src="assets/images/logo (4).svg" alt="" />
+                      </a>
+                      <div class="free_text">
+                        <p>
+                          Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                          Lösungsanbieter im Bereich der Rauchgasentstickung für
+                          Großfeuerungsanlagen.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
+                      <a href="/" class="h-68 flex items-center">
+                        <img src="assets/images/logo (5).svg" alt="" />
+                      </a>
+                      <div class="free_text">
+                        <p>
+                          Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                          Lösungsanbieter im Bereich der Rauchgasentstickung für
+                          Großfeuerungsanlagen.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  data-aos="fade-up"
+                  class="bg-white rounded-[20px] p-20 lg:p-40 2xl:p-75 grid 3xl:grid-cols-12 gap-32"
+                >
+                  <div
+                    class="flex flex-col gap-20 3xl:sticky top-120 3xl:col-span-4"
+                  >
+                    <span
+                      class="border-2 rounded-full px-16 py-7 text-xs font-medium uppercase w-fit"
+                    >
+                      Global
+                    </span>
+                    <h2 class="text-32 font-semibold">
+                      Im Ruhrgebiet daheim - in der Welt zuhause.
+                    </h2>
+                    <div class="free_text my-20">
+                      <p>
+                        Ingenieurdienstleistungen und Projekte weltweit
+                        erfolgreich und kompetent zu gestalten, setzt die
+                        Fähigkeit und Bereitschaft voraus, als Unternehmen „über
+                        den Tellerrand blicken zu können“. Ob China, Polen oder
+                        Hawaii - wir sind da, wo wir gebraucht werden. Wir
+                        greifen dabei auf ein starkes, internationales Netzwerk
+                        zu, das es uns ermöglicht, global erfolgreich zu
+                        agieren.
+                      </p>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 text-xs gap-32">
+                      <ul>
+                        <li>Ägypten</li>
+                        <li>Australien</li>
+                        <li>Belgien</li>
+                        <li>Brasilien</li>
+                        <li>Chile</li>
+                        <li>China</li>
+                      </ul>
+                      <ul>
+                        <li>Tschechien</li>
+                        <li>Türkei</li>
+                        <li>Ukraine</li>
+                        <li>Ungarn</li>
+                        <li>USA</li>
+                      </ul>
+                      <ul>
+                        <li>Ägypten</li>
+                        <li>Australien</li>
+                        <li>Belgien</li>
+                        <li>Brasilien</li>
+                      </ul>
+                      <ul>
+                        <li>Tschechien</li>
+                        <li>Türkei</li>
+                        <li>Ukraine</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="3xl:col-span-8">
+                    <img src="assets/images/map.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="my-16 xl:mb-90">
+      <div class="container space-y-16">
+        <div
+          data-aos="fade-up"
+          class="bg-light-blue p-20 lg:p-40 xl:p-60 2xl:p-75 rounded-[20px] flex flex-col gap-30 xl:gap-75"
+        >
+          <a href="/" class="my-50">
+            <img src="assets/images/logo-blue.svg" alt="VDH | GROUP" />
+          </a>
+          <div
+            class="grid md:grid-cols-2 xl:grid-cols-3 3xl:flex gap-50 3xl:gap-100"
+          >
+            <div class="3xl:min-w-max free_text text-sm justify-between">
+              <p>
+                <b>VDH | GROUP</b> <br />
+                Mehldau & Steinfath Umwelttechnik GmbH <br />
+                Alfredstraße 279 <br />
+                45133 Essen <br />
+                Deutschland <br /><br />
+                Telefon: <a href="/">+49 (0) 201 / 4 37 83 - 0</a> <br />
+                Telefax: <a href="/">+49 (0) 201 / 4 37 83 - 33</a> <br />
+                E-Mail: <a href="/">zentrale@vdh-group.de</a>
+              </p>
+              <a href="/">
+                <img
+                  src="assets/icons/linkedin.svg"
+                  alt=""
+                  class="brightness-0"
+                />
+              </a>
+            </div>
+            <div class="3xl:min-w-max flex flex-col gap-26">
+              <span class="text-xs uppercase font-semibold">ERKUNDEN</span>
+              <nav>
+                <ul class="text-sm flex flex-col gap-4 *:hover:underline">
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                  <li>
+                    <a href="#">Über uns</a>
+                  </li>
+                  <li>
+                    <a href="#">Firmen</a>
+                  </li>
+                  <li>
+                    <a href="#">Warum wir?</a>
+                  </li>
+                  <li>
+                    <a href="#">VDH | Group</a>
+                  </li>
+                  <li>
+                    <a href="#">Jobs</a>
+                  </li>
+                  <li>
+                    <a href="#">Kontakt</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="3xl:min-w-max flex flex-col gap-26">
+              <span class="text-xs uppercase font-semibold">ERKUNDEN</span>
+              <nav>
+                <ul class="text-sm flex flex-col gap-4 *:hover:underline">
+                  <li>
+                    <a href="#">M&S Umwelttechnik</a>
+                  </li>
+                  <li>
+                    <a href="#">HKL Anlagentechnik</a>
+                  </li>
+                  <li>
+                    <a href="#">vysion aset</a>
+                  </li>
+                  <li>
+                    <a href="#">M&S Environmental Technologies</a>
+                  </li>
+                  <li>
+                    <a href="#">DrySoTec GmbH</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div
+              class="md:col-span-2 xl:col-span-3 flex flex-col gap-26 text-sm"
+            >
+              <span class="text-xs uppercase font-semibold"
+                >ÜBER DIE VDH | GROUP</span
+              >
+              <p>
+                Die VDH | GROUP ist Ihr Partner im Anlagenbau. Gemeinsam sorgen
+                wir weltweit für einen erfolgreichen Projektabschluss in den
+                Bereichen Umwelttechnik, Verfahrens- und Anlagentechnik oder
+                Elektro-, Mess-, Steuerungs- und Regelungstechnik. Unser
+                Know-how setzen wir dafür ein, individuelle und maßgeschneiderte
+                Lösungen für Ihre Anlage zu entwickeln und auch weiterhin die
+                Beste Verfügbare Technik (BVT) zu definieren.
+              </p>
+              <p>Unsere Unternehmen:</p>
+              <ul
+                class="flex gap-x-16 gap-y-32 items-center justify-center lg:justify-start not-3xl:flex-wrap"
+              >
+                <li>
+                  <a href="#">
+                    <img
+                      src="assets/images/logo (1).svg"
+                      alt=""
+                      class="max-w-120 max-h-32 brightness-30"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="assets/images/logo (2).svg"
+                      alt=""
+                      class="max-w-120 max-h-32 brightness-30"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="assets/images/logo (3).svg"
+                      alt=""
+                      class="max-w-120 max-h-32 brightness-30"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="assets/images/logo (4).svg"
+                      alt=""
+                      class="max-w-120 max-h-32 brightness-30"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="assets/images/logo (5).svg"
+                      alt=""
+                      class="max-w-120 max-h-32 brightness-30"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          data-aos="fade-up"
+          class="bg-dark-blue py-32 px-20 lg:px-40 xl:px-60 2xl:px-75 text-white flex items-center justify-between text-sm rounded-[20px] flex-wrap gap-x-32 gap-y-16"
+        >
+          <div class="font-semibold mx-auto lg:mx-0">© 2025 VDH | GROUP</div>
+          <ul
+            class="flex gap-x-32 gap-y-16 flex-wrap justify-center mx-auto lg:mx-0"
+          >
+            <li>
+              <a href="/">Impressum</a>
+            </li>
+            <li>
+              <a href="/">Datenschutz</a>
+            </li>
+            <li>
+              <a href="/">VDH | GROUP COMMERCIAL CONDITIONS</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        delay: 100,
+        once: true,
+        offset: 50,
+      });
+    </script>
+  </body>
+</html>

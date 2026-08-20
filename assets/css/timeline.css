@@ -1,0 +1,418 @@
+/* ==========================================================================
+   VDH Horizontal / Vertical Timeline — pure HTML + CSS, no JS
+   ==========================================================================
+
+   HOW IT WORKS
+   ------------
+   1. The center axis line is a single <div> that animates width 0 -> 100%.
+   2. Every timeline item is identical markup (see timeline-demo.html) —
+      alternation (above/below the axis) is done entirely with
+      :nth-child(odd) / :nth-child(even), so the backend can loop out the
+      exact same partial for any number of items.
+   3. Staggering is driven by one CSS custom property per item, --tl-index
+      (1, 2, 3 ...). The backend only has to print it once, e.g.:
+         <li class="timeline-item" style="--tl-index: 3">
+      That is a plain inline style value, not a script — identical in
+      spirit to printing a href or a src from the API response. To keep
+      things working even if a template can't do that, the first 12 items
+      also get a matching --tl-index from :nth-child() fallback rules
+      below, so the component still staggers correctly out of the box.
+   4. Every delay is computed with calc() from that single index, so the
+      whole "axis -> connector 1 -> card 1 -> connector 2 -> card 2 ..."
+      sequence falls out of the formula automatically, for any item count.
+   ========================================================================== */
+
+@property --tl-index {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+.timeline-section {
+  /* ---- palette (defaults match the VDH brand tokens; override on
+     .timeline-section to theme per-instance) -------------------------- */
+  --tl-axis-color: var(--color-light-blue, #cce0f0);
+  --tl-connector-color: var(--color-brand-blue, #0066b2);
+  --tl-dot-color: var(--color-red, #b6181f);
+  --tl-dot-ring: #ffffff;
+  --tl-card-bg: #ffffff;
+  --tl-title-color: var(--color-dark-blue, #171835);
+  --tl-text-color: var(--color-grey, #8283a4);
+  --tl-badge-bg: var(--color-brand-blue, #0066b2);
+  --tl-badge-color: #ffffff;
+
+  /* ---- geometry ------------------------------------------------------ */
+  --tl-track-h: clamp(320px, 34vw, 420px);
+  --tl-connector-length: 56px;
+  --tl-connector-thickness: 2px;
+  --tl-dot-size: 14px;
+  --tl-card-w: clamp(180px, 16vw, 260px);
+  --tl-content-gap: 12px;
+  --tl-rail-inset: 28px; /* mobile only: space reserved for the vertical rail + dot */
+
+  /* ---- timing: axis grows, then each connector/card pops in turn ----- */
+  --tl-axis-duration: 1s;
+  --tl-axis-ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --tl-connector-duration: 0.3s;
+  --tl-card-duration: 0.45s;
+  --tl-pop-ease: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  padding-block: clamp(2rem, 4vw, 4rem);
+  font-family: var(--font-lexend, "Lexend", system-ui, sans-serif);
+}
+
+/* ==========================================================================
+   Track + center axis
+   ========================================================================== */
+
+.timeline-track {
+  position: relative;
+  height: var(--tl-track-h);
+  overflow: visible; /* let tall cards spill past the track without shifting layout */
+}
+
+.timeline-axis {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 0; /* animated -> 100% */
+  height: var(--tl-connector-thickness);
+  background: var(--tl-axis-color);
+  transform: translateY(-50%);
+  border-radius: 999px;
+  animation: tl-axis-grow-x var(--tl-axis-duration) var(--tl-axis-ease) forwards;
+}
+
+@keyframes tl-axis-grow-x {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Item list
+   ========================================================================== */
+
+.timeline-list {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-item {
+  position: relative;
+  flex: 1 1 0%;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  /* Default stagger index — overridden per item below (up to 12) or by an
+     inline style="--tl-index:N" printed by the backend for any count. */
+  --tl-index: 1;
+}
+
+/* CSS-only fallback stagger index for the first 12 items. The backend can
+   simply omit --tl-index entirely and this still staggers correctly. */
+.timeline-item:nth-child(1) { --tl-index: 1; }
+.timeline-item:nth-child(2) { --tl-index: 2; }
+.timeline-item:nth-child(3) { --tl-index: 3; }
+.timeline-item:nth-child(4) { --tl-index: 4; }
+.timeline-item:nth-child(5) { --tl-index: 5; }
+.timeline-item:nth-child(6) { --tl-index: 6; }
+.timeline-item:nth-child(7) { --tl-index: 7; }
+.timeline-item:nth-child(8) { --tl-index: 8; }
+.timeline-item:nth-child(9) { --tl-index: 9; }
+.timeline-item:nth-child(10) { --tl-index: 10; }
+.timeline-item:nth-child(11) { --tl-index: 11; }
+.timeline-item:nth-child(12) { --tl-index: 12; }
+
+/* Each item is a fixed-height (100% of the track) column split exactly in
+   half by flex: 0 0 50% below — that 50% mark always lands on the axis,
+   no matter how tall a card's content is, because the split is rigid and
+   overflow is allowed to spill outward instead of resizing the split. */
+
+/* Odd items -> above the axis: park the half-height content block in the
+   TOP half of the item box (0%-50%). */
+.timeline-item:nth-child(odd) {
+  justify-content: flex-start;
+}
+
+/* Even items -> below the axis: park the half-height content block in the
+   BOTTOM half of the item box (50%-100%). */
+.timeline-item:nth-child(even) {
+  justify-content: flex-end;
+}
+
+/* ==========================================================================
+   Content block: dot + connector + card
+   ========================================================================== */
+
+.timeline-content {
+  flex: 0 0 50%; /* rigid half-split, see comment above */
+  display: flex;
+  align-items: center;
+  gap: var(--tl-content-gap);
+}
+
+/* Odd (top) items: stack card, connector, dot — dot lands nearest the
+   axis — and pin the whole group to the bottom edge of its half (= axis). */
+.timeline-item:nth-child(odd) .timeline-content {
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Even (bottom) items: same DOM order (card, connector, dot) but reversed
+   visually with column-reverse, then pinned to the top edge of its half
+   (= axis). Note flex-end here packs against the axis because the main
+   axis is reversed — that is intentional, not a typo. */
+.timeline-item:nth-child(even) .timeline-content {
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+}
+
+/* ---- the dot sitting on the axis ---------------------------------- */
+
+.timeline-dot {
+  flex-shrink: 0;
+  width: var(--tl-dot-size);
+  height: var(--tl-dot-size);
+  border-radius: 50%;
+  background: var(--tl-dot-color);
+  box-shadow: 0 0 0 4px var(--tl-dot-ring);
+  opacity: 0;
+  transform: scale(0);
+  animation: tl-pop-in var(--tl-card-duration) var(--tl-pop-ease) forwards;
+  animation-fill-mode: both;
+  animation-delay: calc(
+    var(--tl-axis-duration) +
+    (var(--tl-index) - 1) * (var(--tl-connector-duration) + var(--tl-card-duration))
+  );
+}
+
+/* ---- the connector, growing out of the axis toward the card -------- */
+
+.timeline-connector {
+  flex-shrink: 0;
+  width: var(--tl-connector-thickness);
+  height: var(--tl-connector-length);
+  background: var(--tl-connector-color);
+  border-radius: 999px;
+  opacity: 0;
+  transform: scaleY(0);
+  animation: tl-connector-grow-y var(--tl-connector-duration) var(--tl-axis-ease) forwards;
+  animation-fill-mode: both;
+  animation-delay: calc(
+    var(--tl-axis-duration) +
+    (var(--tl-index) - 1) * (var(--tl-connector-duration) + var(--tl-card-duration))
+  );
+}
+
+/* Top items: the end touching the axis is the connector's bottom edge,
+   so it must grow FROM the bottom (fixed) UP toward the card. */
+.timeline-item:nth-child(odd) .timeline-connector {
+  transform-origin: bottom center;
+}
+
+/* Bottom items: the end touching the axis is the connector's top edge,
+   so it grows FROM the top (fixed) DOWN toward the card. */
+.timeline-item:nth-child(even) .timeline-connector {
+  transform-origin: top center;
+}
+
+@keyframes tl-connector-grow-y {
+  from {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* ---- the card itself, scaling in from the axis side ----------------- */
+
+.timeline-card {
+  width: var(--tl-card-w);
+  background: var(--tl-card-bg);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 30px -12px rgba(23, 24, 53, 0.25);
+  opacity: 0;
+  transform: scale(0);
+  animation: tl-pop-in var(--tl-card-duration) var(--tl-pop-ease) forwards;
+  animation-fill-mode: both;
+  animation-delay: calc(
+    var(--tl-axis-duration) +
+    (var(--tl-index) - 1) * (var(--tl-connector-duration) + var(--tl-card-duration)) +
+    var(--tl-connector-duration)
+  );
+}
+
+@keyframes tl-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Top cards: origin sits on the edge nearest the axis (bottom), so the
+   card visibly grows outward from the line, downward-anchored. */
+.timeline-item:nth-child(odd) .timeline-card {
+  transform-origin: bottom center;
+}
+
+/* Bottom cards: origin sits on the edge nearest the axis (top), so the
+   card visibly grows outward from the line, upward-anchored. */
+.timeline-item:nth-child(even) .timeline-card {
+  transform-origin: top center;
+}
+
+/* ---- card typography ------------------------------------------------ */
+
+.timeline-card__date {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--tl-badge-color);
+  background: var(--tl-badge-bg);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 8px;
+}
+
+.timeline-card__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--tl-title-color);
+  margin: 0 0 4px;
+}
+
+.timeline-card__desc {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--tl-text-color);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Responsive: tablet / mobile -> single vertical timeline
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  /* The vertical axis needs to span the FULL height of the item list, but
+     that height is unknown (dynamic content, any number of items) — a
+     plain `height: 100%` on an absolutely positioned element can't
+     resolve against an auto-height ancestor per the CSS spec. The fix is
+     the standard "grid stacking" technique: axis and list occupy the
+     same grid cell, so the axis can stretch to match the list's natural
+     content height with no percentage math and no JS measurement. */
+  .timeline-track {
+    display: grid;
+    height: auto;
+    padding-left: var(--tl-rail-inset);
+  }
+
+  .timeline-list {
+    grid-area: 1 / 1;
+    flex-direction: column;
+    height: auto;
+    gap: 28px;
+  }
+
+  .timeline-axis {
+    grid-area: 1 / 1;
+    position: static; /* becomes a real grid item so align-self: stretch can size it */
+    align-self: stretch;
+    justify-self: start;
+    width: var(--tl-connector-thickness);
+    height: auto;
+    /* center the rail under the dot: dot sits flush at the grid cell's
+       start edge, so nudge the rail right by half the dot minus half
+       its own thickness */
+    margin-left: calc(var(--tl-dot-size) / 2 - var(--tl-connector-thickness) / 2);
+    transform: scaleY(0); /* grown via transform, not height, see comment above */
+    transform-origin: top center;
+    animation-name: tl-axis-grow-y;
+  }
+
+  @keyframes tl-axis-grow-y {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    height: auto;
+    justify-content: flex-start;
+  }
+
+  /* One-sided vertical layout: dot on the rail, connector runs sideways
+     to the card. DOM order is (card, connector, dot); row-reverse flips
+     that visually to (dot, connector, card) so the dot lands on the
+     rail and the card reads to its right — no source reordering needed. */
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    flex: 0 0 auto;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  .timeline-connector {
+    width: var(--tl-connector-length);
+    height: var(--tl-connector-thickness);
+  }
+
+  .timeline-item:nth-child(odd) .timeline-connector,
+  .timeline-item:nth-child(even) .timeline-connector {
+    transform-origin: left center;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-card,
+  .timeline-item:nth-child(even) .timeline-card {
+    width: auto;
+    max-width: 420px;
+    transform-origin: left center;
+  }
+}
+
+/* ==========================================================================
+   Accessibility: respect reduced-motion preference
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-connector,
+  .timeline-dot,
+  .timeline-card {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* The axis grows along a different dimension per breakpoint (width on
+     desktop, height on mobile), so instead of hardcoding an end-state
+     here, just make its existing animation effectively instant. */
+  .timeline-axis {
+    animation-duration: 1ms !important;
+    animation-delay: 0s !important;
+  }
+}

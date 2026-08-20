@@ -1,1378 +1,1869 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Gemeinsam gestalten wir die Technik von morgen."
+    />
 
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gemeinsam gestalten wir die Technik von morgen.">
-
-    <meta name="theme-color" content="#000000">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
 
     <title>VDH | Group</title>
 
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
     <script defer src="assets/js/alpine.js"></script>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
 
-</head>
+    <link rel="stylesheet" href="assets/css/aos.css" />
+  </head>
 
-<body>
+  <body>
+    <header
+      class="sticky top-0 mt-24 xl:mt-40 mb-10 z-99999"
+      x-data="{ isMenuOpen: false }"
+    >
+      <div class="container">
+        <div
+          class="bg-white py-16 md:py-27 px-24 md:px-40 rounded-[20px] shadow-[0_4px_4px_#1718351a]"
+        >
+          <div class="flex justify-between items-center gap-20">
+            <a href="/">
+              <img
+                src="assets/images/logo.svg"
+                alt="VDH | GROUP"
+                class="w-115 md:w-auto"
+              />
+            </a>
+            <div class="flex gap-10 items-center">
+              <a href="karriere.html" class="btn btn-red"> Karriere </a>
+              <button class="btn btn-red not-lg:hidden">Kontakt</button>
+              <div class="flex items-center gap-16 md:gap-32">
+                <button
+                  class="md:py-12 md:px-16 rounded-full uppercase text-xs font-medium md:border"
+                >
+                  <span>DE</span>/<span class="text-grey">EN</span>
+                </button>
 
-    <header class="sticky top-0 mt-24 xl:mt-40 mb-10 z-99999" x-data="{ isMenuOpen: false }">
-        <div class="container">
-            <div class="bg-white py-16 md:py-27 px-24 md:px-40 rounded-[20px] shadow-[0_4px_4px_#1718351a]">
-                <div class="flex justify-between items-center gap-20">
-                    <a href="/">
-                        <img src="assets/images/logo.svg" alt="VDH | GROUP" class="w-115 md:w-auto">
-                    </a>
-                    <div class="flex gap-10 items-center">
-                        <a href="karriere.html" class="btn btn-red">
-                            Karriere
-                        </a>
-                        <button class="btn btn-red not-lg:hidden">
-                            Kontakt
-                        </button>
-                        <div class="flex items-center gap-16 md:gap-32">
-                            <button class="md:py-12 md:px-16 rounded-full uppercase text-xs font-medium md:border">
-                                <span>DE</span>/<span class="text-grey">EN</span>
-                            </button>
-
-                            <button aria-label="Umschalter für das mobile Menü" @click="isMenuOpen = !isMenuOpen"
-                                :aria-expanded="isMenuOpen">
-                                <img src="assets/icons/menu.svg" alt="" class="w-20 md:w-32">
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <button
+                  aria-label="Umschalter für das mobile Menü"
+                  @click="isMenuOpen = !isMenuOpen"
+                  :aria-expanded="isMenuOpen"
+                >
+                  <img
+                    src="assets/icons/menu.svg"
+                    alt=""
+                    class="w-20 md:w-32"
+                  />
+                </button>
+              </div>
             </div>
+          </div>
         </div>
-        <div x-cloak x-show="isMenuOpen" x-transition:enter="transition ease-out duration-500"
-            x-transition:enter-start="-translate-y-full" x-transition:enter-end="translate-y-0"
-            x-transition:leave="transition ease-in duration-400" x-transition:leave-start="translate-y-0"
-            x-transition:leave-end="-translate-y-full" :class="open && 'open'"
-            class="fixed inset-0 z-40 flex min-h-screen flex-col bg-brand-blue text-white overflow-y-auto">
-
-            <div class="container flex flex-col h-full">
-                <div class="flex justify-between items-center py-26 md:px-40">
-                    <a href="/">
-                        <img src="assets/images/logo.svg" alt="VDH | GROUP" class="brightness-0 invert w-115 md:w-auto">
-                    </a>
-                    <div class="flex gap-10 items-center">
-                        <a href="/" target="_blank">
-                            <img src="assets/icons/linkedin.svg" alt="">
-                        </a>
-                        <div class="flex items-center gap-32">
-                            <button class="btn-transparent not-md:hidden">
-                                Kontakt
-                            </button>
-                            <button aria-label="Schließen-Button für das mobile Menü" @click="isMenuOpen = false"
-                                :aria-expanded="isMenuOpen">
-                                <img src="assets/icons/close.svg" alt="" class="w-20 md:w-26">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid 2xl:grid-cols-12 md:gap-64 md:p-40 grow">
-                    <div class="2xl:col-span-9 flex flex-col h-full not-md:pt-32 not-md:pb-24">
-                        <ul class="max-w-830 text-xs">
-                            <li
-                                class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between">
-                                <img src="assets/images/ms-logo.svg" alt="" class="w-80 md:w-120">
-                                <p class="not-md:hidden">
-                                    Mehldau & Steinfath Umwelttechnik ist Ihr Partner und Lösungsanbieter im Bereich der
-                                    Rauchgasentstickung für Großfeuerungsanlagen.
-                                </p>
-                                <a href="/" class="py-17 px-32 border rounded-full">
-                                    <svg width="22" height="8" viewBox="0 0 22 8" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
-                                            fill="currentColor"></path>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li
-                                class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between">
-                                <img src="assets/images/hkl.svg" alt="" class="w-80 md:w-120">
-                                <p class="not-md:hidden">
-                                    HKL Anlagentechnik übernimmt die Beratung, Planung und Fertigung von Lager-,
-                                    Abfüll-, und Umschlag-Anlagen in allen Werkstoffen und Produktionsanlagen für
-                                    flüssige Medien und Gase in allen Anwendungsbereichen.
-                                </p>
-                                <a href="/" class="py-17 px-32 border rounded-full">
-                                    <svg width="22" height="8" viewBox="0 0 22 8" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
-                                            fill="currentColor"></path>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li
-                                class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between">
-                                <img src="assets/images/ms-logo.svg" alt="" class="w-80 md:w-120">
-                                <p class="not-md:hidden">
-                                    M&S Environmental Technologies ist ein Tochterunternehmen der M&S Umwelttechnik mit
-                                    Sitz in Ostrava, Tschechien und unterstützt tatkräftig im Bereich Engineering,
-                                    Inbetriebnahme und Service.
-                                </p>
-                                <a href="/" class="py-17 px-32 border rounded-full">
-                                    <svg width="22" height="8" viewBox="0 0 22 8" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
-                                            fill="currentColor"></path>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li
-                                class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between">
-                                <img src="assets/images/vysion.svg" alt="" class="w-80 md:w-120">
-                                <p class="not-md:hidden">
-                                    Mehldau & Steinfath Umwelttechnik ist Ihr Partner und Lösungsanbieter im Bereich der
-                                    Rauchgasentstickung für Großfeuerungsanlagen.
-                                </p>
-                                <a href="/" class="py-17 px-32 border rounded-full">
-                                    <svg width="22" height="8" viewBox="0 0 22 8" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
-                                            fill="currentColor"></path>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li
-                                class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between">
-                                <img src="assets/images/drysotec.svg" alt="" class="w-80 md:w-120">
-                                <p class="not-md:hidden">
-                                    DrySoTec GmbH ist Ihr Partner für innovative, ökologisch und ökonomisch optimierte
-                                    Rauchgasreinigungen nach neuestem Stand der Technik.
-                                </p>
-                                <a href="/" class="py-17 px-32 border rounded-full">
-                                    <svg width="22" height="8" viewBox="0 0 22 8" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
-                                            fill="currentColor"></path>
-                                    </svg>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="flex gap-40 text-sm mt-auto not-md:justify-center not-md:py-20">
-                            <li>
-                                <a href="#">Impressum</a>
-                            </li>
-                            <li>
-                                <a href="#">Datenschutz</a>
-                            </li>
-                        </ul>
-                        <button class="btn-transparent md:hidden mx-auto">
-                            Kontakt
-                        </button>
-                    </div>
-                    <div class="col-span-3 flex flex-col gap-28 not-2xl:hidden">
-                        <div class="rounded-2xl overflow-hidden relative aspect-[.8/1]">
-                            <video autoplay loop muted playsinline class="absolute inset-0 size-full object-cover">
-                                <source src="assets/videos/video1.mp4" type="video/mp4">
-                                <source src="assets/videos/video1.webm" type="video/webm">
-                                Ihr Browser unterstützt keine Videos.
-                            </video>
-                        </div>
-                        <div class="free_text text-sm">
-                            <p>
-                                VDH | GROUP <br>
-                                Mehldau & Steinfath Umwelttechnik GmbH <br>
-                                Alfredstraße 279 <br>
-                                45133 Essen <br>
-                                Deutschland <br> <br>
-                                Telefon: <a href="/">+49 (0) 201 / 4 37 83 - 0</a> <br>
-                                Telefax: <a href="/">+49 (0) 201 / 4 37 83 - 33</a> <br>
-                                E-Mail: <a href="/">zentrale@vdh-group.de</a>
-                            </p>
-                        </div>
-                        <a href="/" target="_blank">
-                            <img src="assets/icons/linkedin.svg" alt="">
-                        </a>
-                    </div>
-                </div>
+      </div>
+      <div
+        x-cloak
+        x-show="isMenuOpen"
+        x-transition:enter="transition ease-out duration-500"
+        x-transition:enter-start="-translate-y-full"
+        x-transition:enter-end="translate-y-0"
+        x-transition:leave="transition ease-in duration-400"
+        x-transition:leave-start="translate-y-0"
+        x-transition:leave-end="-translate-y-full"
+        :class="open && 'open'"
+        class="fixed inset-0 z-40 flex min-h-screen flex-col bg-brand-blue text-white overflow-y-auto"
+      >
+        <div class="container flex flex-col h-full">
+          <div class="flex justify-between items-center gap-20">
+            <a href="/">
+              <img
+                src="assets/images/logo.svg"
+                alt="VDH | GROUP"
+                class="min-w-80  w-112 md:w-auto"
+              />
+            </a>
+            <div class="flex gap-10 items-center">
+              <a href="/" target="_blank">
+                <img src="assets/icons/linkedin.svg" alt="" />
+              </a>
+              <div class="flex items-center gap-32">
+                <button class="btn-border-light not-md:hidden">Kontakt</button>
+                <button
+                  aria-label="Schließen-Button für das mobile Menü"
+                  @click="isMenuOpen = false"
+                  :aria-expanded="isMenuOpen"
+                >
+                  <img
+                    src="assets/icons/close.svg"
+                    alt=""
+                    class="w-20 md:w-26"
+                  />
+                </button>
+              </div>
             </div>
-
+          </div>
+          <div class="grid 2xl:grid-cols-12 md:gap-64 md:p-40 grow">
+            <div
+              class="2xl:col-span-9 flex flex-col h-full not-md:pt-32 not-md:pb-24"
+            >
+              <ul class="max-w-830 text-xs">
+                <li
+                  class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between"
+                >
+                  <img
+                    src="assets/images/ms-logo.svg"
+                    alt=""
+                    class="w-80 md:w-120"
+                  />
+                  <p class="not-md:hidden">
+                    Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                    Lösungsanbieter im Bereich der Rauchgasentstickung für
+                    Großfeuerungsanlagen.
+                  </p>
+                  <a href="/" class="py-17 px-32 border rounded-full">
+                    <svg
+                      width="22"
+                      height="8"
+                      viewBox="0 0 22 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li
+                  class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between"
+                >
+                  <img
+                    src="assets/images/hkl.svg"
+                    alt=""
+                    class="w-80 md:w-120"
+                  />
+                  <p class="not-md:hidden">
+                    HKL Anlagentechnik übernimmt die Beratung, Planung und
+                    Fertigung von Lager-, Abfüll-, und Umschlag-Anlagen in allen
+                    Werkstoffen und Produktionsanlagen für flüssige Medien und
+                    Gase in allen Anwendungsbereichen.
+                  </p>
+                  <a href="/" class="py-17 px-32 border rounded-full">
+                    <svg
+                      width="22"
+                      height="8"
+                      viewBox="0 0 22 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li
+                  class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between"
+                >
+                  <img
+                    src="assets/images/ms-logo.svg"
+                    alt=""
+                    class="w-80 md:w-120"
+                  />
+                  <p class="not-md:hidden">
+                    M&S Environmental Technologies ist ein Tochterunternehmen
+                    der M&S Umwelttechnik mit Sitz in Ostrava, Tschechien und
+                    unterstützt tatkräftig im Bereich Engineering,
+                    Inbetriebnahme und Service.
+                  </p>
+                  <a href="/" class="py-17 px-32 border rounded-full">
+                    <svg
+                      width="22"
+                      height="8"
+                      viewBox="0 0 22 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li
+                  class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between"
+                >
+                  <img
+                    src="assets/images/vysion.svg"
+                    alt=""
+                    class="w-80 md:w-120"
+                  />
+                  <p class="not-md:hidden">
+                    Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                    Lösungsanbieter im Bereich der Rauchgasentstickung für
+                    Großfeuerungsanlagen.
+                  </p>
+                  <a href="/" class="py-17 px-32 border rounded-full">
+                    <svg
+                      width="22"
+                      height="8"
+                      viewBox="0 0 22 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+                <li
+                  class="animated_line relative flex gap-32 xl:gap-64 pb-26 xl:pb-40 mb-26 xl:mb-40 items-center last:mb-20 justify-between"
+                >
+                  <img
+                    src="assets/images/drysotec.svg"
+                    alt=""
+                    class="w-80 md:w-120"
+                  />
+                  <p class="not-md:hidden">
+                    DrySoTec GmbH ist Ihr Partner für innovative, ökologisch und
+                    ökonomisch optimierte Rauchgasreinigungen nach neuestem
+                    Stand der Technik.
+                  </p>
+                  <a href="/" class="py-17 px-32 border rounded-full">
+                    <svg
+                      width="22"
+                      height="8"
+                      viewBox="0 0 22 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.3536 4.35355C21.5488 4.15829 21.5488 3.84171 21.3536 3.64645L18.1716 0.464466C17.9763 0.269204 17.6597 0.269204 17.4645 0.464466C17.2692 0.659728 17.2692 0.976311 17.4645 1.17157L20.2929 4L17.4645 6.82843C17.2692 7.02369 17.2692 7.34027 17.4645 7.53553C17.6597 7.7308 17.9763 7.7308 18.1716 7.53553L21.3536 4.35355ZM0 4.5H21V3.5H0V4.5Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+              <ul
+                class="flex gap-40 text-sm mt-auto not-md:justify-center not-md:py-20"
+              >
+                <li>
+                  <a href="#">Impressum</a>
+                </li>
+                <li>
+                  <a href="#">Datenschutz</a>
+                </li>
+              </ul>
+              <button class="btn-transparent md:hidden mx-auto">Kontakt</button>
+            </div>
+            <div class="col-span-3 flex flex-col gap-28 not-2xl:hidden">
+              <div class="rounded-2xl overflow-hidden relative aspect-[.8/1]">
+                <video
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  class="absolute inset-0 size-full object-cover"
+                >
+                  <source src="assets/videos/video1.mp4" type="video/mp4" />
+                  <source src="assets/videos/video1.webm" type="video/webm" />
+                  Ihr Browser unterstützt keine Videos.
+                </video>
+              </div>
+              <div class="free_text text-sm">
+                <p>
+                  VDH | GROUP <br />
+                  Mehldau & Steinfath Umwelttechnik GmbH <br />
+                  Alfredstraße 279 <br />
+                  45133 Essen <br />
+                  Deutschland <br />
+                  <br />
+                  Telefon: <a href="/">+49 (0) 201 / 4 37 83 - 0</a> <br />
+                  Telefax: <a href="/">+49 (0) 201 / 4 37 83 - 33</a> <br />
+                  E-Mail: <a href="/">zentrale@vdh-group.de</a>
+                </p>
+              </div>
+              <a href="/" target="_blank">
+                <img src="assets/icons/linkedin.svg" alt="" />
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
     </header>
 
-    <div x-data="scrollSpy()" class="fixed top-1/2 right-0 -translate-y-1/2 p-16 flex flex-col not-md:hidden">
-        <button class="sec_link group">
-            <span class="sec_name">Start</span>
-            <span class="sec_indi"></span>
-        </button>
-        <button class="sec_link group">
-            <span class="sec_name">Über uns</span>
-            <span class="sec_indi"></span>
-        </button>
-        <button class="sec_link group">
-            <span class="sec_name">Firmen</span>
-            <span class="sec_indi"></span>
-        </button>
-        <button class="sec_link group">
-            <span class="sec_name">Warum wir?</span>
-            <span class="sec_indi"></span>
-        </button>
-        <button class="sec_link group">
-            <span class="sec_name">VDH Group</span>
-            <span class="sec_indi"></span>
-        </button>
-        <button class="sec_link group">
-            <span class="sec_name">Jobs</span>
-            <span class="sec_indi"></span>
-        </button>
-        <button class="sec_link group">
-            <span class="sec_name">Kontakt</span>
-            <span class="sec_indi"></span>
-        </button>
+    <div
+      x-data="scrollSpy()"
+      class="fixed top-1/2 right-0 -translate-y-1/2 p-16 flex flex-col not-md:hidden z-9999"
+    >
+      <button class="sec_link group">
+        <span class="sec_name">Start</span>
+        <span class="sec_indi"></span>
+      </button>
+      <button class="sec_link group">
+        <span class="sec_name">Über uns</span>
+        <span class="sec_indi"></span>
+      </button>
+      <button class="sec_link group">
+        <span class="sec_name">Firmen</span>
+        <span class="sec_indi"></span>
+      </button>
+      <button class="sec_link group">
+        <span class="sec_name">Warum wir?</span>
+        <span class="sec_indi"></span>
+      </button>
+      <button class="sec_link group">
+        <span class="sec_name">VDH Group</span>
+        <span class="sec_indi"></span>
+      </button>
+      <button class="sec_link group">
+        <span class="sec_name">Jobs</span>
+        <span class="sec_indi"></span>
+      </button>
+      <button class="sec_link group">
+        <span class="sec_name">Kontakt</span>
+        <span class="sec_indi"></span>
+      </button>
     </div>
 
     <main>
-
-        <section data-section>
-            <div class="container">
-                <div class="row col_1">
-                    <div class="col">
-                        <div class="space-y-10">
-                            <div class="grid lg:grid-cols-2 gap-26">
-                                <div
-                                    class="border-l-8 2xl:border-l-20 border-red flex flex-col justify-end gap-20 2xl:gap-40 p-30 2xl:p-75 bg-dark-blue text-white rounded-[20px]">
-                                    <h1 class="text-64 2xl:font-semibold lg:max-w-420">
-                                        Gemeinsam gestalten wir die Technik von morgen.
-                                    </h1>
-                                    <ul class="flex gap-20 text-18">
-                                        <li>individuell</li>
-                                        <li>nachhaltig</li>
-                                        <li>erfolgreich</li>
-                                    </ul>
-                                    <a href="#" class="btn btn-light mt-16 2xl:mt-35">
-                                        MEHR ERFAHREN
-                                    </a>
-                                </div>
-                                <div class="rounded-2xl overflow-hidden relative aspect-video lg:aspect-square">
-                                    <video autoplay loop muted playsinline
-                                        class="absolute inset-0 size-full object-cover">
-                                        <source src="assets/videos/video1.mp4" type="video/mp4">
-                                        <source src="assets/videos/video1.webm" type="video/webm">
-                                        Ihr Browser unterstützt keine Videos.
-                                    </video>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
-                                <div
-                                    class="bg-white relative rounded-[20px] grid place-items-center 2xl:py-75 p-35 2xl:px-50">
-                                    <img src="assets/images/logo (1).svg" alt="">
-                                </div>
-                                <div
-                                    class="bg-white relative rounded-[20px] grid place-items-center 2xl:py-75 p-35 2xl:px-50">
-                                    <img src="assets/images/logo (2).svg" alt="">
-                                </div>
-                                <div
-                                    class="bg-white relative rounded-[20px] grid place-items-center 2xl:py-75 p-35 2xl:px-50">
-                                    <img src="assets/images/logo (3).svg" alt="">
-                                </div>
-                                <div
-                                    class="bg-white relative rounded-[20px] grid place-items-center 2xl:py-75 p-35 2xl:px-50">
-                                    <img src="assets/images/logo (4).svg" alt="">
-                                </div>
-                                <div
-                                    class="bg-white relative rounded-[20px] grid place-items-center 2xl:py-75 p-35 2xl:px-50">
-                                    <img src="assets/images/logo (5).svg" alt="">
-                                </div>
-                            </div>
-                        </div>
+      <section data-section>
+        <div class="container">
+          <div class="row col_1">
+            <div class="col">
+              <div class="space-y-10">
+                <div class="grid lg:grid-cols-2 gap-26">
+                  <div
+                    class="border-l-8 2xl:border-l-20 border-red flex flex-col justify-end gap-20 2xl:gap-40 p-30 2xl:p-75 bg-dark-blue text-white rounded-[20px]"
+                  >
+                    <h1 class="text-64 2xl:font-semibold lg:max-w-420">
+                      Gemeinsam gestalten wir die Technik von morgen.
+                    </h1>
+                    <ul class="flex gap-20 text-18">
+                      <li>individuell</li>
+                      <li>nachhaltig</li>
+                      <li>erfolgreich</li>
+                    </ul>
+                    <a href="#" class="btn btn-light mt-16 2xl:mt-35">
+                      MEHR ERFAHREN
+                    </a>
+                  </div>
+                  <div
+                    class="rounded-2xl overflow-hidden relative aspect-video lg:aspect-square"
+                  >
+                    <video
+                      autoplay
+                      loop
+                      muted
+                      playsinline
+                      class="absolute inset-0 size-full object-cover"
+                    >
+                      <source src="assets/videos/video1.mp4" type="video/mp4" />
+                      <source
+                        src="assets/videos/video1.webm"
+                        type="video/webm"
+                      />
+                      Ihr Browser unterstützt keine Videos.
+                    </video>
+                    <div class="wm_wrapper absolute bottom-20 right-20 z-10">
+                    <div class="wm_img">
+                      <img
+                        src="assets/images/KI generiert.svg"
+                        alt="KI generiert"
+                      />
                     </div>
+                  </div>
+                  </div>
                 </div>
+                <div
+                  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10"
+                >
+                  <div
+                    class="bg-white relative rounded-[20px] grid place-items-center 2xl:py-75 p-35 2xl:px-50"
+                  >
+                    <img src="assets/images/logo (1).svg" alt="" />
+                  </div>
+                  <div
+                    class="bg-white relative rounded-[20px] grid place-items-center 2xl:py-75 p-35 2xl:px-50"
+                  >
+                    <img src="assets/images/logo (2).svg" alt="" />
+                  </div>
+                  <div
+                    class="bg-white relative rounded-[20px] grid place-items-center 2xl:py-75 p-35 2xl:px-50"
+                  >
+                    <img src="assets/images/logo (3).svg" alt="" />
+                  </div>
+                  <div
+                    class="bg-white relative rounded-[20px] grid place-items-center 2xl:py-75 p-35 2xl:px-50"
+                  >
+                    <img src="assets/images/logo (4).svg" alt="" />
+                  </div>
+                  <div
+                    class="bg-white relative rounded-[20px] grid place-items-center 2xl:py-75 p-35 2xl:px-50 col-span-2 md:col-span-1"
+                  >
+                    <img src="assets/images/logo (5).svg" alt="" />
+                  </div>
+                </div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section data-section class="ctm_sec my-sec">
-            <div class="container">
-                <div class="row col_1">
-                    <div class="col">
-                        <div class="space-y-30 xl:space-y-75">
-                            <div class="xl:px-75 flex flex-col gap-30 xl:gap-100">
-                                <h2 class="text-32 font-semibold">
-                                    Ihr Partner und Lösungsanbieter im Anlagenbau.
-                                </h2>
-                                <div class="free_text">
-                                    <p>
-                                        Wir als VDH | Group stehen Ihnen weltweit als <span>starker Partner im
-                                            Anlagenbau</span> zur Seite. Gemeinsam bringen wir Ihr Projekt in den
-                                        Bereichen Umwelttechnik, Verfahrenstechnik oder Elektro-, Mess-, Steuerungs- und
-                                        Regelungstechnik erfolgreich ans Ziel. Mit unserem umfassenden Know-how
-                                        entwickeln wir maßgeschneiderte Lösungen, die perfekt auf Ihre Anlage abgestimmt
-                                        sind - und setzen dabei neue Standards für die Beste Verfügbare Technik (BVT).
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-10">
-                                <div class="lg:aspect-square flex bg-white flex-col justify-between gap-24 rounded-[20px] md:py-32 p-20"
-                                    x-data="counter(5)" x-intersect.once="start()">
-                                    <span class="text-100 text-red" x-text="count">5</span>
-                                    <h3 class="text-brand-blue font-normal">Firmen</h3>
-                                </div>
-                                <div class="lg:aspect-square flex bg-white flex-col justify-between gap-24 rounded-[20px] md:py-32 p-20"
-                                    x-data="counter(30)" x-intersect.once="start()">
-                                    <span class="text-100 text-red" x-text="count">30</span>
-                                    <h3 class="text-brand-blue font-normal">In mehr als 30 Ländern aktiv</h3>
-                                </div>
-                                <div class="lg:aspect-square flex bg-white flex-col justify-between gap-24 rounded-[20px] md:py-32 p-20"
-                                    x-data="counter(80)" x-intersect.once="start()">
-                                    <span class="text-100 text-red" x-text="count">80</span>
-                                    <h3 class="text-brand-blue font-normal">Mitarbeiter</h3>
-                                </div>
-                                <div class="lg:aspect-square flex bg-white flex-col justify-between gap-24 rounded-[20px] md:py-32 p-20"
-                                    x-data="counter(20)" x-intersect.once="start()">
-                                    <span class="text-100 text-red" x-text="count">20</span>
-                                    <h3 class="text-brand-blue font-normal">Über 20 Mio. € Umsatz</h3>
-                                </div>
-                            </div>
-                        </div>
+      <section data-section class="ctm_sec my-sec">
+        <div class="container">
+          <div class="row col_1">
+            <div class="col">
+              <div class="space-y-30 xl:space-y-75">
+                <div class="xl:px-75 flex flex-col gap-30 xl:gap-100 max-w-1010">
+                  <h2 data-aos="fade-up" class="text-32 font-semibold">
+                    Ihr Partner und Lösungsanbieter im Anlagenbau.
+                  </h2>
+                  <div data-aos="fade-up" class="free_text">
+                    <h3>
+                      Wir als VDH | Group stehen Ihnen weltweit als
+                      <span>starker Partner im Anlagenbau</span> zur Seite.
+                      Gemeinsam bringen wir Ihr Projekt in den Bereichen
+                      Umwelttechnik, Verfahrenstechnik oder Elektro-, Mess-,
+                      Steuerungs- und Regelungstechnik erfolgreich ans Ziel. Mit
+                      unserem umfassenden Know-how entwickeln wir
+                      maßgeschneiderte Lösungen, die perfekt auf Ihre Anlage
+                      abgestimmt sind - und setzen dabei neue Standards für die
+                      Beste Verfügbare Technik (BVT).
+                    </h3>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-10">
+                  <div
+                    data-aos="fade-up"
+                    class="lg:aspect-square flex bg-white flex-col justify-between gap-24 rounded-[20px] md:py-32 p-20"
+                    x-data="counter(5)"
+                    x-intersect.once="start()"
+                  >
+                    <span class="text-100 text-red" x-text="count">5</span>
+                    <h3 class="text-brand-blue font-normal">Firmen</h3>
+                  </div>
+                  <div
+                    data-aos="fade-up"
+                    class="lg:aspect-square flex bg-white flex-col justify-between gap-24 rounded-[20px] md:py-32 p-20"
+                    x-data="counter(30)"
+                    x-intersect.once="start()"
+                  >
+                    <span class="text-100 text-red" x-text="count">30</span>
+                    <h3 class="text-brand-blue font-normal">
+                      In mehr als 30 Ländern aktiv
+                    </h3>
+                  </div>
+                  <div
+                    data-aos="fade-up"
+                    class="lg:aspect-square flex bg-white flex-col justify-between gap-24 rounded-[20px] md:py-32 p-20"
+                    x-data="counter(80)"
+                    x-intersect.once="start()"
+                  >
+                    <span class="text-100 text-red" x-text="count">80</span>
+                    <h3 class="text-brand-blue font-normal">Mitarbeiter</h3>
+                  </div>
+                  <div
+                    data-aos="fade-up"
+                    class="lg:aspect-square flex bg-white flex-col justify-between gap-24 rounded-[20px] md:py-32 p-20"
+                    x-data="counter(20)"
+                    x-intersect.once="start()"
+                  >
+                    <span class="text-100 text-red" x-text="count">20</span>
+                    <h3 class="text-brand-blue font-normal">
+                      Über 20 Mio. € Umsatz
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-section class="ctm_sec my-sec">
+        <div class="container">
+          <div class="row col_1">
+            <div class="col">
+              <div class="space-y-30 xl:space-y-75">
+                <h2 data-aos="fade-up" class="text-32 font-semibold">
+                  Alles unter einem Dach
+                </h2>
+                <div class="grid grid-cols-6 gap-10">
+                  <div
+                    data-aos="fade-up"
+                    class="bg-white rounded-[20px] py-32 px-20 flex flex-col gap-20 col-span-6 md:col-span-3 xl:col-span-2"
+                  >
+                    <h3 class="text-22 text-brand-blue font-normal">
+                      Umwelttechnik
+                    </h3>
+                    <div class="free_text text-18">
+                      <p>
+                        Wir sind Ihr Partner und Lösungsanbieter im Bereich der
+                        Rauchgasentstickung für Großfeuerungsanlagen.
+                      </p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section data-section class="ctm_sec my-sec">
-            <div class="container">
-                <div class="row col_1">
-                    <div class="col">
-                        <div class="space-y-30 xl:space-y-75">
-                            <h2 class="text-32 font-semibold">
-                                Alles unter einem Dach
-                            </h2>
-                            <div class="grid grid-cols-6 gap-10">
-                                <div
-                                    class="bg-white rounded-[20px] py-32 px-20 flex flex-col gap-20 col-span-6 md:col-span-3 xl:col-span-2">
-                                    <h3 class="text-22 text-brand-blue font-normal">
-                                        Umwelttechnik
-                                    </h3>
-                                    <div class="free_text text-18">
-                                        <p>
-                                            Wir sind Ihr Partner und Lösungsanbieter im Bereich der Rauchgasentstickung
-                                            für
-                                            Großfeuerungsanlagen.
-                                        </p>
-                                    </div>
-                                    <a href="/" class="border-2 font-medium py-6 px-24 rounded-full text-xs w-fit">
-                                        ZU M&S UMWELTTECHNIK
-                                    </a>
-                                </div>
-                                <div
-                                    class="bg-white rounded-[20px] py-32 px-20 flex flex-col gap-20 col-span-6 md:col-span-3 xl:col-span-2">
-                                    <h3 class="text-22 text-brand-blue font-normal">
-                                        Umwelttechnik
-                                    </h3>
-                                    <div class="free_text text-18">
-                                        <p>
-                                            Wir beraten, planen und errichten Lager-, Abfüll-, und Umschlag-Anlagen in
-                                            allen
-                                            Werkstoffen und Produktionsanlagen für flüssige Medien und Gase in allen
-                                            Anwendungsbereichen.
-                                        </p>
-                                    </div>
-                                    <a href="/" class="border-2 font-medium py-6 px-24 rounded-full text-xs w-fit">
-                                        ZU M&S UMWELTTECHNIK
-                                    </a>
-                                </div>
-                                <div
-                                    class="bg-white rounded-[20px] py-32 px-20 flex flex-col gap-20 col-span-6 md:col-span-3 xl:col-span-2">
-                                    <h3 class="text-22 text-brand-blue font-normal">
-                                        Umwelttechnik
-                                    </h3>
-                                    <div class="free_text text-18">
-                                        <p>
-                                            Wir sind Ihr Partner und Lösungsanbieter im Bereich der Rauchgasentstickung
-                                            für
-                                            Großfeuerungsanlagen.
-                                        </p>
-                                    </div>
-                                    <a href="/" class="border-2 font-medium py-6 px-24 rounded-full text-xs w-fit">
-                                        ZU M&S ENVIRONMENTAL TECHNOLOGIES
-                                    </a>
-                                </div>
-                                <div
-                                    class="bg-white rounded-[20px] py-32 px-20 flex flex-col gap-20 col-span-6 md:col-span-3">
-                                    <h3 class="text-22 text-brand-blue font-normal">
-                                        Umwelttechnik
-                                    </h3>
-                                    <div class="free_text text-18">
-                                        <p>
-                                            Wir sind Ihr Partner und Lösungsanbieter im Bereich der Rauchgasentstickung
-                                            für
-                                            Großfeuerungsanlagen.
-                                        </p>
-                                    </div>
-                                    <a href="/" class="border-2 font-medium py-6 px-24 rounded-full text-xs w-fit">
-                                        ZU M&S UMWELTTECHNIK
-                                    </a>
-                                </div>
-                                <div
-                                    class="bg-white rounded-[20px] py-32 px-20 flex flex-col gap-20 col-span-6 md:col-span-3">
-                                    <h3 class="text-22 text-brand-blue font-normal">
-                                        Umwelttechnik
-                                    </h3>
-                                    <div class="free_text text-18">
-                                        <p>
-                                            Wir sind Ihr Partner und Lösungsanbieter im Bereich der Rauchgasentstickung
-                                            für
-                                            Großfeuerungsanlagen.
-                                        </p>
-                                    </div>
-                                    <a href="/" class="border-2 font-medium py-6 px-24 rounded-full text-xs w-fit">
-                                        ZU M&S UMWELTTECHNIK
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <a
+                      href="/"
+                      class="border-2 font-medium py-6 px-24 rounded-full text-xs w-fit btn-transparent btn"
+                    >
+                      ZU M&S UMWELTTECHNIK
+                    </a>
+                  </div>
+                  <div
+                    data-aos="fade-up"
+                    class="bg-white rounded-[20px] py-32 px-20 flex flex-col gap-20 col-span-6 md:col-span-3 xl:col-span-2"
+                  >
+                    <h3 class="text-22 text-brand-blue font-normal">
+                      Umwelttechnik
+                    </h3>
+                    <div class="free_text text-18">
+                      <p>
+                        Wir beraten, planen und errichten Lager-, Abfüll-, und
+                        Umschlag-Anlagen in allen Werkstoffen und
+                        Produktionsanlagen für flüssige Medien und Gase in allen
+                        Anwendungsbereichen.
+                      </p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section data-section class="ctm_sec py-sec bg-white">
-            <div class="container">
-                <div class="row col_1">
-                    <div class="col">
-                        <div class="space-y-30 xl:space-y-75">
-                            <div class="xl:px-75 flex flex-col gap-30 xl:gap-100 max-w-1050">
-                                <h2 class="text-32 font-semibold">
-                                    Warum wir?
-                                </h2>
-                                <div class="free_text">
-                                    <p>
-                                        Unsere Unternehmen decken einen Großteil der Bereiche im Anlagenbau ab. Unsere
-                                        jahrelange
-                                        Erfahrung, unser hoher Qualitätsanspruch und unsere kurzen Kommunikationswege
-                                        ermöglichen
-                                        uns Synergieeffekte zu erzeugen, die eine kompetente, wirtschaftliche und
-                                        sichere Abwicklung
-                                        der Projekte garantieren.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="rounded-2xl overflow-hidden relative h-500">
-                                <video autoplay loop muted playsinline class="absolute inset-0 size-full object-cover">
-                                    <source src="assets/videos/video2.mp4" type="video/mp4">
-                                    <source src="assets/videos/video2.webm" type="video/webm">
-                                    Ihr Browser unterstützt keine Videos.
-                                </video>
-                            </div>
-                            <div class="lg:px-75 flex flex-col gap-50 md:gap-64">
-                                <span
-                                    class="border-2 text-red rounded-full px-16 py-7 text-xs font-medium uppercase w-fit">
-                                    Warum Wir
-                                </span>
-                                <div class="relative">
-                                    <div
-                                        class="grid 2xl:grid-cols-2 gap-x-64 gap-y-32 lg:gap-y-96 md:pl-64 md:border-l md:border-red">
-                                        <div class="flex gap-20 items-start not-md:flex-col">
-                                            <div
-                                                class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80">
-                                                <img src="assets/icons/idea.svg" alt="" class="max-w-full max-h-full">
-                                            </div>
-                                            <div class="flex flex-col gap-10 xl:gap-20">
-                                                <h3 class="text-22 font-normal">
-                                                    Alles aus einer Hand / Synergieeffekte
-                                                </h3>
-                                                <div class="free_text">
-                                                    <p>
-                                                        Ob Umwelttechnik, Verfahrens- und Anlagentechnik oder Elektro-,
-                                                        Mess-,
-                                                        Steuerungs- und Regelungstechnik - alle diese Bereiche vereinen
-                                                        wir unter
-                                                        einem Dach. Das erspart uns und unseren Kunden Zeit, sichert
-                                                        eine effektive
-                                                        Abwicklung und einen hohen Qualitätsstandard.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-20 items-start not-md:flex-col">
-                                            <div
-                                                class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80">
-                                                <img src="assets/icons/document.svg" alt=""
-                                                    class="max-w-full max-h-full">
-                                            </div>
-                                            <div class="flex flex-col gap-10 xl:gap-20">
-                                                <h3 class="text-22 font-normal">
-                                                    Beste Ausbildung für höchste Qualität
-                                                </h3>
-                                                <div class="free_text">
-                                                    <p>
-                                                        Auf dem soliden Fundament gut ausgebildeter Fachkräfte bauen
-                                                        unsere
-                                                        Leistungen auf. Unsere Kombination unterschiedlicher
-                                                        Qualifikationen auf
-                                                        hohem Niveau eröffnet unseren Kunden die Möglichkeit, uns als
-                                                        General-Unternehmer für Neu- und Umbauten oder Komplett-
-                                                        Dienstleister für
-                                                        die Instandhaltung einzusetzen.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-20 items-start not-md:flex-col">
-                                            <div
-                                                class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80">
-                                                <img src="assets/icons/repair.svg" alt="" class="max-w-full max-h-full">
-                                            </div>
-                                            <div class="flex flex-col gap-10 xl:gap-20">
-                                                <h3 class="text-22 font-normal">
-                                                    Erfahrung
-                                                </h3>
-                                                <div class="free_text">
-                                                    <p>
-                                                        Zusammen haben wir mehr als 100 Jahre Erfahrung im Anlagenbau.
-                                                        Wir kennen
-                                                        die Probleme der Branche und auch die Lösungen.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-20 items-start not-md:flex-col">
-                                            <div
-                                                class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80">
-                                                <img src="assets/icons/germany.svg" alt=""
-                                                    class="max-w-full max-h-full">
-                                            </div>
-                                            <div class="flex flex-col gap-10 xl:gap-20">
-                                                <h3 class="text-22 font-normal">
-                                                    Made in Germany
-                                                </h3>
-                                                <div class="free_text">
-                                                    <p>
-                                                        Alle unsere Produkte sind in Deutschland gefertigt. Unsere HKL
-                                                        Anlagentechnik GmbH ist eine zertifizierte Fertigungsstätte, die
-                                                        Qualität in
-                                                        Eigenproduktion garantiert.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-20 items-start not-md:flex-col">
-                                            <div
-                                                class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80">
-                                                <img src="assets/icons/deal.svg" alt="" class="max-w-full max-h-full">
-                                            </div>
-                                            <div class="flex flex-col gap-10 xl:gap-20">
-                                                <h3 class="text-22 font-normal">
-                                                    Partnerschaftlich
-                                                </h3>
-                                                <div class="free_text">
-                                                    <p>
-                                                        Als kundenorientiertes Unternehmen denken und handeln wir
-                                                        partnerschaftlich,
-                                                        offen und ehrlich. Unsere hohe Leistungsfähigkeit in den
-                                                        vielseitigen
-                                                        Fachbereichen beruht auf einer effizienten Struktur mit kurzen
-                                                        Wegen,
-                                                        unbürokratischen Entscheidungen und ausgeprägtem
-                                                        Kostenbewusstsein.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-20 items-start not-md:flex-col">
-                                            <div
-                                                class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80">
-                                                <img src="assets/icons/certi.svg" alt="" class="max-w-full max-h-full">
-                                            </div>
-                                            <div class="flex flex-col gap-10 xl:gap-20">
-                                                <h3 class="text-22 font-normal">
-                                                    Patente
-                                                </h3>
-                                                <div class="free_text">
-                                                    <p>
-                                                        Wir definieren den Stand der Technik und entwickeln uns stetig
-                                                        weiter. Mit
-                                                        unseren patentierten Verfahren zur Rauchgasent-stickung können
-                                                        wir selbst
-                                                        die schwierigsten Kesselbedingungen überwinden. Unser Motto:
-                                                        „Geht nicht,
-                                                        gibt’s nicht!“
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-20 items-start not-md:flex-col">
-                                            <div
-                                                class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80">
-                                                <img src="assets/icons/badge.svg" alt="" class="max-w-full max-h-full">
-                                            </div>
-                                            <div class="flex flex-col gap-10 xl:gap-20">
-                                                <h3 class="text-22 font-normal">
-                                                    Unsere Referenzen sprechen für uns
-                                                </h3>
-                                                <div class="free_text">
-                                                    <p>
-                                                        Wir sind weltweit aktiv und haben zusammen über 500 Projekte
-                                                        realisiert. Bei
-                                                        Bedarf senden wir Ihnen gerne unsere umfangreichen
-                                                        Referenzlisten vom
-                                                        jeweiligen Unternehmen zu.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-20 items-start not-md:flex-col">
-                                            <div
-                                                class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80">
-                                                <img src="assets/icons/doc-check.svg" alt=""
-                                                    class="max-w-full max-h-full">
-                                            </div>
-                                            <div class="flex flex-col gap-10 xl:gap-20">
-                                                <h3 class="text-22 font-normal">
-                                                    Zertifikate / Qualifikationen
-                                                </h3>
-                                                <div class="free_text">
-                                                    <p>
-                                                        Wir legen großen Wert auf Qualität und Arbeitssicherheit. Alle
-                                                        unsere
-                                                        Unternehmen sind ISO 9001 und SCC zertifiziert. Außerdem
-                                                        verfügen unsere
-                                                        Unternehmen über zahlreiche andere Qualifikationen, wie etwa ISO
-                                                        3834-2,
-                                                        Fachbetrieb nach WHG, etc.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="absolute bottom-0 -left-2 size-5 bg-red rounded-full not-md:hidden">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <a
+                      href="/"
+                      class="border-2 font-medium py-6 px-24 rounded-full text-xs w-fit btn-transparent btn"
+                    >
+                      ZU M&S UMWELTTECHNIK
+                    </a>
+                  </div>
+                  <div
+                    data-aos="fade-up"
+                    class="bg-white rounded-[20px] py-32 px-20 flex flex-col gap-20 col-span-6 md:col-span-3 xl:col-span-2"
+                  >
+                    <h3 class="text-22 text-brand-blue font-normal">
+                      Umwelttechnik
+                    </h3>
+                    <div class="free_text text-18">
+                      <p>
+                        Wir sind Ihr Partner und Lösungsanbieter im Bereich der
+                        Rauchgasentstickung für Großfeuerungsanlagen.
+                      </p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section data-section class="ctm_sec my-sec">
-            <div class="container">
-                <div class="row col_1">
-                    <div class="col">
-                        <div class="space-y-10">
-                            <div class="grid lg:grid-cols-2 gap-26">
-                                <div class="border-l-8 2xl:border-l-20 border-red flex flex-col justify-between gap-20 2xl:gap-40 p-30 2xl:p-75 bg-white 
-                        rounded-[20px]">
-                                    <span class="border-2 rounded-full px-16 py-7 text-xs font-medium uppercase w-fit">
-                                        VDH | GROUP
-                                    </span>
-                                    <div class="free_text">
-                                        <p>
-                                            Die VDH | GROUP umfasst alle Unternehmen der Familie von der Heide, im Bild
-                                            von
-                                            links:
-                                            Timo, Bernd und Daniel von der Heide.
-                                        </p>
-                                        <p>
-                                            Bernd von der Heide und seine beiden Söhne Daniel und Timo von der Heide
-                                            sind
-                                            für die
-                                            Geschäftsleitung der Firmen M&S Umwelttechnik, M&S Environmental
-                                            Technologies
-                                            und HKL
-                                            Anlagentechnik verantwortlich. Gemeinsam halten Sie als Familie 100 % der
-                                            Firmenanteile.
-                                        </p>
-                                        <p>
-                                            In 2018 hat sich die Firma M&S Umwelttechnik an der Firma vysion-aset
-                                            beteiligt
-                                            und hält
-                                            40 % der Firmenanteile.
-                                        </p>
-                                        <p>
-                                            2022 übernahm die M&S Umwelttechnik 76 % der Geschäftsanteile der DrySoTec
-                                            GmbH.
-                                            Bernd,
-                                            Daniel und Timo von der Heide sind auch in der Geschäftsführung von DrySoTec
-                                            tätig.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="rounded-2xl overflow-hidden relative aspect-[video lg:aspect-[1.13/1]">
-                                    <img src="assets/images/team.avif" alt="Team"
-                                        class="absolute inset-0 size-full object-cover">
-                                </div>
-                            </div>
-                            <div
-                                class="bg-dark-blue text-white rounded-[20px] p-25 md:p-50 xl:p-75 flex flex-col gap-30 md:gap-60 xl:gap-110">
-                                <h2 class="text-32 font-semibold text-center">
-                                    Firmenhistorie
-                                </h2>
-                                <div class="timeline text-sm relative z-1">
-                                    <div
-                                        class="tl_row flex not-lg:flex-col justify-between gap-24 xl:gap-48 pb-24 lg:pb-48 lg:border-b lg:mb-48">
-                                        <div class="tl_item flex gap-20 items-center">
-                                            <div
-                                                class="border rounded-[20px] size-64 lg:size-90 p-8 xl:py-12 xl:px-16 grid place-items-center relative shrink-0 bg-dark-blue">
-                                                <img src="assets/images/ms-logo.svg" alt="">
-                                                <div
-                                                    class="not-lg:hidden absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] h-38 w-1 bg-white">
-                                                </div>
-                                                <div
-                                                    class="not-lg:hidden absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] size-5 rounded-full bg-white">
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <b class="mb-8">2000</b>
-                                                <b>Gründung M&S Umwelttechnik GmbH</b>
-                                                <span>Essen, Deutschland</span>
-                                            </div>
-                                        </div>
-                                        <div class="tl_item flex gap-20 items-center">
-                                            <div
-                                                class="border rounded-[20px] size-64 lg:size-90 p-8 xl:py-12 xl:px-16 grid place-items-center relative shrink-0 bg-dark-blue">
-                                                <img src="assets/images/ms-logo.svg" alt="">
-                                                <div
-                                                    class="not-lg:hidden absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] h-38 w-1 bg-white">
-                                                </div>
-                                                <div
-                                                    class="not-lg:hidden absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] size-5 rounded-full bg-white">
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <b class="mb-8">2000</b>
-                                                <b>Gründung M&S Umwelttechnik GmbH</b>
-                                                <span>Essen, Deutschland</span>
-                                            </div>
-                                        </div>
-                                        <div class="tl_item flex gap-20 items-center">
-                                            <div
-                                                class="border rounded-[20px] size-64 lg:size-90 p-8 xl:py-12 xl:px-16 grid place-items-center relative shrink-0 bg-dark-blue">
-                                                <img src="assets/images/ms-logo.svg" alt="">
-                                                <div
-                                                    class="not-lg:hidden absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] h-38 w-1 bg-white">
-                                                </div>
-                                                <div
-                                                    class="not-lg:hidden absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] size-5 rounded-full bg-white">
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <b class="mb-8">2000</b>
-                                                <b>Gründung M&S Umwelttechnik GmbH</b>
-                                                <span>Essen, Deutschland</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tl_row flex not-lg:flex-col justify-center gap-24 xl:gap-48">
-                                        <div class="tl_item flex gap-20 items-center">
-                                            <div
-                                                class="border rounded-[20px] size-64 lg:size-90 p-8 xl:py-12 xl:px-16 grid place-items-center relative shrink-0 bg-dark-blue">
-                                                <img src="assets/images/ms-logo.svg" alt="">
-                                                <div
-                                                    class="not-lg:hidden absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+10px)] h-38 w-1 bg-white">
-                                                </div>
-                                                <div
-                                                    class="not-lg:hidden absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+10px)] size-5 rounded-full bg-white">
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <b class="mb-8">2000</b>
-                                                <b>Gründung M&S Umwelttechnik GmbH</b>
-                                                <span>Essen, Deutschland</span>
-                                            </div>
-                                        </div>
-                                        <div class="tl_item flex gap-20 items-center">
-                                            <div
-                                                class="border rounded-[20px] size-64 lg:size-90 p-8 xl:py-12 xl:px-16 grid place-items-center relative shrink-0 bg-dark-blue">
-                                                <img src="assets/images/ms-logo.svg" alt="">
-                                                <div
-                                                    class="not-lg:hidden absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+10px)] h-38 w-1 bg-white">
-                                                </div>
-                                                <div
-                                                    class="not-lg:hidden absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+10px)] size-5 rounded-full bg-white">
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <b class="mb-8">2000</b>
-                                                <b>Gründung M&S Umwelttechnik GmbH</b>
-                                                <span>Essen, Deutschland</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="absolute top-32 bottom-32 left-32 border-l -z-1 lg:hidden"></div>
-                                </div>
-                            </div>
-                            <div
-                                class="bg-white rounded-[20px] p-25 md:p-50 xl:p-75 flex flex-col gap-30 md:gap-60">
-                                <h2 class="text-32 font-semibold text-center">
-                                    Firmenhistorie
-                                </h2>
-                                <div class="max-w-345 mx-auto text-sm font-semibold">
-                                    <div class="border w-fit mx-auto rounded-2xl px-20 py-30">
-                                        <img src="assets/images/hkl.svg" class="brightness-0" alt="" width="70">
-                                    </div>
-                                    <div class="flex mx-auto w-175 justify-between items-end">
-                                        <span>100%</span>
-                                        <div class="h-35 w-0 mx-auto border-l"></div>
-                                        <span>100%</span>
-                                    </div>
-                                    <div class="w-175 mx-auto border-t h-35 border-x flex justify-between items-end mb-4">
-                                        <div class="size-4 bg-black -ml-2.5"></div>
-                                        <div class="size-4 bg-black -mr-2.5"></div>
-                                    </div>
-                                    <div class="flex gap-10">
-                                        <div class="border w-fit mx-auto rounded-2xl px-20 py-30">
-                                            <img src="assets/images/hkl.svg" class="brightness-0" alt="" width="70">
-                                        </div>
-                                        <div class="border w-fit mx-auto rounded-2xl px-20 py-30">
-                                            <img src="assets/images/hkl.svg" class="brightness-0" alt="" width="70">
-                                        </div>
-                                    </div>
-                                    <div class="h-35 w-1 ml-auto mr-85 border-l"></div>
-                                    <div class="w-240 lg:w-300 mx-auto border-t border-x mb-4 relative lg:-right-120">
-                                        <div class="h-35 w-1 mx-auto border-l"></div>
-                                        <div class="flex justify-between -mx-2.5">
-                                            <div class="size-4 bg-black relative">
-                                                <div class="absolute left-10 bottom-5">40%</div>
-                                            </div>
-                                            <div class="size-4 bg-black relative">
-                                                <div class="absolute left-10 bottom-5">76%</div>
-                                            </div>
-                                            <div class="size-4 bg-black relative">
-                                                <div class="absolute left-10 bottom-5">100%</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-40 lg:-mx-40 relative lg:-right-120">
-                                        <div class="border w-fit mx-auto rounded-2xl px-20 py-30">
-                                            <img src="assets/images/hkl.svg" class="brightness-0" alt="" width="70">
-                                        </div>
-                                        <div class="border w-fit mx-auto rounded-2xl px-20 py-30">
-                                            <img src="assets/images/hkl.svg" class="brightness-0" alt="" width="70">
-                                        </div>
-                                        <div class="border w-fit mx-auto rounded-2xl px-20 py-30">
-                                            <img src="assets/images/hkl.svg" class="brightness-0" alt="" width="70">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <a
+                      href="/"
+                      class="border-2 font-medium py-6 px-24 rounded-full text-xs w-fit btn-transparent btn"
+                    >
+                      ZU M&S ENVIRONMENTAL TECHNOLOGIES
+                    </a>
+                  </div>
+                  <div
+                    data-aos="fade-up"
+                    class="bg-white rounded-[20px] py-32 px-20 flex flex-col gap-20 col-span-6 md:col-span-3"
+                  >
+                    <h3 class="text-22 text-brand-blue font-normal">
+                      Umwelttechnik
+                    </h3>
+                    <div class="free_text text-18">
+                      <p>
+                        Wir sind Ihr Partner und Lösungsanbieter im Bereich der
+                        Rauchgasentstickung für Großfeuerungsanlagen.
+                      </p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section data-section class="ctm_sec my-sec">
-            <div class="container">
-                <div class="row col_1">
-                    <div class="col">
-                        <div class="grid 3xl:grid-cols-12 gap-90">
-                            <div class="3xl:col-span-5">
-                                <div class="flex flex-col gap-20 sticky top-120">
-                                    <span class="border-2 rounded-full px-16 py-7 text-xs font-medium uppercase w-fit">
-                                        Karriere
-                                    </span>
-                                    <h2 class="text-32 font-semibold">
-                                        Wir suchen nicht nur Mitarbeiter
-                                    </h2>
-                                    <div class="free_text text-22">
-                                        <p>
-                                            Wir suchen Mit-Denker, Mit-Streiter, Mit-Verantwortliche für ein
-                                            Mit-Einander in
-                                            unserem
-                                            Unternehmen. Sind Sie dabei? Wir freuen uns auf Ihre Bewerbung, gerne auch
-                                            initiativ.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="3xl:col-span-7">
-                                <div class="grid lg:grid-cols-3 gap-10">
-                                    <div
-                                        class="bg-brand-blue p-32 grid place-items-center rounded-[20px] not-lg:hidden">
-                                        <img src="assets/images/ms-logo.svg" alt="" class="w-100">
-                                    </div>
-                                    <div class="bg-white lg:col-span-2 rounded-[20px] p-32 flex flex-col gap-20">
-                                        <h3 class="text-22 text-brand-blue font-normal">
-                                            M&S Umwelttechnik GmbH
-                                        </h3>
-                                        <div class="free_text">
-                                            <p>
-                                                vysion-aset errichtet Elektro-, Mess-, Steuerung- und Regeltechnische
-                                                Anlagen in
-                                                der Industrie, der Energieerzeugung und Energieverteilung. Zu
-                                                vysion-asets
-                                                Aufgaben gehören die Planung und Errichtung von Teil- und
-                                                Komplettanlagen.
-                                            </p>
-                                        </div>
-                                        <a href="#"
-                                            class="border-2 rounded-full px-16 py-7 text-xs font-medium uppercase w-fit text-red">
-                                            JOBS ANSEHEN
-                                        </a>
-                                    </div>
-                                    <div class="bg-white lg:col-span-2 rounded-[20px] p-32 flex flex-col gap-20">
-                                        <h3 class="text-22 text-brand-blue font-normal">
-                                            M&S Umwelttechnik GmbH
-                                        </h3>
-                                        <div class="free_text">
-                                            <p>
-                                                Mehldau & Steinfath Umwelttechnik ist Ihr Partner und Lösungsanbieter im
-                                                Bereich
-                                                der Rauchgasentstickung für Großfeuerungsanlagen.
-                                            </p>
-                                        </div>
-                                        <a href="#"
-                                            class="border-2 rounded-full px-16 py-7 text-xs font-medium uppercase w-fit text-red">
-                                            JOBS ANSEHEN
-                                        </a>
-                                    </div>
-                                    <div
-                                        class="bg-brand-blue p-32 grid place-items-center rounded-[20px] not-lg:hidden">
-                                        <img src="assets/images/ms-logo.svg" alt="" class="w-100">
-                                    </div>
-                                    <div
-                                        class="bg-brand-blue p-32 grid place-items-center rounded-[20px] not-lg:hidden">
-                                        <img src="assets/images/ms-logo.svg" alt="" class="w-100">
-                                    </div>
-                                    <div class="bg-white lg:col-span-2 rounded-[20px] p-32 flex flex-col gap-20">
-                                        <h3 class="text-22 text-brand-blue font-normal">
-                                            M&S Umwelttechnik GmbH
-                                        </h3>
-                                        <div class="free_text">
-                                            <p>
-                                                Mehldau & Steinfath Umwelttechnik ist Ihr Partner und Lösungsanbieter im
-                                                Bereich
-                                                der Rauchgasentstickung für Großfeuerungsanlagen.
-                                            </p>
-                                        </div>
-                                        <a href="#"
-                                            class="border-2 rounded-full px-16 py-7 text-xs font-medium uppercase w-fit text-red">
-                                            JOBS ANSEHEN
-                                        </a>
-                                    </div>
-                                    <div class="bg-white lg:col-span-2 rounded-[20px] p-32 flex flex-col gap-20">
-                                        <h3 class="text-22 text-brand-blue font-normal">
-                                            M&S Umwelttechnik GmbH
-                                        </h3>
-                                        <div class="free_text">
-                                            <p>
-                                                Mehldau & Steinfath Umwelttechnik ist Ihr Partner und Lösungsanbieter im
-                                                Bereich
-                                                der Rauchgasentstickung für Großfeuerungsanlagen.
-                                            </p>
-                                        </div>
-                                        <a href="#"
-                                            class="border-2 rounded-full px-16 py-7 text-xs font-medium uppercase w-fit text-red">
-                                            JOBS ANSEHEN
-                                        </a>
-                                    </div>
-                                    <div
-                                        class="bg-brand-blue p-32 grid place-items-center rounded-[20px] not-lg:hidden">
-                                        <img src="assets/images/ms-logo.svg" alt="" class="w-100">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <a
+                      href="/"
+                      class="border-2 font-medium py-6 px-24 rounded-full text-xs w-fit btn-transparent btn"
+                    >
+                      ZU M&S UMWELTTECHNIK
+                    </a>
+                  </div>
+                  <div
+                    data-aos="fade-up"
+                    class="bg-white rounded-[20px] py-32 px-20 flex flex-col gap-20 col-span-6 md:col-span-3"
+                  >
+                    <h3 class="text-22 text-brand-blue font-normal">
+                      Umwelttechnik
+                    </h3>
+                    <div class="free_text text-18">
+                      <p>
+                        Wir sind Ihr Partner und Lösungsanbieter im Bereich der
+                        Rauchgasentstickung für Großfeuerungsanlagen.
+                      </p>
                     </div>
+                    <a
+                      href="/"
+                      class="border-2 font-medium py-6 px-24 rounded-full text-xs w-fit btn-transparent btn"
+                    >
+                      ZU M&S UMWELTTECHNIK
+                    </a>
+                  </div>
                 </div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section class="ctm_sec my-sec">
-            <div class="container">
-                <div class="row col_1">
-                    <div class="col">
-                        <div class="space-y-35 xl:space-y-75">
-                            <h2 class="text-32 font-semibold">
-                                Downloads
-                            </h2>
-                            <div class="grid md:grid-cols-2 2xl:grid-cols-3 gap-10">
-                                <a href="assets/images/pdf1.pdf" target="_blank"
-                                    class="bg-white p-20 lg:py-64 lg:px-32 rounded-[20px] flex text-22 gap-10 items-center font-normal">
-                                    <div class="bg-dark-blue p-16 rounded-[10px]">
-                                        <img src="assets/icons/download.svg" alt="">
-                                    </div>
-                                    <span class="text-brand-blue">VDH Group Imagebroschüre</span>
-                                </a>
-                            </div>
-                        </div>
+      <section data-section class="ctm_sec py-sec bg-white">
+        <div class="container">
+          <div class="row col_1">
+            <div class="col">
+              <div class="space-y-30 xl:space-y-75">
+                <div
+                  class="    flex flex-col gap-30 xl:gap-100 max-w-1050"
+                >
+                  <h2 data-aos="fade-up" class="text-32 font-semibold">
+                    Warum wir?
+                  </h2>
+                  <div data-aos="fade-up" class="free_text">
+                    <h3>
+                      Unsere Unternehmen decken einen Großteil der Bereiche im
+                      Anlagenbau ab. Unsere jahrelange Erfahrung, unser hoher
+                      Qualitätsanspruch und unsere kurzen Kommunikationswege
+                      ermöglichen uns Synergieeffekte zu erzeugen, die eine
+                      kompetente, wirtschaftliche und sichere Abwicklung der
+                      Projekte garantieren.
+                    </h3>
+                  </div>
+                </div>
+                <div
+                  data-aos="fade-up"
+                  class="rounded-2xl overflow-hidden relative h-500"
+                >
+                  <video
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    class="absolute inset-0 size-full object-cover"
+                  >
+                    <source src="assets/videos/video2.mp4" type="video/mp4" />
+                    <source src="assets/videos/video2.webm" type="video/webm" />
+                    Ihr Browser unterstützt keine Videos.
+                  </video>
+                  <div class="wm_wrapper absolute bottom-20 right-20 z-10">
+                    <div class="wm_img">
+                      <img
+                        src="assets/images/KI generiert.svg"
+                        alt="KI generiert"
+                      />
                     </div>
+                  </div>
                 </div>
-            </div>
-        </section>
-
-        <section data-section class="ctm_sec my-sec">
-            <div class="container">
-                <div class="row col_1">
-                    <div class="col">
-                        <div class="grid xl:grid-cols-2 gap-26">
-                            <div
-                                class="bg-white border-l-8 lg:border-l-20 p-25 md:p-40 2xl:p-75 border-red rounded-[20px] flex flex-col gap-30 xl:gap-75">
-                                <h2 class="text-32 font-semibold">
-                                    Haben Sie Fragen?
-                                </h2>
-                                <form class="grid md:grid-cols-2 gap-8 xl:gap-16">
-                                    <div class="input_wrapper group md:col-span-2 group error">
-                                        <label for="firma" class="sr-only">Firma</label>
-                                        <input type="text" name="firma" id="firma" placeholder="Firma"
-                                            class="py-10 px-14 md:px-20 rounded-xl md:rounded-2xl border border-brand-blue/50 text-brand-blue placeholder:text-brand-blue/50 w-full group-[.error]:border-red"
-                                            required>
-                                        <div class="feild_message text-xs mt-2 text-red">
-                                            Dieses Feld ist erforderlich :(
-                                        </div>
-                                    </div>
-                                    <div class="input_wrapper group">
-                                        <label for="vorname" class="sr-only">vorname</label>
-                                        <input type="text" name="vorname" id="vorname" placeholder="Vorname"
-                                            class="py-10 px-14 md:px-20 rounded-xl md:rounded-2xl border border-brand-blue/50 text-brand-blue placeholder:text-brand-blue/50 w-full group-[.error]:border-red"
-                                            required>
-                                    </div>
-                                    <div class="input_wrapper group">
-                                        <label for="nachname" class="sr-only">nachname</label>
-                                        <input type="text" name="nachname" id="nachname" placeholder="Nachname"
-                                            class="py-10 px-14 md:px-20 rounded-xl md:rounded-2xl border border-brand-blue/50 text-brand-blue placeholder:text-brand-blue/50 w-full group-[.error]:border-red"
-                                            required>
-                                    </div>
-                                    <div class="input_wrapper group md:col-span-2">
-                                        <label for="email" class="sr-only">email</label>
-                                        <input type="eamil" name="email" id="email" placeholder="E-mail adresse"
-                                            class="py-10 px-14 md:px-20 rounded-xl md:rounded-2xl border border-brand-blue/50 text-brand-blue placeholder:text-brand-blue/50 w-full group-[.error]:border-red"
-                                            required>
-                                    </div>
-                                    <div class="input_wrapper group md:col-span-2">
-                                        <label for="nachricht" class="sr-only">nachricht</label>
-                                        <textarea type="text" name="nachricht" id="nachricht"
-                                            placeholder="Ihre Nachricht …"
-                                            class="py-10 px-14 md:px-20 rounded-xl md:rounded-2xl border border-brand-blue/50 text-brand-blue placeholder:text-brand-blue/50 w-full group-[.error]:border-red min-h-128"></textarea>
-                                    </div>
-                                    <div
-                                        class="input_wrapper group flex md:col-span-2 text-sm font-normal text-grey gap-10 items-start">
-                                        <input type="checkbox" name="policyCheck" id="policyCheck"
-                                            class="mt-2 accent-brand-blue">
-                                        <label for="policyCheck">
-                                            Wenn Sie die im Kontaktformular eingegebenen Daten durch Klick auf den
-                                            „Abschicken-Button“ übersenden, erklären Sie sich mit unserer <a
-                                                href="/">Datenschutzerklärung</a>
-                                            einverstanden.
-                                        </label>
-                                    </div>
-                                    <div class="submission_message text-sm md:col-span-2 text-green-600">
-                                        Formular gesendet :)
-                                    </div>
-                                    <div class="submission_message text-sm md:col-span-2 text-red">
-                                        Unerwarteter Fehler :(
-                                    </div>
-                                    <div class="flex justify-end md:col-span-2">
-                                        <button type="submit" class="btn btn-blue">
-                                            ABSCHICKEN
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div
-                                class="bg-dark-blue p-25 md:p-40 2xl:p-75 rounded-[20px] text-white flex flex-col gap-30 xl:gap-75 justify-between">
-                                <h2 class="text-32 font-semibold">
-                                    Kontakt
-                                </h2>
-                                <div class="free_text text-22">
-                                    <p><b>VDH | GROUP</b></p>
-                                    <p>
-                                        Alfredstraße 279 <br>
-                                        D-45133 Essen
-                                    </p>
-                                    <p>
-                                        Telefon: <a href="/"><b>+49 (0) 201 / 4 37 83 - 0</b></a> <br>
-                                        Fax: <a href="/"><b>+49 (0) 201 / 4 37 83 - 33</b></a> <br>
-                                        E-Mail Zentrale: <a href="/"><b>zentrale@vdh-group.de</b></a>
-                                    </p>
-                                </div>
-                            </div>
+                <div class="lg:px-75 flex flex-col gap-50 md:gap-64">
+                  <span
+                    data-aos="fade-up"
+                    class="border-2 text-red rounded-full px-16 py-7 text-xs font-medium uppercase w-fit"
+                  >
+                    Warum Wir
+                  </span>
+                  <div class="relative">
+                    <div
+                      class="grid 2xl:grid-cols-2 gap-x-64 gap-y-32 lg:gap-y-96 md:pl-64 md:border-l md:border-red"
+                    >
+                      <div
+                        data-aos="fade-up"
+                        class="flex gap-20 items-start not-md:flex-col"
+                      >
+                        <div
+                          class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80"
+                        >
+                          <img
+                            src="assets/icons/idea.svg"
+                            alt=""
+                            class="max-w-full max-h-full"
+                          />
+                          
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ctm_sec my-sec">
-            <div class="container">
-                <div class="row col_1">
-                    <div class="col">
-                        <div class="space-y-10">
-                            <div
-                                class="bg-white rounded-[20px] py-45 xl:py-75 px-20 md:px-30 xl:px-75 flex flex-col items-center gap-25 xl:gap-50">
-                                <a href="/">
-                                    <img src="assets/images/logo.svg" alt="" class="w-300">
-                                </a>
-                                <div class="divider w-154 border-b border-red"></div>
-                                <div
-                                    class="grid md:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-5 text-xs text-center gap-x-32 gap-y-32 xl:gap-y-64">
-                                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
-                                        <a href="/" class="h-68 flex items-center">
-                                            <img src="assets/images/logo (1).svg" alt="">
-                                        </a>
-                                        <div class="free_text">
-                                            <p>
-                                                Mehldau & Steinfath Umwelttechnik ist Ihr Partner und Lösungsanbieter im
-                                                Bereich der
-                                                Rauchgasentstickung für Großfeuerungsanlagen.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
-                                        <a href="/" class="h-68 flex items-center">
-                                            <img src="assets/images/logo (2).svg" alt="">
-                                        </a>
-                                        <div class="free_text">
-                                            <p>
-                                                Mehldau & Steinfath Umwelttechnik ist Ihr Partner und Lösungsanbieter im
-                                                Bereich der
-                                                Rauchgasentstickung für Großfeuerungsanlagen.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
-                                        <a href="/" class="h-68 flex items-center">
-                                            <img src="assets/images/logo (3).svg" alt="">
-                                        </a>
-                                        <div class="free_text">
-                                            <p>
-                                                Mehldau & Steinfath Umwelttechnik ist Ihr Partner und Lösungsanbieter im
-                                                Bereich der
-                                                Rauchgasentstickung für Großfeuerungsanlagen.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
-                                        <a href="/" class="h-68 flex items-center">
-                                            <img src="assets/images/logo (4).svg" alt="">
-                                        </a>
-                                        <div class="free_text">
-                                            <p>
-                                                Mehldau & Steinfath Umwelttechnik ist Ihr Partner und Lösungsanbieter im
-                                                Bereich der
-                                                Rauchgasentstickung für Großfeuerungsanlagen.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
-                                        <a href="/" class="h-68 flex items-center">
-                                            <img src="assets/images/logo (5).svg" alt="">
-                                        </a>
-                                        <div class="free_text">
-                                            <p>
-                                                Mehldau & Steinfath Umwelttechnik ist Ihr Partner und Lösungsanbieter im
-                                                Bereich der
-                                                Rauchgasentstickung für Großfeuerungsanlagen.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-white rounded-[20px] p-20 lg:p-40 2xl:p-75 grid 3xl:grid-cols-12 gap-32">
-                                <div class="flex flex-col gap-20 3xl:sticky top-120 3xl:col-span-4">
-                                    <span class="border-2 rounded-full px-16 py-7 text-xs font-medium uppercase w-fit">
-                                        Global
-                                    </span>
-                                    <h2 class="text-32 font-semibold">
-                                        Im Ruhrgebiet daheim - in der Welt zuhause.
-                                    </h2>
-                                    <div class="free_text my-20">
-                                        <p>
-                                            Ingenieurdienstleistungen und Projekte weltweit erfolgreich und kompetent zu
-                                            gestalten,
-                                            setzt die Fähigkeit und Bereitschaft voraus, als Unternehmen „über den
-                                            Tellerrand
-                                            blicken zu können“. Ob China, Polen oder Hawaii - wir sind da, wo wir
-                                            gebraucht werden.
-                                            Wir greifen dabei auf ein starkes, internationales Netzwerk zu, das es uns
-                                            ermöglicht,
-                                            global erfolgreich zu agieren.
-                                        </p>
-                                    </div>
-                                    <div class="grid grid-cols-2 md:grid-cols-4 text-xs gap-32">
-                                        <ul>
-                                            <li>Ägypten</li>
-                                            <li>Australien</li>
-                                            <li>Belgien</li>
-                                            <li>Brasilien</li>
-                                            <li>Chile</li>
-                                            <li>China</li>
-                                        </ul>
-                                        <ul>
-                                            <li>Tschechien</li>
-                                            <li>Türkei</li>
-                                            <li>Ukraine</li>
-                                            <li>Ungarn</li>
-                                            <li>USA</li>
-                                        </ul>
-                                        <ul>
-                                            <li>Ägypten</li>
-                                            <li>Australien</li>
-                                            <li>Belgien</li>
-                                            <li>Brasilien</li>
-                                        </ul>
-                                        <ul>
-                                            <li>Tschechien</li>
-                                            <li>Türkei</li>
-                                            <li>Ukraine</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="3xl:col-span-8">
-                                    <img src="assets/images/map.svg" alt="">
-                                </div>
-                            </div>
+                        <div class="flex flex-col gap-10 xl:gap-20">
+                          <h3 class="text-22 font-normal">
+                            Alles aus einer Hand / Synergieeffekte
+                          </h3>
+                          <div class="free_text">
+                            <p>
+                              Ob Umwelttechnik, Verfahrens- und Anlagentechnik
+                              oder Elektro-, Mess-, Steuerungs- und
+                              Regelungstechnik - alle diese Bereiche vereinen
+                              wir unter einem Dach. Das erspart uns und unseren
+                              Kunden Zeit, sichert eine effektive Abwicklung und
+                              einen hohen Qualitätsstandard.
+                            </p>
+                          </div>
                         </div>
+                      </div>
+                      <div
+                        data-aos="fade-up"
+                        class="flex gap-20 items-start not-md:flex-col"
+                      >
+                        <div
+                          class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80"
+                        >
+                          <img
+                            src="assets/icons/document.svg"
+                            alt=""
+                            class="max-w-full max-h-full"
+                          />
+                        </div>
+                        <div class="flex flex-col gap-10 xl:gap-20">
+                          <h3 class="text-22 font-normal">
+                            Beste Ausbildung für höchste Qualität
+                          </h3>
+                          <div class="free_text">
+                            <p>
+                              Auf dem soliden Fundament gut ausgebildeter
+                              Fachkräfte bauen unsere Leistungen auf. Unsere
+                              Kombination unterschiedlicher Qualifikationen auf
+                              hohem Niveau eröffnet unseren Kunden die
+                              Möglichkeit, uns als General-Unternehmer für Neu-
+                              und Umbauten oder Komplett- Dienstleister für die
+                              Instandhaltung einzusetzen.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        data-aos="fade-up"
+                        class="flex gap-20 items-start not-md:flex-col"
+                      >
+                        <div
+                          class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80"
+                        >
+                          <img
+                            src="assets/icons/repair.svg"
+                            alt=""
+                            class="max-w-full max-h-full"
+                          />
+                        </div>
+                        <div class="flex flex-col gap-10 xl:gap-20">
+                          <h3 class="text-22 font-normal">Erfahrung</h3>
+                          <div class="free_text">
+                            <p>
+                              Zusammen haben wir mehr als 100 Jahre Erfahrung im
+                              Anlagenbau. Wir kennen die Probleme der Branche
+                              und auch die Lösungen.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        data-aos="fade-up"
+                        class="flex gap-20 items-start not-md:flex-col"
+                      >
+                        <div
+                          class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80"
+                        >
+                          <img
+                            src="assets/icons/germany.svg"
+                            alt=""
+                            class="max-w-full max-h-full"
+                          />
+                        </div>
+                        <div class="flex flex-col gap-10 xl:gap-20">
+                          <h3 class="text-22 font-normal">Made in Germany</h3>
+                          <div class="free_text">
+                            <p>
+                              Alle unsere Produkte sind in Deutschland
+                              gefertigt. Unsere HKL Anlagentechnik GmbH ist eine
+                              zertifizierte Fertigungsstätte, die Qualität in
+                              Eigenproduktion garantiert.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        data-aos="fade-up"
+                        class="flex gap-20 items-start not-md:flex-col"
+                      >
+                        <div
+                          class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80"
+                        >
+                          <img
+                            src="assets/icons/deal.svg"
+                            alt=""
+                            class="max-w-full max-h-full"
+                          />
+                        </div>
+                        <div class="flex flex-col gap-10 xl:gap-20">
+                          <h3 class="text-22 font-normal">Partnerschaftlich</h3>
+                          <div class="free_text">
+                            <p>
+                              Als kundenorientiertes Unternehmen denken und
+                              handeln wir partnerschaftlich, offen und ehrlich.
+                              Unsere hohe Leistungsfähigkeit in den vielseitigen
+                              Fachbereichen beruht auf einer effizienten
+                              Struktur mit kurzen Wegen, unbürokratischen
+                              Entscheidungen und ausgeprägtem Kostenbewusstsein.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        data-aos="fade-up"
+                        class="flex gap-20 items-start not-md:flex-col"
+                      >
+                        <div
+                          class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80"
+                        >
+                          <img
+                            src="assets/icons/certi.svg"
+                            alt=""
+                            class="max-w-full max-h-full"
+                          />
+                        </div>
+                        <div class="flex flex-col gap-10 xl:gap-20">
+                          <h3 class="text-22 font-normal">Patente</h3>
+                          <div class="free_text">
+                            <p>
+                              Wir definieren den Stand der Technik und
+                              entwickeln uns stetig weiter. Mit unseren
+                              patentierten Verfahren zur Rauchgasent-stickung
+                              können wir selbst die schwierigsten
+                              Kesselbedingungen überwinden. Unser Motto: „Geht
+                              nicht, gibt’s nicht!“
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        data-aos="fade-up"
+                        class="flex gap-20 items-start not-md:flex-col"
+                      >
+                        <div
+                          class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80"
+                        >
+                          <img
+                            src="assets/icons/badge.svg"
+                            alt=""
+                            class="max-w-full max-h-full"
+                          />
+                        </div>
+                        <div class="flex flex-col gap-10 xl:gap-20">
+                          <h3 class="text-22 font-normal">
+                            Unsere Referenzen sprechen für uns
+                          </h3>
+                          <div class="free_text">
+                            <p>
+                              Wir sind weltweit aktiv und haben zusammen über
+                              500 Projekte realisiert. Bei Bedarf senden wir
+                              Ihnen gerne unsere umfangreichen Referenzlisten
+                              vom jeweiligen Unternehmen zu.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        data-aos="fade-up"
+                        class="flex gap-20 items-start not-md:flex-col"
+                      >
+                        <div
+                          class="grid place-items-center shrink-0 py-10 px-16 bg-white rounded-2xl shadow-[0_0_8.7px_#17183540] size-64 xl:size-80"
+                        >
+                          <img
+                            src="assets/icons/doc-check.svg"
+                            alt=""
+                            class="max-w-full max-h-full"
+                          />
+                        </div>
+                        <div class="flex flex-col gap-10 xl:gap-20">
+                          <h3 class="text-22 font-normal">
+                            Zertifikate / Qualifikationen
+                          </h3>
+                          <div class="free_text">
+                            <p>
+                              Wir legen großen Wert auf Qualität und
+                              Arbeitssicherheit. Alle unsere Unternehmen sind
+                              ISO 9001 und SCC zertifiziert. Außerdem verfügen
+                              unsere Unternehmen über zahlreiche andere
+                              Qualifikationen, wie etwa ISO 3834-2, Fachbetrieb
+                              nach WHG, etc.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                    <div
+                      class="absolute bottom-0 -left-2 size-5 bg-red rounded-full not-md:hidden"
+                    ></div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
+      <section data-section class="ctm_sec my-sec">
+        <div class="container">
+          <div class="row col_1">
+            <div class="col">
+              <div class="space-y-10">
+                <div class="grid lg:grid-cols-2 gap-26">
+                  <div
+                    data-aos="fade-up"
+                    class="border-l-8 2xl:border-l-20 border-red flex flex-col justify-between gap-20 2xl:gap-40 p-30 2xl:p-75 bg-white rounded-[20px]"
+                  >
+                    <span
+                      class="border-2 rounded-full px-16 py-7 text-xs font-medium uppercase w-fit"
+                    >
+                      VDH | GROUP
+                    </span>
+                    <div class="free_text">
+                      <p>
+                        Die VDH | GROUP umfasst alle Unternehmen der Familie von
+                        der Heide, im Bild von links: Timo, Bernd und Daniel von
+                        der Heide.
+                      </p>
+                      <p>
+                        Bernd von der Heide und seine beiden Söhne Daniel und
+                        Timo von der Heide sind für die Geschäftsleitung der
+                        Firmen M&S Umwelttechnik, M&S Environmental Technologies
+                        und HKL Anlagentechnik verantwortlich. Gemeinsam halten
+                        Sie als Familie 100 % der Firmenanteile.
+                      </p>
+                      <p>
+                        In 2018 hat sich die Firma M&S Umwelttechnik an der
+                        Firma vysion-aset beteiligt und hält 40 % der
+                        Firmenanteile.
+                      </p>
+                      <p>
+                        2022 übernahm die M&S Umwelttechnik 76 % der
+                        Geschäftsanteile der DrySoTec GmbH. Bernd, Daniel und
+                        Timo von der Heide sind auch in der Geschäftsführung von
+                        DrySoTec tätig.
+                      </p>
+                    </div>
+                  </div>
+                  <div data-aos="fade-up" class="rounded-2xl overflow-hidden relative">
+                    <img
+                      src="assets/images/team.avif"
+                      alt="Team"
+                      class="size-full object-cover"
+                    />
+                    <div class="wm_wrapper absolute bottom-20 right-20 z-10">
+                    <div class="wm_img">
+                      <img
+                        src="assets/images/KI generiert.svg"
+                        alt="KI generiert"
+                      />
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <div
+                  data-aos="fade-up"
+                  class="bg-dark-blue text-white rounded-[20px] p-25 md:p-50 xl:p-75 flex flex-col gap-30 md:gap-60 xl:gap-110"
+                >
+                  <h2 data-aos="fade" class="text-32 font-semibold text-center">
+                    Firmenhistorie
+                  </h2>
+                  <div class="timeline text-sm relative z-1 overflow-hidden">
+                    <div
+                      class="tl_row flex not-lg:flex-col justify-between gap-24 xl:gap-48 pb-24 lg:pb-48 lg:border-b lg:mb-48"
+                    >
+                      <div
+                        data-aos="zoom-in"
+                        class="tl_item flex gap-20 items-center"
+                      >
+                        <div
+                          class="border rounded-[20px] size-64 lg:size-90 p-8 xl:py-12 xl:px-16 grid place-items-center relative shrink-0 bg-dark-blue"
+                        >
+                          <img src="assets/images/ms-logo.svg" alt="" />
+                          <div
+                            class="not-lg:hidden absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] h-38 w-1 bg-white"
+                          ></div>
+                          <div
+                            class="not-lg:hidden absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] size-5 rounded-full bg-white"
+                          ></div>
+                        </div>
+                        <div class="flex flex-col">
+                          <b class="mb-8">2000</b>
+                          <b>Gründung M&S Umwelttechnik GmbH</b>
+                          <span>Essen, Deutschland</span>
+                        </div>
+                      </div>
+                      <div
+                        data-aos="zoom-in"
+                        data-aos-delay="400"
+                        class="tl_item flex gap-20 items-center"
+                      >
+                        <div
+                          class="border rounded-[20px] size-64 lg:size-90 p-8 xl:py-12 xl:px-16 grid place-items-center relative shrink-0 bg-dark-blue"
+                        >
+                          <img src="assets/images/ms-logo.svg" alt="" />
+                          <div
+                            class="not-lg:hidden absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] h-38 w-1 bg-white"
+                          ></div>
+                          <div
+                            class="not-lg:hidden absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] size-5 rounded-full bg-white"
+                          ></div>
+                        </div>
+                        <div class="flex flex-col">
+                          <b class="mb-8">2000</b>
+                          <b>Gründung M&S Umwelttechnik GmbH</b>
+                          <span>Essen, Deutschland</span>
+                        </div>
+                      </div>
+                      <div
+                        data-aos="zoom-in"
+                        data-aos-delay="800"
+                        class="tl_item flex gap-20 items-center"
+                      >
+                        <div
+                          class="border rounded-[20px] size-64 lg:size-90 p-8 xl:py-12 xl:px-16 grid place-items-center relative shrink-0 bg-dark-blue"
+                        >
+                          <img src="assets/images/ms-logo.svg" alt="" />
+                          <div
+                            class="not-lg:hidden absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] h-38 w-1 bg-white"
+                          ></div>
+                          <div
+                            class="not-lg:hidden absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] size-5 rounded-full bg-white"
+                          ></div>
+                        </div>
+                        <div class="flex flex-col">
+                          <b class="mb-8">2000</b>
+                          <b>Gründung M&S Umwelttechnik GmbH</b>
+                          <span>Essen, Deutschland</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="tl_row flex not-lg:flex-col justify-center gap-24 xl:gap-48"
+                    >
+                      <div
+                        data-aos="zoom-in"
+                        data-aos-delay="300"
+                        class="tl_item flex gap-20 items-center"
+                      >
+                        <div
+                          class="border rounded-[20px] size-64 lg:size-90 p-8 xl:py-12 xl:px-16 grid place-items-center relative shrink-0 bg-dark-blue"
+                        >
+                          <img src="assets/images/ms-logo.svg" alt="" />
+                          <div
+                            class="not-lg:hidden absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+10px)] h-38 w-1 bg-white"
+                          ></div>
+                          <div
+                            class="not-lg:hidden absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+10px)] size-5 rounded-full bg-white"
+                          ></div>
+                        </div>
+                        <div class="flex flex-col">
+                          <b class="mb-8">2000</b>
+                          <b>Gründung M&S Umwelttechnik GmbH</b>
+                          <span>Essen, Deutschland</span>
+                        </div>
+                      </div>
+                      <div
+                        data-aos="zoom-in"
+                        data-aos-delay="600"
+                        class="tl_item flex gap-20 items-center"
+                      >
+                        <div
+                          class="border rounded-[20px] size-64 lg:size-90 p-8 xl:py-12 xl:px-16 grid place-items-center relative shrink-0 bg-dark-blue"
+                        >
+                          <img src="assets/images/ms-logo.svg" alt="" />
+                          <div
+                            class="not-lg:hidden absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+10px)] h-38 w-1 bg-white"
+                          ></div>
+                          <div
+                            class="not-lg:hidden absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+10px)] size-5 rounded-full bg-white"
+                          ></div>
+                        </div>
+                        <div class="flex flex-col">
+                          <b class="mb-8">2000</b>
+                          <b>Gründung M&S Umwelttechnik GmbH</b>
+                          <span>Essen, Deutschland</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="absolute top-32 bottom-32 left-32 border-l -z-1 lg:hidden"
+                    ></div>
+                  </div>
+                </div>
+
+                <div
+                  data-aos="fade-up"
+                  class="bg-white rounded-[20px] p-25 md:p-50 xl:p-75 flex flex-col gap-30 md:gap-60"
+                >
+                  <h2
+                    data-aos="fade-up"
+                    class="text-32 font-semibold text-center"
+                  >
+                    Firmenhistorie
+                  </h2>
+                  <div class="max-w-345 mx-auto text-sm font-semibold">
+                    <div
+                      data-aos="fade-up"
+                      class="border w-fit mx-auto rounded-2xl px-20 py-30"
+                    >
+                      <img
+                        src="assets/images/logo (1).svg"
+                        class="brightness-0"
+                        alt=""
+                        width="70"
+                      />
+                    </div>
+                    <div
+                      data-aos="fade-up"
+                      class="flex mx-auto w-175 justify-between items-end"
+                    >
+                      <span>100%</span>
+                      <div class="h-35 w-0 mx-auto border-l"></div>
+                      <span>100%</span>
+                    </div>
+                    <div
+                      data-aos="fade-up"
+                      class="w-175 mx-auto border-t h-35 border-x flex justify-between items-end mb-4"
+                    >
+                      <div class="size-4 bg-black -ml-2.5"></div>
+                      <div class="size-4 bg-black -mr-2.5"></div>
+                    </div>
+                    <div class="flex gap-10">
+                      <div
+                        data-aos="fade-up"
+                        class="border w-fit mx-auto rounded-2xl px-20 py-30"
+                      >
+                        <img
+                          src="assets/images/logo (4).svg"
+                          class="brightness-0"
+                          alt=""
+                          width="70"
+                        />
+                      </div>
+                      <div
+                        data-aos="fade-up"
+                        class="border w-fit mx-auto rounded-2xl px-20 py-30"
+                      >
+                        <img
+                          src="assets/images/logo (5).svg"
+                          class="brightness-0"
+                          alt=""
+                          width="70"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      data-aos="fade-up"
+                      class="h-35 w-1 ml-auto mr-85 border-l"
+                    ></div>
+                    <div
+                      data-aos="fade-up"
+                      class="w-240 lg:w-300 mx-auto border-t border-x mb-4 relative lg:-right-120"
+                    >
+                      <div class="h-35 w-1 mx-auto border-l"></div>
+                      <div class="flex justify-between -mx-2.5">
+                        <div class="size-4 bg-black relative">
+                          <div class="absolute left-10 bottom-5">40%</div>
+                        </div>
+                        <div class="size-4 bg-black relative">
+                          <div class="absolute left-10 bottom-5">76%</div>
+                        </div>
+                        <div class="size-4 bg-black relative">
+                          <div class="absolute left-10 bottom-5">100%</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex gap-40 lg:-mx-40 relative lg:-right-120">
+                      <div
+                        data-aos="fade-up"
+                        class="border w-fit mx-auto rounded-2xl px-20 py-30"
+                      >
+                        <img
+                          src="assets/images/logo (1).svg"
+                          class="brightness-0"
+                          alt=""
+                          width="70"
+                        />
+                      </div>
+                      <div
+                        data-aos="fade-up"
+                        class="border w-fit mx-auto rounded-2xl px-20 py-30"
+                      >
+                        <img
+                          src="assets/images/logo (5).svg"
+                          class="brightness-0"
+                          alt=""
+                          width="70"
+                        />
+                      </div>
+                      <div
+                        data-aos="fade-up"
+                        class="border w-fit mx-auto rounded-2xl px-20 py-30"
+                      >
+                        <img
+                          src="assets/images/logo ().svg"
+                          class="brightness-0"
+                          alt=""
+                          width="70"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-section class="ctm_sec my-sec">
+        <div class="container">
+          <div class="row col_1">
+            <div class="col">
+              <div class="grid 3xl:grid-cols-12 gap-100">
+                <div class="3xl:col-span-5">
+                  <div class="col sticky top-120">
+                    <div>
+
+                      <span
+                      data-aos="fade-up"
+                      class="border-2 rounded-full px-16 py-7 text-xs font-medium uppercase w-fit"
+                      >
+                      Karriere
+                    </span>
+                  </div>
+                    <h2 data-aos="fade-up" class="text-32 font-semibold">
+                      Wir suchen nicht nur Mitarbeiter
+                    </h2>
+                    <div data-aos="fade-up" class="free_text text-22">
+                      <p>
+                        Wir suchen Mit-Denker, Mit-Streiter, Mit-Verantwortliche
+                        für ein Mit-Einander in unserem Unternehmen. Sind Sie
+                        dabei? Wir freuen uns auf Ihre Bewerbung, gerne auch
+                        initiativ.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="3xl:col-span-7">
+                  <div class="grid lg:grid-cols-3 gap-10">
+                    <div
+                      data-aos="fade-up"
+                      class="bg-brand-blue p-32 grid place-items-center rounded-[20px] not-lg:hidden"
+                    >
+                      <img
+                        src="assets/images/ms-logo.svg"
+                        alt=""
+                        class="w-100"
+                      />
+                    </div>
+                    <div
+                      data-aos="fade-up"
+                      class="bg-white lg:col-span-2 rounded-[20px] p-32 flex flex-col gap-20"
+                    >
+                      <h3 class="text-22 text-brand-blue font-normal">
+                        M&S Umwelttechnik GmbH
+                      </h3>
+                      <div class="free_text">
+                        <p>
+                          vysion-aset errichtet Elektro-, Mess-, Steuerung- und
+                          Regeltechnische Anlagen in der Industrie, der
+                          Energieerzeugung und Energieverteilung. Zu
+                          vysion-asets Aufgaben gehören die Planung und
+                          Errichtung von Teil- und Komplettanlagen.
+                        </p>
+                      </div>
+                      <a
+                        href="#"
+                        class="border-2 btn-light bg-transparent rounded-full px-16 py-7 text-xs font-medium uppercase w-fit text-red"
+                      >
+                        JOBS ANSEHEN
+                      </a>
+                    </div>
+                    <div
+                      data-aos="fade-up"
+                      class="bg-white lg:col-span-2 rounded-[20px] p-32 flex flex-col gap-20"
+                    >
+                      <h3 class="text-22 text-brand-blue font-normal">
+                        M&S Umwelttechnik GmbH
+                      </h3>
+                      <div class="free_text">
+                        <p>
+                          Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                          Lösungsanbieter im Bereich der Rauchgasentstickung für
+                          Großfeuerungsanlagen.
+                        </p>
+                      </div>
+                      <a
+                        href="#"
+                        class="border-2 btn-light bg-transparent rounded-full px-16 py-7 text-xs font-medium uppercase w-fit text-red"
+                      >
+                        JOBS ANSEHEN
+                      </a>
+                    </div>
+                    <div
+                      data-aos="fade-up"
+                      class="bg-brand-blue p-32 grid place-items-center rounded-[20px] not-lg:hidden"
+                    >
+                      <img
+                        src="assets/images/ms-logo.svg"
+                        alt=""
+                        class="w-100"
+                      />
+                    </div>
+                    <div
+                      data-aos="fade-up"
+                      class="bg-brand-blue p-32 grid place-items-center rounded-[20px] not-lg:hidden"
+                    >
+                      <img
+                        src="assets/images/ms-logo.svg"
+                        alt=""
+                        class="w-100"
+                      />
+                    </div>
+                    <div
+                      data-aos="fade-up"
+                      class="bg-white lg:col-span-2 rounded-[20px] p-32 flex flex-col gap-20"
+                    >
+                      <h3 class="text-22 text-brand-blue font-normal">
+                        M&S Umwelttechnik GmbH
+                      </h3>
+                      <div class="free_text">
+                        <p>
+                          Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                          Lösungsanbieter im Bereich der Rauchgasentstickung für
+                          Großfeuerungsanlagen.
+                        </p>
+                      </div>
+                      <a
+                        href="#"
+                        class="border-2 btn-light bg-transparent rounded-full px-16 py-7 text-xs font-medium uppercase w-fit text-red"
+                      >
+                        JOBS ANSEHEN
+                      </a>
+                    </div>
+                    <div
+                      data-aos="fade-up"
+                      class="bg-white lg:col-span-2 rounded-[20px] p-32 flex flex-col gap-20"
+                    >
+                      <h3 class="text-22 text-brand-blue font-normal">
+                        M&S Umwelttechnik GmbH
+                      </h3>
+                      <div class="free_text">
+                        <p>
+                          Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                          Lösungsanbieter im Bereich der Rauchgasentstickung für
+                          Großfeuerungsanlagen.
+                        </p>
+                      </div>
+                      <a
+                        href="#"
+                        class="border-2 btn-light bg-transparent rounded-full px-16 py-7 text-xs font-medium uppercase w-fit text-red"
+                      >
+                        JOBS ANSEHEN
+                      </a>
+                    </div>
+                    <div
+                      data-aos="fade-up"
+                      class="bg-brand-blue p-32 grid place-items-center rounded-[20px] not-lg:hidden"
+                    >
+                      <img
+                        src="assets/images/ms-logo.svg"
+                        alt=""
+                        class="w-100"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ctm_sec my-sec">
+        <div class="container">
+          <div class="row col_1">
+            <div class="col">
+              <div class="space-y-35 xl:space-y-75">
+                <h2 data-aos="fade-up" class="text-32 font-semibold">
+                  Downloads
+                </h2>
+                <div class="grid md:grid-cols-2 2xl:grid-cols-3 gap-10">
+                  <a
+                    href="assets/images/pdf1.pdf"
+                    target="_blank"
+                    data-aos="fade-up"
+                    class="bg-white p-20 lg:py-64 lg:px-32 rounded-[20px] flex text-22 gap-10 items-center font-normal"
+                  >
+                    <div class="bg-dark-blue p-16 rounded-[10px]">
+                      <img src="assets/icons/download.svg" alt="" />
+                    </div>
+                    <span class="text-brand-blue"
+                      >VDH Group Imagebroschüre</span
+                    >
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-section class="ctm_sec my-sec">
+        <div class="container">
+          <div class="row col_1">
+            <div class="col">
+              <div class="grid xl:grid-cols-2 gap-26">
+                <div
+                  data-aos="fade-up"
+                  class="bg-white border-l-8 lg:border-l-20 p-25 md:p-40 2xl:p-75 border-red rounded-[20px] flex flex-col gap-30 xl:gap-75"
+                >
+                  <h2 class="text-32 font-semibold">Haben Sie Fragen?</h2>
+                  <form class="grid md:grid-cols-2 gap-8 xl:gap-16">
+                    <div class="input_wrapper group md:col-span-2 group error">
+                      <label for="firma" class="sr-only">Firma</label>
+                      <input
+                        type="text"
+                        name="firma"
+                        id="firma"
+                        placeholder="Firma"
+                        class="py-10 px-14 md:px-20 rounded-xl md:rounded-2xl border border-brand-blue/50 text-brand-blue placeholder:text-brand-blue/50 w-full group-[.error]:border-red"
+                        required
+                      />
+                      <div class="feild_message text-xs mt-2 text-red">
+                        Dieses Feld ist erforderlich :(
+                      </div>
+                    </div>
+                    <div class="input_wrapper group">
+                      <label for="vorname" class="sr-only">vorname</label>
+                      <input
+                        type="text"
+                        name="vorname"
+                        id="vorname"
+                        placeholder="Vorname"
+                        class="py-10 px-14 md:px-20 rounded-xl md:rounded-2xl border border-brand-blue/50 text-brand-blue placeholder:text-brand-blue/50 w-full group-[.error]:border-red"
+                        required
+                      />
+                    </div>
+                    <div class="input_wrapper group">
+                      <label for="nachname" class="sr-only">nachname</label>
+                      <input
+                        type="text"
+                        name="nachname"
+                        id="nachname"
+                        placeholder="Nachname"
+                        class="py-10 px-14 md:px-20 rounded-xl md:rounded-2xl border border-brand-blue/50 text-brand-blue placeholder:text-brand-blue/50 w-full group-[.error]:border-red"
+                        required
+                      />
+                    </div>
+                    <div class="input_wrapper group md:col-span-2">
+                      <label for="email" class="sr-only">email</label>
+                      <input
+                        type="eamil"
+                        name="email"
+                        id="email"
+                        placeholder="E-mail adresse"
+                        class="py-10 px-14 md:px-20 rounded-xl md:rounded-2xl border border-brand-blue/50 text-brand-blue placeholder:text-brand-blue/50 w-full group-[.error]:border-red"
+                        required
+                      />
+                    </div>
+                    <div class="input_wrapper group md:col-span-2">
+                      <label for="nachricht" class="sr-only">nachricht</label>
+                      <textarea
+                        type="text"
+                        name="nachricht"
+                        id="nachricht"
+                        placeholder="Ihre Nachricht …"
+                        class="py-10 px-14 md:px-20 rounded-xl md:rounded-2xl border border-brand-blue/50 text-brand-blue placeholder:text-brand-blue/50 w-full group-[.error]:border-red min-h-128"
+                      ></textarea>
+                    </div>
+                    <div
+                      class="input_wrapper group flex md:col-span-2 text-sm font-normal text-grey gap-10 items-start"
+                    >
+                      <input
+                        type="checkbox"
+                        name="policyCheck"
+                        id="policyCheck"
+                        class="mt-2 accent-brand-blue"
+                      />
+                      <label for="policyCheck">
+                        Wenn Sie die im Kontaktformular eingegebenen Daten durch
+                        Klick auf den „Abschicken-Button“ übersenden, erklären
+                        Sie sich mit unserer
+                        <a href="/">Datenschutzerklärung</a>
+                        einverstanden.
+                      </label>
+                    </div>
+                    <div
+                      class="submission_message text-sm md:col-span-2 text-green-600"
+                    >
+                      Formular gesendet :)
+                    </div>
+                    <div
+                      class="submission_message text-sm md:col-span-2 text-red"
+                    >
+                      Unerwarteter Fehler :(
+                    </div>
+                    <div class="flex justify-end md:col-span-2">
+                      <button type="submit" class="btn btn-blue">
+                        ABSCHICKEN
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                <div
+                  data-aos="fade-up"
+                  class="bg-dark-blue p-25 md:p-40 2xl:p-75 rounded-[20px] text-white flex flex-col gap-30 xl:gap-75 justify-between"
+                >
+                  <h2 class="text-32 font-semibold">Kontakt</h2>
+                  <div class="free_text text-22">
+                    <p><b>VDH | GROUP</b></p>
+                    <p>
+                      Alfredstraße 279 <br />
+                      D-45133 Essen
+                    </p>
+                    <p>
+                      Telefon: <a href="/"><b>+49 (0) 201 / 4 37 83 - 0</b></a>
+                      <br />
+                      Fax: <a href="/"><b>+49 (0) 201 / 4 37 83 - 33</b></a>
+                      <br />
+                      E-Mail Zentrale:
+                      <a href="/"><b>zentrale@vdh-group.de</b></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ctm_sec my-sec">
+        <div class="container">
+          <div class="row col_1">
+            <div class="col">
+              <div class="space-y-10">
+                <div
+                  data-aos="fade-up"
+                  class="bg-white rounded-[20px] py-45 xl:py-75 px-20 md:px-30 xl:px-75 flex flex-col items-center gap-25 xl:gap-50"
+                >
+                  <a href="/">
+                    <img src="assets/images/logo.svg" alt="" class="w-300" />
+                  </a>
+                  <div class="divider w-154 border-b border-red"></div>
+                  <div
+                    class="grid md:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-5 text-xs text-center gap-x-32 gap-y-32 xl:gap-y-64"
+                  >
+                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
+                      <a href="/" class="h-68 flex items-center">
+                        <img src="assets/images/logo (1).svg" alt="" />
+                      </a>
+                      <div class="free_text">
+                        <p>
+                          Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                          Lösungsanbieter im Bereich der Rauchgasentstickung für
+                          Großfeuerungsanlagen.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
+                      <a href="/" class="h-68 flex items-center">
+                        <img src="assets/images/logo (2).svg" alt="" />
+                      </a>
+                      <div class="free_text">
+                        <p>
+                          Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                          Lösungsanbieter im Bereich der Rauchgasentstickung für
+                          Großfeuerungsanlagen.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
+                      <a href="/" class="h-68 flex items-center">
+                        <img src="assets/images/logo (3).svg" alt="" />
+                      </a>
+                      <div class="free_text">
+                        <p>
+                          Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                          Lösungsanbieter im Bereich der Rauchgasentstickung für
+                          Großfeuerungsanlagen.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
+                      <a href="/" class="h-68 flex items-center">
+                        <img src="assets/images/logo (4).svg" alt="" />
+                      </a>
+                      <div class="free_text">
+                        <p>
+                          Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                          Lösungsanbieter im Bereich der Rauchgasentstickung für
+                          Großfeuerungsanlagen.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-16 xl:gap-32 items-center">
+                      <a href="/" class="h-68 flex items-center">
+                        <img src="assets/images/logo (5).svg" alt="" />
+                      </a>
+                      <div class="free_text">
+                        <p>
+                          Mehldau & Steinfath Umwelttechnik ist Ihr Partner und
+                          Lösungsanbieter im Bereich der Rauchgasentstickung für
+                          Großfeuerungsanlagen.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  data-aos="fade-up"
+                  class="bg-white rounded-[20px] p-20 lg:p-40 2xl:p-75 grid 3xl:grid-cols-12 gap-32"
+                >
+                  <div
+                    class="flex flex-col gap-20 3xl:sticky top-120 3xl:col-span-4"
+                  >
+                    <span
+                      class="border-2 rounded-full px-16 py-7 text-xs font-medium uppercase w-fit"
+                    >
+                      Global
+                    </span>
+                    <h2 class="text-32 font-semibold">
+                      Im Ruhrgebiet daheim - in der Welt zuhause.
+                    </h2>
+                    <div class="free_text my-20">
+                      <p>
+                        Ingenieurdienstleistungen und Projekte weltweit
+                        erfolgreich und kompetent zu gestalten, setzt die
+                        Fähigkeit und Bereitschaft voraus, als Unternehmen „über
+                        den Tellerrand blicken zu können“. Ob China, Polen oder
+                        Hawaii - wir sind da, wo wir gebraucht werden. Wir
+                        greifen dabei auf ein starkes, internationales Netzwerk
+                        zu, das es uns ermöglicht, global erfolgreich zu
+                        agieren.
+                      </p>
+                    </div>
+                    <div
+                      class="grid grid-cols-2 md:grid-cols-4 text-xs gap-32 text-brand-blue"
+                    >
+                      <ul>
+                        <li>Ägypten</li>
+                        <li>Australien</li>
+                        <li>Belgien</li>
+                        <li>Brasilien</li>
+                        <li>Chile</li>
+                        <li>China</li>
+                      </ul>
+                      <ul>
+                        <li>Tschechien</li>
+                        <li>Türkei</li>
+                        <li>Ukraine</li>
+                        <li>Ungarn</li>
+                        <li>USA</li>
+                      </ul>
+                      <ul>
+                        <li>Ägypten</li>
+                        <li>Australien</li>
+                        <li>Belgien</li>
+                        <li>Brasilien</li>
+                      </ul>
+                      <ul>
+                        <li>Tschechien</li>
+                        <li>Türkei</li>
+                        <li>Ukraine</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="3xl:col-span-8">
+                    <img src="assets/images/map.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="my-16 xl:mb-90">
-        <div class="container space-y-16">
-            <div class="bg-light-blue p-20 lg:p-40 xl:p-60 2xl:p-75 rounded-[20px] flex flex-col gap-30 xl:gap-75">
-                <a href="/" class="my-50">
-                    <img src="assets/images/logo-blue.svg" alt="VDH | GROUP">
-                </a>
-                <div class="grid md:grid-cols-2 xl:grid-cols-3 3xl:flex gap-50 3xl:gap-100">
-                    <div class="3xl:min-w-max free_text text-sm justify-between">
-                        <p>
-                            <b>VDH | GROUP</b> <br>
-                            Mehldau & Steinfath Umwelttechnik GmbH <br>
-                            Alfredstraße 279 <br>
-                            45133 Essen <br>
-                            Deutschland <br><br>
-                            Telefon: <a href="/">+49 (0) 201 / 4 37 83 - 0</a> <br>
-                            Telefax: <a href="/">+49 (0) 201 / 4 37 83 - 33</a> <br>
-                            E-Mail: <a href="/">zentrale@vdh-group.de</a>
-                        </p>
-                        <a href="/">
-                            <img src="assets/icons/linkedin.svg" alt="" class="brightness-0">
-                        </a>
-                    </div>
-                    <div class="3xl:min-w-max flex flex-col gap-26">
-                        <span class="text-xs uppercase font-semibold">ERKUNDEN</span>
-                        <nav>
-                            <ul class="text-sm flex flex-col gap-4 *:hover:underline">
-                                <li>
-                                    <a href="#">Home</a>
-                                </li>
-                                <li>
-                                    <a href="#">Über uns</a>
-                                </li>
-                                <li>
-                                    <a href="#">Firmen</a>
-                                </li>
-                                <li>
-                                    <a href="#">Warum wir?</a>
-                                </li>
-                                <li>
-                                    <a href="#">VDH | Group</a>
-                                </li>
-                                <li>
-                                    <a href="#">Jobs</a>
-                                </li>
-                                <li>
-                                    <a href="#">Kontakt</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="3xl:min-w-max flex flex-col gap-26">
-                        <span class="text-xs uppercase font-semibold">ERKUNDEN</span>
-                        <nav>
-                            <ul class="text-sm flex flex-col gap-4 *:hover:underline">
-                                <li>
-                                    <a href="#">M&S Umwelttechnik</a>
-                                </li>
-                                <li>
-                                    <a href="#">HKL Anlagentechnik</a>
-                                </li>
-                                <li>
-                                    <a href="#">vysion aset</a>
-                                </li>
-                                <li>
-                                    <a href="#">M&S Environmental Technologies</a>
-                                </li>
-                                <li>
-                                    <a href="#">DrySoTec GmbH</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="md:col-span-2 xl:col-span-3 flex flex-col gap-26 text-sm">
-                        <span class="text-xs uppercase font-semibold">ÜBER DIE VDH | GROUP</span>
-                        <p>
-                            Die VDH | GROUP ist Ihr Partner im Anlagenbau. Gemeinsam sorgen wir weltweit für einen
-                            erfolgreichen Projektabschluss in den Bereichen Umwelttechnik, Verfahrens- und
-                            Anlagentechnik oder Elektro-, Mess-, Steuerungs- und Regelungstechnik. Unser Know-how setzen
-                            wir dafür ein, individuelle und maßgeschneiderte Lösungen für Ihre Anlage zu entwickeln und
-                            auch weiterhin die Beste Verfügbare Technik (BVT) zu definieren.
-                        </p>
-                        <p>
-                            Unsere Unternehmen:
-                        </p>
-                        <ul class="flex gap-x-16 gap-y-32 items-center not-3xl:flex-wrap">
-                            <li>
-                                <a href="#">
-                                    <img src="assets/images/logo (1).svg" alt=""
-                                        class="max-w-120 max-h-32 brightness-30">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="assets/images/logo (2).svg" alt=""
-                                        class="max-w-120 max-h-32 brightness-30">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="assets/images/logo (3).svg" alt=""
-                                        class="max-w-120 max-h-32 brightness-30">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="assets/images/logo (4).svg" alt=""
-                                        class="max-w-120 max-h-32 brightness-30">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="assets/images/logo (5).svg" alt=""
-                                        class="max-w-120 max-h-32 brightness-30">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+      <div class="container space-y-16">
+        <div
+          data-aos="fade-up"
+          class="bg-light-blue p-20 lg:p-40 xl:p-60 2xl:p-75 rounded-[20px] flex flex-col gap-30 xl:gap-75"
+        >
+          <a href="/" class="my-50">
+            <img src="assets/images/logo-blue.svg" alt="VDH | GROUP" />
+          </a>
+          <div
+            class="grid md:grid-cols-2 xl:grid-cols-3 3xl:flex gap-50 3xl:gap-100"
+          >
+            <div class="3xl:min-w-max free_text text-sm justify-between">
+              <p>
+                <b>VDH | GROUP</b> <br />
+                Mehldau & Steinfath Umwelttechnik GmbH <br />
+                Alfredstraße 279 <br />
+                45133 Essen <br />
+                Deutschland <br /><br />
+                Telefon: <a href="/">+49 (0) 201 / 4 37 83 - 0</a> <br />
+                Telefax: <a href="/">+49 (0) 201 / 4 37 83 - 33</a> <br />
+                E-Mail: <a href="/">zentrale@vdh-group.de</a>
+              </p>
+              <a href="/">
+                <img
+                  src="assets/icons/linkedin.svg"
+                  alt=""
+                  class="brightness-0"
+                />
+              </a>
+            </div>
+            <div class="3xl:min-w-max flex flex-col gap-26">
+              <span class="text-xs uppercase font-semibold">ERKUNDEN</span>
+              <nav>
+                <ul class="text-sm flex flex-col gap-4 *:hover:underline">
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                  <li>
+                    <a href="#">Über uns</a>
+                  </li>
+                  <li>
+                    <a href="#">Firmen</a>
+                  </li>
+                  <li>
+                    <a href="#">Warum wir?</a>
+                  </li>
+                  <li>
+                    <a href="#">VDH | Group</a>
+                  </li>
+                  <li>
+                    <a href="#">Jobs</a>
+                  </li>
+                  <li>
+                    <a href="#">Kontakt</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="3xl:min-w-max flex flex-col gap-26">
+              <span class="text-xs uppercase font-semibold">ERKUNDEN</span>
+              <nav>
+                <ul class="text-sm flex flex-col gap-4 *:hover:underline">
+                  <li>
+                    <a href="#">M&S Umwelttechnik</a>
+                  </li>
+                  <li>
+                    <a href="#">HKL Anlagentechnik</a>
+                  </li>
+                  <li>
+                    <a href="#">vysion aset</a>
+                  </li>
+                  <li>
+                    <a href="#">M&S Environmental Technologies</a>
+                  </li>
+                  <li>
+                    <a href="#">DrySoTec GmbH</a>
+                  </li>
+                </ul>
+              </nav>
             </div>
             <div
-                class="bg-dark-blue py-32 px-20 lg:px-40 xl:px-60 2xl:px-75 text-white flex items-center justify-between text-sm rounded-[20px] flex-wrap gap-x-32 gap-y-16">
-                <div class="font-semibold">© 2025 VDH | GROUP</div>
-                <ul class="flex gap-x-32 gap-y-16 flex-wrap">
-                    <li>
-                        <a href="/">Impressum</a>
-                    </li>
-                    <li>
-                        <a href="/">Datenschutz</a>
-                    </li>
-                    <li>
-                        <a href="/">VDH | GROUP COMMERCIAL CONDITIONS</a>
-                    </li>
-                </ul>
+              class="md:col-span-2 xl:col-span-3 flex flex-col gap-26 text-sm"
+            >
+              <span class="text-xs uppercase font-semibold"
+                >ÜBER DIE VDH | GROUP</span
+              >
+              <p>
+                Die VDH | GROUP ist Ihr Partner im Anlagenbau. Gemeinsam sorgen
+                wir weltweit für einen erfolgreichen Projektabschluss in den
+                Bereichen Umwelttechnik, Verfahrens- und Anlagentechnik oder
+                Elektro-, Mess-, Steuerungs- und Regelungstechnik. Unser
+                Know-how setzen wir dafür ein, individuelle und maßgeschneiderte
+                Lösungen für Ihre Anlage zu entwickeln und auch weiterhin die
+                Beste Verfügbare Technik (BVT) zu definieren.
+              </p>
+              <p>Unsere Unternehmen:</p>
+              <ul
+                class="flex gap-x-16 gap-y-32 items-center justify-center lg:ju not-3xl:flex-wrap"
+              >
+                <li>
+                  <a href="#">
+                    <img
+                      src="assets/images/logo (1).svg"
+                      alt=""
+                      class="max-w-120 max-h-32 brightness-30"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="assets/images/logo (2).svg"
+                      alt=""
+                      class="max-w-120 max-h-32 brightness-30"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="assets/images/logo (3).svg"
+                      alt=""
+                      class="max-w-120 max-h-32 brightness-30"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="assets/images/logo (4).svg"
+                      alt=""
+                      class="max-w-120 max-h-32 brightness-30"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="assets/images/logo (5).svg"
+                      alt=""
+                      class="max-w-120 max-h-32 brightness-30"
+                    />
+                  </a>
+                </li>
+              </ul>
             </div>
+          </div>
         </div>
+        <div
+          data-aos="fade-up"
+          class="bg-dark-blue py-32 px-20 lg:px-40 xl:px-60 2xl:px-75 text-white flex items-center justify-between text-sm rounded-[20px] flex-wrap gap-x-32 gap-y-16"
+        >
+          <div class="font-semibold mx-auto lg:mx-0">© 2025 VDH | GROUP</div>
+          <ul
+            class="flex gap-x-32 gap-y-16 flex-wrap justify-center mx-auto lg:mx-0"
+          >
+            <li>
+              <a href="/">Impressum</a>
+            </li>
+            <li>
+              <a href="/">Datenschutz</a>
+            </li>
+            <li>
+              <a href="/">VDH | GROUP COMMERCIAL CONDITIONS</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="assets/js/script.js"></script>
-</body>
-
+    <script>
+      AOS.init({
+        duration: 800,
+        delay: 100,
+        once: true,
+        offset: 50,
+      });
+    </script>
+  </body>
 </html>

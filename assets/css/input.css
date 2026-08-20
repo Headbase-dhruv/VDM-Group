@@ -257,16 +257,22 @@ html {
     @apply bg-black/90 text-white p-16;
   }
 
-  .free_text :is(strong, b):not(.btn),
-  .col :is(strong, b):not(.btn) {
-    @apply font-semibold text-dark-blue;
-  }
+    /* .free_text :is(strong, b):not(.btn ),
+    .col :is(strong, b):not(.btn) {
+      @apply font-semibold text-dark-blue;
+    } */
 
-  .free_text :is(u, a):not(.btn),
-  .col :is(u, a):not(.btn) {
-    @apply underline underline-offset-2;
-  }
+    .free_text :is(u, a):not(.btn),
+    .col :is(u, a):not(.btn) {
+      @apply underline underline-offset-2;
+    }
 
+  .col .ctm_image {
+    @apply rounded-2xl w-full h-full object-cover;
+  }
+  .col .ctm_video {
+    @apply rounded-2xl w-full h-full object-cover;
+  }
   .free_text ul {
     @apply gap-16;
   }
@@ -294,7 +300,7 @@ html {
 }
 
 @utility btn {
-  @apply block text-center  py-14 px-24 sm:px-28 rounded-full uppercase text-xs font-medium transition-slow hover:scale-95 border w-fit ;
+  @apply block text-center  py-14 px-20 sm:px-24 md:px-28 rounded-full uppercase text-xs font-medium transition-slow hover:scale-95 border w-fit ;
 }
 
 @utility btn-red {

@@ -21,6 +21,7 @@ html {
   --spacing-sec: clamp(3.4375rem, 2.4603rem + 3.6789vw, 6.875rem);
   --spacing-bottom: clamp(1.5rem, 1rem + 2.5vw, 4rem);
 
+
   --breakpoint-*: initial;
   --container-*: initial;
 
@@ -282,7 +283,7 @@ html {
   }
 
   .compact-box {
-    @apply xl:ps-sec max-w-1000;
+    @apply xl:pl-sec max-w-1000;
   }
 
    .wm_wrapper{
